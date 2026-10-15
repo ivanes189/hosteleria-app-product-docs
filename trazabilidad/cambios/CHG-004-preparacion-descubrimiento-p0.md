@@ -4,8 +4,8 @@ title: Preparación mínima del descubrimiento P0
 doc_type: document_change
 summary: Convertir las preguntas de PD-003 en un instrumento ejecutable sin inventar evidencia de restaurante.
 updated_at: 2026-10-15
-source_refs: [SRC-001, SRC-015]
-incorporation_status: materializada_local
+source_refs: [SRC-001, SRC-015, SRC-022]
+incorporation_status: en_pr
 ---
 
 # CHG-004 — Preparación mínima del descubrimiento P0
@@ -25,6 +25,7 @@ Clasificación: preparación de investigación de producto y cambio documental; 
 | `investigacion/GUIA_DESCUBRIMIENTO_P0.md` | actualización realizada | Instrumento único para sesión, baseline, síntesis y criterio de salida. |
 | `negocio/BUSINESS_MODEL.md`, `decisiones/PENDING_DECISIONS.md` | actualización realizada | Enlazar PD-003 y sus preguntas con la ejecución, sin resolverlas. |
 | `planificacion/RISKS_AND_ASSUMPTIONS.md` | actualización realizada | Registrar el riesgo de publicar notas o datos sensibles en un repositorio público. |
+| `investigacion/SOURCE_REGISTER.md` | actualización realizada en la evidencia de publicación | Registrar autorización, candidata y PR sin ampliar permisos. |
 | `README.md`, `planificacion/ROADMAP.md`, `gobierno/PROJECT_STATE.md` | actualización realizada | Hacer navegable la guía y separar preparación local de validación real. |
 | `planificacion/PROPUESTAS_FUTURAS.md` | actualización realizada | Registrar `OBS-002` como segundo uso del circuito, todavía insuficiente para `PROP-001`. |
 | `trazabilidad/TRACEABILITY_MATRIX.md`, `trazabilidad/cambios/README.md`, `CHANGELOG.md` | actualización realizada | Enlazar PD-003, guía, estado e historia. |
@@ -71,4 +72,4 @@ Revisión proporcional del autor. No se exige revisión independiente: la candid
 
 `DOC-GATE: PASSED` para la candidata exacta `f395a125694a7b835143f7b231279a7b3f54a6fd`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no existe revisión independiente porque no es exigible para este alcance. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia la guía ni `OBS-002`.
 
-Siguiente acto externo: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. Publicación o PR de este lote requieren autorización separada; no se activan automatizaciones ni trabajos en otros repositorios.
+Tras [autorización expresa](../../investigacion/SOURCE_REGISTER.md#src-022), la rama se publicó y se abrió la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión sigue reservada al acto humano separado. El siguiente acto de producto permanece pendiente: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. No se activan automatizaciones ni trabajos en otros repositorios.

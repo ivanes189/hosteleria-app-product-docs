@@ -22,7 +22,7 @@ Cliente y problema validados; alcance de MVP; controles legales; coste unitario 
 
 Estas preguntas se resolverán con evidencia real; el caso de la mesa 12 es un ejemplo sintético y no una validación con clientes.
 
-La [guía mínima de descubrimiento P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md) convierte estas preguntas en un recorrido, una baseline prospectiva y una ficha de salida segura. Está preparada localmente, no ejecutada: no existe todavía un restaurante seleccionado ni evidencia de entrevista u observación.
+La [guía mínima de descubrimiento P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md) convierte estas preguntas en un recorrido, una baseline prospectiva y una ficha de salida segura. Está preparada documentalmente, no ejecutada: no existe todavía un restaurante seleccionado ni evidencia de entrevista u observación.
 
 | Área | Pregunta comprobable | Estado/evidencia necesaria |
 | --- | --- | --- |

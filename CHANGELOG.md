@@ -7,6 +7,7 @@
 - Preparada una guía mínima para ejecutar el descubrimiento de PD-003 con recorrido, baseline prospectiva, ficha de salida y límites para datos sensibles en un repositorio público.
 - Registrado `OBS-002`, segundo uso real de D3 y primero orientado a preparación de producto; no acredita entrevista, validación, ahorro ni autorización de transferencia.
 - Añadido `R-011` sobre exposición de notas o datos identificables durante descubrimiento.
+- Publicada la rama autorizada y abierta la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión permanece como acto humano separado.
 
 ### Producto
 
