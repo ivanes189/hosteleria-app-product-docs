@@ -8,7 +8,7 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes [C0](../gobierno/revisiones/DICTAMEN_CHG-002-C0.md)/[C1](../gobierno/revisiones/DICTAMEN_CHG-002-C1.md)/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO` y [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) con primer CI `PASS` | observar check del head vigente y esperar revisión/decisión humana; protecciones y fusión fuera |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO` y [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integrada como `a8365b66…` | D3: observar cambios reales; sin periodicidad ni transferencia hasta cumplir condiciones y autorizar |
 
 ## Producto
 
