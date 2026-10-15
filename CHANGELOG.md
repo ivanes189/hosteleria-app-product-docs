@@ -10,6 +10,7 @@
 - Fijada la activación interna de una única revisora GPT-6 Astra, en contexto nuevo y solo lectura, para que la revisión y las eventuales revalidaciones C1/C2 permanezcan en la misma tarea sin alterar la candidata.
 - Preservado el `NO APTO` independiente de la candidata `36d071fb…`: cuatro hallazgos P2 mantienen `DOC-GATE: OPEN` y abren C1 antes de cualquier corrección.
 - Corregidos en C1 únicamente los cuatro hallazgos: parser y referencias `PROP`, memoria estable del selector y diff comprometido base…candidata en el workflow; revalidación enfocada pendiente.
+- Preservado el `NO APTO` C1 de `e86f3674…`: tres hallazgos resueltos y C2 abierto solo por la correspondencia pendiente entre ID y destino canónico de la decisión autorizante.
 - Añadidas preguntas e hipótesis comprobables para descubrir primer restaurante, usuario, pagador, problema, flujo, beneficio y coste sin convertir la mesa 12 en validación real.
 
 ### Producto
