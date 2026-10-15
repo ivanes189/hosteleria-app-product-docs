@@ -51,6 +51,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 D3 está completada localmente tras tres observaciones integradas, revisión dirigida sin omisiones críticas abiertas y decisión humana. Se conserva el circuito, se aplican las simplificaciones de cierre ya ensayadas y no se retiran piezas. `PROP-001` fue reevaluada y permanece aplazada; no activar periodicidad ni transferir componentes a FDA/u otros proyectos.
 
-Continuidad local: `codex/d3-cierre-evaluacion`, basada en `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`. La conciliación post-fusión está fijada en `32dcbb8f21c0e278015e2caac9f28725f7a18800`; CHG-006 registra la decisión D3 y permanece `OPEN` hasta validar e identificar su candidata. P0 espera una contraparte futura; no se adelanta P1. Publicación o PR del lote local requieren autorización separada.
+Continuidad local: `codex/d3-cierre-evaluacion`, basada en `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`. La conciliación post-fusión está fijada en `32dcbb8f21c0e278015e2caac9f28725f7a18800`; la candidata CHG-006 `b97928e4bf10ffb25b5e548f1524f6d247fae5ab` registra la decisión D3 con revisión proporcional y `DOC-GATE: PASSED`. P0 espera una contraparte futura; no se adelanta P1. Publicación o PR del lote local requieren autorización separada.
 
 La primera validación pendiente de producto sigue siendo descubrimiento con un restaurante real cuando exista contraparte; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

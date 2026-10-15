@@ -36,21 +36,21 @@ Clasificación: decisión humana y cierre de evaluación documental. Iván confi
 ## Dependencias, candidata y trabajo abierto
 
 - Dependencias: [DEC-004](../../decisiones/DEC-004-documentacion-viva-minima.md), [CHG-005](CHG-005-ausencia-restaurante-p0.md), [SRC-024](../../investigacion/SOURCE_REGISTER.md#src-024), [SRC-025](../../investigacion/SOURCE_REGISTER.md#src-025) y [PROP-001](../../planificacion/PROPUESTAS_FUTURAS.md#prop-001).
-- Candidata sustantiva: se fijará mediante commit local exacto después de validar el lote.
+- Candidata sustantiva exacta: `b97928e4bf10ffb25b5e548f1524f6d247fae5ab`, hija directa de la conciliación local `32dcbb8f21c0e278015e2caac9f28725f7a18800`.
 - Trabajo abierto: ninguno dentro de D3. P0 espera una futura contraparte real; cualquier transferencia o automatización requiere evidencia y autorización nuevas.
 
 ## Validaciones y evidencias posteriores
 
-Comprobaciones previstas sobre el lote y, después, sobre la candidata exacta con árbol limpio:
+Comprobaciones ejecutadas antes y repetidas sobre la candidata exacta `b97928e4bf10ffb25b5e548f1524f6d247fae5ab` con árbol limpio:
 
 | Control | Resultado | Límite |
 | --- | --- | --- |
-| `validate_docs.py` | pendiente | Estructura y relaciones; no valida la conveniencia de la decisión. |
-| `test_validate_docs.py` | pendiente | Casos mecánicos del validador. |
-| `test_select_proposals.py` | pendiente | Selector local; no activa periodicidad. |
-| `test_workflow_diff.py` | pendiente | Ensayo Git local; no es CI remota. |
-| Carga YAML del workflow | pendiente | Sintaxis; el workflow no se modifica. |
-| `git diff --check` | pendiente | Limpieza mecánica. |
+| `validate_docs.py` | `PASS`, 60 Markdown | Estructura y relaciones; no valida la conveniencia de la decisión. |
+| `test_validate_docs.py` | `PASS`, 24 mutaciones negativas y una autorización positiva | Casos mecánicos del validador. |
+| `test_select_proposals.py` | `PASS` | Selector local; no activa periodicidad. |
+| `test_workflow_diff.py` | `PASS` | Ensayo Git local; no es CI remota. |
+| Carga YAML del workflow | `PASS` | Sintaxis; el workflow no se modifica. |
+| `git diff --check` | `PASS` | Limpieza mecánica. |
 
 ## Revisión y costes observables
 
@@ -66,4 +66,6 @@ Revisión proporcional del autor. No se exige revisión independiente: el lote r
 
 ## Manifiesto exacto, DOC-GATE y siguiente acto condicionado
 
-`DOC-GATE: OPEN` hasta identificar la candidata exacta y completar las comprobaciones. Siguiente acto: validar, fijar commit local y registrar el gate; cualquier publicación o PR requiere autorización separada.
+`DOC-GATE: PASSED` para la candidata exacta `b97928e4bf10ffb25b5e548f1524f6d247fae5ab`. La decisión humana está clasificada, el impacto queda cubierto, la revisión proporcional y todas las comprobaciones exigibles pasaron. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia `DEC-005` ni el resultado de D3.
+
+Siguiente acto: esperar una contraparte real para P0 sin adelantar P1. Cualquier publicación o PR de este lote requiere autorización separada; transferencia y automatización permanecen fuera de alcance.
