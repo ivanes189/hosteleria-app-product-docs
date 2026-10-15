@@ -15,5 +15,6 @@
 | <a id="r-009"></a>R-009 | conocimiento | Fuente de correo ausente y respuestas truncadas. | Medio | registrar cobertura; solicitar solo si decisión depende. |
 | <a id="r-010"></a>R-010 | reutilización | Repositorios sin archivo de licencia. | Medio/alto | no copiar; confirmar derechos/licencia y adaptar. |
 | <a id="r-011"></a>R-011 | descubrimiento/datos | Notas, grabaciones o detalles identificables de personal/restaurante terminan en el repositorio público. | Alto | destino autorizado fuera del repositorio para material bruto; aquí solo síntesis minimizada y autorizada. |
+| <a id="r-012"></a>R-012 | descubrimiento | No existe un restaurante candidato y las hipótesis permanecen sin contraste operativo. | Medio/alto | mantener guía preparada; no inventar validación; seleccionar contraparte cuando sea oportuno antes de cerrar PD-003. |
 | <a id="a-001"></a>A-001 | supuesto | Primer contexto jurídico Irlanda/UE. | Puede ser incorrecto. | No usar como jurisdicción final. |
 | <a id="a-002"></a>A-002 | supuesto | Dispositivo autenticado identifica al hablante. | Riesgo de préstamo/sesión. | Política de sesión y cambio de usuario. |

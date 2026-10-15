@@ -1,12 +1,12 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) `integrados`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) `integrados`; [CHG-005](../trazabilidad/cambios/CHG-005-ausencia-restaurante-p0.md) `materializada_local`
 
 **Base verificada:** la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) fue fusionada por Iván como squash `main@4dba65591e1d4a2484c9d2267924c32420f7e744`; su árbol coincide con el head `d4f8fb8dbad5838ed909b42e19fd09404e4d6fa9` y el check final pasó.
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 y #4 integraron `OBS-001` y `OBS-002`; `main` quedó en `4dba65591e1d4a2484c9d2267924c32420f7e744`. P0 tiene una guía integrada pero no ejecutada; no se ha activado automatización periódica.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 y #4 integraron `OBS-001` y `OBS-002`; `OBS-003` está local. P0 tiene una guía integrada pero no existe restaurante candidato; no se ha activado automatización periódica.
 
 ## Base conocida
 
@@ -24,6 +24,7 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 - Necesidad de impedir duplicidades en tareas compartidas de forma eficiente, profesional y escalable.
 - El sistema debe aclarar la cantidad de pan; “para tres” no fija unidades por sí mismo.
 - Iván aceptó implantar primero un circuito documental mínimo en Restaurant, medirlo y extender solo las piezas útiles; FDA y Agent OS conservan autoridad y repositorios separados ([DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md)).
+- Iván aclaró que no existe actualmente un restaurante candidato y que el proyecto sigue en fase de desarrollo; esto no acredita implementación ([SRC-023](../investigacion/SOURCE_REGISTER.md#src-023)).
 
 ## Bloqueos, lagunas y límites
 
@@ -47,8 +48,8 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 ## Continuidad inmediata
 
-D3 tiene dos observaciones integradas. Aún falta al menos otro cambio real y juicio humano antes de revisar transferencia; esta conciliación post-fusión no cuenta como `OBS-003` y no se fabricarán cambios para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
+D3 alcanza localmente tres observaciones reales. La evaluación provisional conserva el circuito, aplica las simplificaciones de cierre ya ensayadas y no retira piezas. Falta incorporar OBS-003 y, sobre todo, juicio humano sobre utilidad/coste antes de reevaluar `PROP-001`; no activar periodicidad ni transferir componentes a FDA/u otros proyectos.
 
-Continuidad local: `codex/d3-espera-evidencia-p0`, basada en `main@4dba65591e1d4a2484c9d2267924c32420f7e744`. Conserva solo la conciliación factual de CHG-004 para agruparla con el próximo cambio real; no requiere una PR de cierre independiente. El primer acto de producto pendiente sigue siendo seleccionar un restaurante y autorizar contacto y destino de notas.
+Continuidad local: `codex/d3-espera-evidencia-p0`, basada en `main@4dba65591e1d4a2484c9d2267924c32420f7e744`. Incluye la conciliación factual `15a563a8da0f4f81368183ad60eb1f2699b3b040` y CHG-005 abierto. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada. Publicación o PR del lote local requieren autorización separada.
 
-La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.
+La primera validación pendiente de producto sigue siendo descubrimiento con un restaurante real cuando exista contraparte; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

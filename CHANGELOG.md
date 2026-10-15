@@ -1,5 +1,17 @@
 # Historial significativo
 
+## [No publicada — CHG-005] — 2026-10-15
+
+### Documentación
+
+- Registrada como `SRC-023` la aclaración de que no existe actualmente un restaurante candidato y que el proyecto sigue en desarrollo, sin traducirla a un estado técnico positivo.
+- Añadido `OBS-003`: el circuito propaga el hecho a negocio, PD-003, guía, riesgo, roadmap y trazabilidad; la muestra cuantitativa D3 se alcanza localmente.
+- Evaluado D3 de forma provisional: conservar el circuito mínimo, mantener las simplificaciones de cierres/lenguaje transitorio y no transferirlo sin juicio humano sobre utilidad y coste.
+
+### Producto
+
+- P0 queda a la espera de contraparte real. No hay entrevista, validación, MVP, implementación ni piloto acreditados.
+
 ## [Integrada — CHG-004] — 2026-10-15
 
 ### Documentación
