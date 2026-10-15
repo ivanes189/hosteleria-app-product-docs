@@ -29,7 +29,7 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exa
 - No hay evidencia de un repositorio o aplicación Hostelería implementada, probada o desplegada.
 - Jurisdicciones y contextos de despliegue no están decididos; el análisis legal usa Irlanda/UE solo como escenario inicial, no como determinación final.
 - Los detalles efectivos de protección clásica/rulesets requieren una sesión GitHub válida para su revalidación; la protección de `main` sí es visible públicamente.
-- El nuevo lote no está publicado ni integrado. La revisión independiente C0 de `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0` resultó `NO APTO`; el `PASSED` inicial no se transfiere a [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md).
+- El nuevo lote no está publicado ni integrado. Tras C0/C1 `NO APTO`, la misma instancia emitió C2 `APTO` y `DOC-GATE: PASSED` exclusivamente para `4246943b9ef288e0a437819d89934e2c08e634f4`; no se transfiere el `PASSED` inicial.
 
 ## Comprobaciones de CHG-002
 
@@ -37,10 +37,10 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exa
 - C2: validador (53 Markdown), 24 fixtures negativos y una autorización positiva, selector, ensayo Git aislado del diff de PR, `git diff --check` y carga YAML en PASS.
 - El selector conserva memoria tras una ejecución vacía, no repite un mismo evento o evidencia y avisa cuando cambia realmente la evidencia.
 - El workflow `documentation / validate` está solo preparado. No existe ejecución de GitHub que acredite CI ni comprobación obligatoria.
-- Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y remanente RI-002. C2 resuelve etiqueta, identidad, tipo y destino canónico, con pruebas locales en PASS; `DOC-GATE: OPEN` hasta revalidación enfocada. Coste/consumo observable: `desconocido`.
+- Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y un remanente. Revalidación C2 [preservada](revisiones/DICTAMEN_CHG-002-C2.md): `APTO`, cuatro hallazgos resueltos, sin regresiones directas; C1/C2 consumidos. Coste/consumo observable: `desconocido`.
 
 ## Continuidad inmediata
 
-Fijar el SHA/rango de C2 y pedir a la misma instancia Astra revalidación enfocada del remanente `CHG002-RI-002`, incluidos los destinos a otra decisión y a un documento no decisorio. Si resulta apta, preservar el dictamen y presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
+Solicitar a Iván una autorización concreta para publicar la rama `codex/documentacion-viva-piloto` y abrir PR. Esa acción puede ejecutar GitHub Actions y no está autorizada en esta fase. La ejecución real del workflow deberá observarse y registrarse después; protecciones y fusión quedan fuera y requieren autorizaciones separadas.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

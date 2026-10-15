@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** revisión completa C0 y revalidación C1 concluidas con `NO APTO`; candidatas y dictámenes [C0](DICTAMEN_CHG-002-C0.md)/[C1](DICTAMEN_CHG-002-C1.md) preservados. La corrección C2 del único remanente está materializada, comprobada y ligada a SHA exacto; revalidación enfocada pendiente con la misma instancia.
+**Estado:** circuito de revisión concluido. [C0](DICTAMEN_CHG-002-C0.md) y [C1](DICTAMEN_CHG-002-C1.md) `NO APTO` preservados; [C2](DICTAMEN_CHG-002-C2.md) `APTO` para la candidata exacta. C1 y C2 consumidos; no se abre C3.
 
 ## Candidata y base
 
