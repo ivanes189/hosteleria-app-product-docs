@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** revisión completa C0 y revalidación C1 concluidas con `NO APTO`; candidatas y dictámenes [C0](DICTAMEN_CHG-002-C0.md)/[C1](DICTAMEN_CHG-002-C1.md) preservados. La corrección C2 del único remanente está materializada y comprobada; falta ligar su SHA y pedir revalidación enfocada a la misma instancia.
+**Estado:** revisión completa C0 y revalidación C1 concluidas con `NO APTO`; candidatas y dictámenes [C0](DICTAMEN_CHG-002-C0.md)/[C1](DICTAMEN_CHG-002-C1.md) preservados. La corrección C2 del único remanente está materializada, comprobada y ligada a SHA exacto; revalidación enfocada pendiente con la misma instancia.
 
 ## Candidata y base
 
@@ -63,7 +63,15 @@ El SHA y los rangos exactos C1 se incorporan mediante el commit de enlace poster
 - Fixtures añadidos: una etiqueta `DEC-004` que apunta a `DEC-003` y otra que apunta a `README.md`; ambos fallan. Se conservan los casos `DEC-999` fallido y `DEC-004` canónica válida.
 - Controles C2: validador sobre 53 Markdown, 24 mutaciones negativas, una autorización positiva, selector, ensayo aislado del diff, carga YAML y `git diff --check`, todos en `PASS` local.
 
-El SHA y los rangos exactos C2 se incorporarán en un commit de enlace posterior para evitar autorreferencia. GitHub Actions sigue sin ejecutarse.
+## Candidata corregida C2
+
+- C2 exacta: `4246943b9ef288e0a437819d89934e2c08e634f4`.
+- Preservación de C1 y apertura de C2: `61b0efcdc47dcac831e69236484bc3a2798e4da2`.
+- Rango focal C2: `61b0efcdc47dcac831e69236484bc3a2798e4da2..4246943b9ef288e0a437819d89934e2c08e634f4`.
+- Comparación con la candidata C1: `e86f3674ae46f8514d8844321c4b52f8de3f98f9..4246943b9ef288e0a437819d89934e2c08e634f4`.
+- Rango acumulado desde la base: `e35481da2a99e9a9546664712569c27b70010a69..4246943b9ef288e0a437819d89934e2c08e634f4`.
+
+El SHA y los rangos exactos C2 se incorporan mediante un commit de enlace posterior para evitar autorreferencia. La revalidación debe limitarse al remanente `CHG002-RI-002`, sus efectos directos y posibles regresiones C2. GitHub Actions sigue sin ejecutarse.
 
 ## Salida requerida
 
