@@ -8,13 +8,13 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md), [CHG-003](cambios/CHG-003-observacion-d3-1.md), [CHG-004](cambios/CHG-004-preparacion-descubrimiento-p0.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO`, PR #1 integrada como `a8365b66…`, PR #2 como `1235b74b…` y [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) como `0478a8e7…` | D3 en curso: `OBS-001` integrada y `OBS-002` en [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); sin periodicidad ni transferencia hasta acumular evidencia, cumplir condiciones y autorizar |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md), [CHG-003](cambios/CHG-003-observacion-d3-1.md), [CHG-004](cambios/CHG-004-preparacion-descubrimiento-p0.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO`, PR #1 integrada como `a8365b66…`, PR #2 como `1235b74b…`, PR #3 como `0478a8e7…` y [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) como `4dba6559…` | D3 en curso: `OBS-001` y `OBS-002` integradas; sin periodicidad ni transferencia hasta otro cambio real, cumplimiento de condiciones y autorización |
 
 ## Descubrimiento P0
 
 | Decisión pendiente | Instrumento | Estado/evidencia | Siguiente acto |
 | --- | --- | --- | --- |
-| [PD-003](../decisiones/PENDING_DECISIONS.md#pd-003) | [Guía mínima P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md), [CHG-004](cambios/CHG-004-preparacion-descubrimiento-p0.md) | En [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); no hay restaurante, entrevista, observación ni decisión acreditados | Selección y autorización humanas; ejecutar, registrar `SRC` minimizada y decidir alcance |
+| [PD-003](../decisiones/PENDING_DECISIONS.md#pd-003) | [Guía mínima P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md), [CHG-004](cambios/CHG-004-preparacion-descubrimiento-p0.md) | Integrada por [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); no hay restaurante, entrevista, observación ni decisión acreditados | Selección y autorización humanas; ejecutar, registrar `SRC` minimizada y decidir alcance |
 
 ## Producto
 

@@ -1,6 +1,6 @@
 # Historial significativo
 
-## [No publicada — CHG-004] — 2026-10-15
+## [Integrada — CHG-004] — 2026-10-15
 
 ### Documentación
 
@@ -8,6 +8,7 @@
 - Registrado `OBS-002`, segundo uso real de D3 y primero orientado a preparación de producto; no acredita entrevista, validación, ahorro ni autorización de transferencia.
 - Añadido `R-011` sobre exposición de notas o datos identificables durante descubrimiento.
 - Publicada la rama autorizada y abierta la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión permanece como acto humano separado.
+- Fusionada por Iván la PR #4 como squash `4dba65591e1d4a2484c9d2267924c32420f7e744`; el árbol coincide con el head `d4f8fb8d…` y el check final pasó en 7 s. La conciliación queda local para el siguiente cambio real y no cuenta como tercera observación.
 
 ### Producto
 

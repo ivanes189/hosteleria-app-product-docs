@@ -1,6 +1,6 @@
 # Hostelería App — documentación de producto
 
-> **Estado global:** documentación inicial, circuito mínimo y primera observación D3 integrados en `main` · D3 continúa en observación mediante [CHG-003](trazabilidad/cambios/CHG-003-observacion-d3-1.md) · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
+> **Estado global:** documentación inicial, circuito mínimo y dos observaciones D3 integrados en `main` · D3 continúa en observación mediante [CHG-004](trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) · P0 preparado pero no ejecutado · implementación, verificación y disponibilidad del producto no acreditadas.
 
 Esta base documental reconstruye el producto provisionalmente llamado **Hostelería App** en el contexto **Restaurant Operations OS**. Las fuentes disponibles no demuestran que sean productos distintos ni nombres comerciales definitivos. En esta documentación, *Hostelería App* nombra el producto en definición y *Restaurant Operations OS* la arquitectura conceptual que podría sostenerlo; esa relación sigue pendiente de aprobación humana.
 
