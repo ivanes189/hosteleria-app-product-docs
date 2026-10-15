@@ -2,14 +2,17 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** preparado; revisión no iniciada. Este archivo no contiene dictamen, no abre C1 y no anticipa `APTO`/`NO APTO`.
+**Estado:** preparado y ligado a candidata exacta; revisión no iniciada. Este archivo no contiene dictamen, no abre C1 y no anticipa `APTO`/`NO APTO`.
 
 ## Candidata y base
 
 - Base: `main@e35481da2a99e9a9546664712569c27b70010a69`.
-- Candidata: commit local de la rama `codex/documentacion-viva-piloto` con asunto `docs: add living documentation circuit`; resolver su SHA exacto con `git rev-parse codex/documentacion-viva-piloto` antes de revisar.
-- Rango: los dos commits locales posteriores a la base; L1 está fijado como `97a6551449b8cefe441d7116c604adcbf185abec`.
+- Candidata sustantiva: `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0` en la rama local `codex/documentacion-viva-piloto`.
+- Rango exacto: `e35481da2a99e9a9546664712569c27b70010a69..36d071fb231bb2dd13b1dcc2c0c88305c41f2de0`.
+- Commits incluidos, en orden: L1 `97a6551449b8cefe441d7116c604adcbf185abec`; L2/P1 `9d1ee3846c6c4009f8dee80e75f495c50b7ca098`; regla operativa de revisión `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0`.
 - Incorporación: `materializada_local`; no existe rama remota, PR ni ejecución CI de esta candidata.
+
+Este enlace SHA se guarda en un commit de control posterior para evitar autorreferencia. Ese commit no pertenece a la candidata: la revisora debe leer las normas y el contenido bajo el árbol `36d071f…`, usar este paquete como hoja de encargo y revisar el diff completo del rango exacto anterior.
 
 ## Encargo a la instancia revisora
 
