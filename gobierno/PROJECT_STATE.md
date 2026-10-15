@@ -1,17 +1,18 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-09 · **Incorporación:** `candidata_externa`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial `integrada`; [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) `materializada_local`
 
 ## Posición en la hoja de ruta
 
-Primera ejecución documental. Se completó la recuperación accesible, se preparó una candidata aislada y se ejecutaron controles locales. No se ha creado el repositorio remoto, ni rama, commit, PR, CI, protección o automatización.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exactamente como commit raíz de `main`. La rama local `codex/documentacion-viva-piloto` prepara la conciliación y un circuito documental mínimo; no existe PR ni workflow publicado y no se ha activado automatización.
 
 ## Base conocida
 
-- Conversación localizada: `Diseñar App Camarero Conversacional`, ID `6ac10371-c6c8-83eb-8fa4-617b90969c1e`, creada el 2026-10-03 14:30:26 +01:00.
-- Repositorios fuente: commits fijados en [SOURCE_REGISTER](../investigacion/SOURCE_REGISTER.md).
-- Destino `ivanes189/hosteleria-app-product-docs`: no accesible públicamente; una sesión GitHub autenticada válida no estaba disponible, por lo que no se distingue entre inexistente y privado inaccesible.
-- Workspace contenedor: repositorio Git vacío, rama local `master`, sin commits; no es tratado como repositorio canónico.
+- Base publicada: `ivanes189/hosteleria-app-product-docs`, rama `main`, commit raíz `e35481da2a99e9a9546664712569c27b70010a69`.
+- Identidad histórica: SHA-256 del manifiesto inicial `8e003c0b2ac67b036571d6cafd05fe1a98c5422e215d5e319ad3d8346400c3c4`; 49 entradas verificadas en su instantánea.
+- Cierre inicial: C2 `APTO` y `DOC-GATE: PASSED`, según el informe original; el [extracto histórico](HISTORIAL_PUBLICACION_INICIAL.md) no es un nuevo dictamen.
+- Comprobación pública del 2026-10-15: repositorio público, `main` en el commit inicial, una rama, cero PR abiertas, sin workflows publicados y `main` indicada como protegida. La sesión `gh` local es inválida, por lo que no se revalidaron de forma autenticada los detalles de protección clásica y rulesets.
+- Repositorios fuente y conversaciones: cobertura y commits fijados en [SOURCE_REGISTER](../investigacion/SOURCE_REGISTER.md); no se reabrió la auditoría completa.
 
 ## Decisiones humanas recuperadas
 
@@ -19,15 +20,19 @@ Primera ejecución documental. Se completó la recuperación accesible, se prepa
 - Medición de tiempos operativos relevantes y métricas individuales contextualizadas.
 - Necesidad de impedir duplicidades en tareas compartidas de forma eficiente, profesional y escalable.
 - El sistema debe aclarar la cantidad de pan; “para tres” no fija unidades por sí mismo.
+- Iván aceptó implantar primero un circuito documental mínimo en Restaurant, medirlo y extender solo las piezas útiles; FDA y Agent OS conservan autoridad y repositorios separados ([DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md)).
 
-## Bloqueos y lagunas
+## Bloqueos, lagunas y límites
 
 - El correo mencionado en la conversación no está disponible como fuente directa; solo consta la afirmación del asistente de haberlo leído.
 - Dos respuestas extensas de la conversación quedaron truncadas por el conector a 20.000 caracteres; los mensajes del usuario y encabezados principales sí fueron recuperados.
 - No hay evidencia de un repositorio o aplicación Hostelería implementada, probada o desplegada.
 - Jurisdicciones y contextos de despliegue no están decididos; el análisis legal usa Irlanda/UE solo como escenario inicial, no como determinación final.
-- Plan de GitHub y existencia de un repositorio privado homónimo requieren autenticación válida.
+- Los detalles efectivos de protección clásica/rulesets requieren una sesión GitHub válida para su revalidación; la protección de `main` sí es visible públicamente.
+- El nuevo lote no está publicado, revisado por una instancia independiente ni integrado. El `PASSED` inicial no se transfiere a [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md).
 
-## Siguiente acto
+## Continuidad inmediata
 
-Tras una revisión independiente apta, la mínima transición siguiente empieza por reautenticar GitHub y comprobar el destino. Si `ivanes189/hosteleria-app-product-docs` ya existe, se detiene la creación y se evalúan su contenido, visibilidad, rama predeterminada, plan y reglas antes de proponer cualquier escritura. Solo si se verifica que no existe y no hay conflicto se podrá crear privado, materializar exactamente la candidata revisada sobre `main` y configurar controles disponibles en el plan real. Todo ello requiere autorización expresa posterior; no incluye fusionar trabajo adicional ni activar automatizaciones.
+Completar localmente [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md): procedimiento canónico, propuestas futuras, controles y piloto. Después identificar la candidata por el commit exacto, aplicar la revisión exigible y presentar a Iván un único punto de decisión para publicar rama y abrir PR. Publicar el workflow preparado puede ejecutar GitHub Actions y no está autorizado en esta fase.
+
+La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

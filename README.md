@@ -1,6 +1,6 @@
 # Hostelería App — documentación de producto
 
-> **Estado global:** candidata externa inicial · no incorporada a GitHub · diseño en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
+> **Estado global:** documentación inicial publicada en `main` el 2026-10-09 · nuevo circuito documental en preparación local · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
 
 Esta base documental reconstruye el producto provisionalmente llamado **Hostelería App** en el contexto **Restaurant Operations OS**. Las fuentes disponibles no demuestran que sean productos distintos ni nombres comerciales definitivos. En esta candidata, *Hostelería App* nombra el producto en definición y *Restaurant Operations OS* la arquitectura conceptual que podría sostenerlo; esa relación sigue pendiente de aprobación humana.
 
@@ -12,7 +12,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 
 ## Rutas de lectura
 
-- **Entender el estado real:** [auditoría inicial](gobierno/AUDITORIA_INICIAL.md) → [estado del proyecto](gobierno/PROJECT_STATE.md) → [decisiones pendientes](decisiones/PENDING_DECISIONS.md).
+- **Entender el estado real:** [auditoría inicial](gobierno/AUDITORIA_INICIAL.md) → [cierre y publicación inicial](gobierno/HISTORIAL_PUBLICACION_INICIAL.md) → [estado del proyecto](gobierno/PROJECT_STATE.md) → [decisiones pendientes](decisiones/PENDING_DECISIONS.md).
 - **Seguir el caso de la mesa 12:** [FEAT-001](producto/funcionalidades/FEAT-001-gestion-tareas-servicio.md) → [REQ](requisitos/REQUIREMENTS.md#req-003) → [SOP-001](operacion/procedimientos/SOP-001-atender-solicitud-servicio.md) → [eventos](arquitectura/EVENTS_METRICS.md) → [pruebas](validacion/TEST_SCENARIOS.md#test-001).
 - **Evaluar reutilización:** [registro de fuentes](investigacion/SOURCE_REGISTER.md) → [registro de reutilización](investigacion/REUSE_REGISTER.md) → [arquitectura](arquitectura/ARCHITECTURE.md).
 - **Cambiar la documentación:** [política](DOCUMENTATION_POLICY.md) → [plantillas](plantillas/README.md) → [expediente CHG-001](trazabilidad/cambios/CHG-001-candidata-inicial.md).
@@ -44,5 +44,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 - [Cobertura de fuentes](investigacion/SOURCE_REGISTER.md)
 - [Matriz de trazabilidad](trazabilidad/TRACEABILITY_MATRIX.md)
 - [Manifiesto de candidata](gobierno/CANDIDATE_MANIFEST.md)
+
+La publicación inicial incorporó exactamente la instantánea histórica identificada por el commit `e35481da2a99e9a9546664712569c27b70010a69`. Los cambios posteriores se identifican por su propio `CHG` y por commits distintos; no heredan el dictamen de aquella instantánea.
 
 La cantidad de archivos no acredita madurez. La candidata acredita únicamente que el conocimiento recuperado puede navegarse y que sus lagunas están visibles.

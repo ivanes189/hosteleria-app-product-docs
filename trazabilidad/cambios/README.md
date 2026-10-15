@@ -4,4 +4,5 @@
 
 | ID | Cambio | Estado |
 | --- | --- | --- |
-| [CHG-001](CHG-001-candidata-inicial.md) | Candidata documental inicial | abierto hasta validación y revisión independiente |
+| [CHG-001](CHG-001-candidata-inicial.md) | Candidata documental inicial | historia congelada: cierre externo posterior C2 `APTO` y DOC-GATE `PASSED` |
+| [CHG-002](CHG-002-documentacion-viva.md) | Conciliación y circuito mínimo de documentación viva | `OPEN`; L1 materializado localmente, L2/P1 pendientes |

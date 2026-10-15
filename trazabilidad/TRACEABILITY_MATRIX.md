@@ -4,6 +4,14 @@
 
 Vista manual; las definiciones viven en sus fichas.
 
+## Gobierno documental
+
+| Decisión | Cambio | Estado/evidencia | Siguiente transición |
+| --- | --- | --- | --- |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | L1 materializado localmente; validaciones en el expediente | circuito mínimo, piloto y revisión sobre candidata exacta |
+
+## Producto
+
 | Decisión | Requisito | Funcionalidad | SOP | Eventos | Prueba | Oferta |
 | --- | --- | --- | --- | --- | --- | --- |
 | [DEC-001](../decisiones/DEC-001-ptt-inicial.md) | [REQ-001](../requisitos/REQUIREMENTS.md#req-001), [REQ-002](../requisitos/REQUIREMENTS.md#req-002) | [FEAT-002](../producto/funcionalidades/FEAT-002-interaccion-voz-personal.md) | [SOP-001](../operacion/procedimientos/SOP-001-atender-solicitud-servicio.md) (canal) | `channel` | [TEST-007](../validacion/TEST_SCENARIOS.md#test-007), [TEST-008](../validacion/TEST_SCENARIOS.md#test-008) | [SUB-001](../catalogo/subproductos/SUB-001-coordinacion-personal.md) |
