@@ -26,7 +26,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | `gobierno/HISTORIAL_PUBLICACION_INICIAL.md`, `gobierno/CANDIDATE_MANIFEST.md` | actualización realizada en L1 | Hacer navegables cierre/publicación y preservar el manifiesto como instantánea. |
 | `decisiones/DEC-004-*`, `DECISION_LOG.md` | actualización realizada en L1 | Capturar la aceptación de Iván sin convertir pendientes de producto en decisiones. |
 | `investigacion/SOURCE_REGISTER.md`, `REUSE_REGISTER.md` | actualización realizada en L1 | Registrar procedencia, selección acotada, versiones, límites y precisión factual de RU-007. |
-| `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md`, plantilla `CHG` y [paquete de revisión](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) | actualización realizada en L2 y preparación de revisión | Punto de entrada breve, procedimiento único, impacto obligatorio, revisión y límites de automatización; activación interna de la revisora independiente sin tarea manual separada. |
+| `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md`, plantilla `CHG`, [paquete](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) y [dictamen C0](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) | actualización realizada; C1 abierto | Punto de entrada breve, procedimiento único, impacto obligatorio, revisión y límites de automatización; candidata y `NO APTO` preservados antes de corregir. |
 | `planificacion/PROPUESTAS_FUTURAS.md`, planificación y trazabilidad | actualización realizada en L2 | Registro único `PROP`, cuatro propuestas concretas y estados/autorización separados. |
 | `herramientas/`, `.github/workflows/documentation.yml` | actualización realizada en L2 | Parser simple, selección idempotente, fixtures y candidata de CI con lectura mínima y acción fijada. |
 | `negocio/BUSINESS_MODEL.md`, `decisiones/PENDING_DECISIONS.md` | actualización realizada en L2 | Preguntas e hipótesis de descubrimiento sin inventar cliente, demanda, precio, coste o resultado. |
@@ -41,7 +41,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | --- | --- | --- | --- |
 | Inicial | 49 entradas históricas | `e35481da2a99e9a9546664712569c27b70010a69` y manifiesto externo `8e003c…` | integrada; C2 `APTO`, DOC-GATE `PASSED` según cierre original. |
 | L1 | conciliación documental | `97a6551449b8cefe441d7116c604adcbf185abec` | materializada localmente; no hereda el dictamen inicial. |
-| L2/P1 | circuito y piloto | commit local con asunto `docs: add living documentation circuit` | candidata preparada; hash se obtiene de la rama tras crear el commit. |
+| L2/P1/C0 | circuito, piloto y regla operativa de revisión | `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0` | revisión completa `NO APTO`; preservada; C1 abierto. |
 
 ## Validaciones y evidencia
 
@@ -77,6 +77,6 @@ Se conservan el procedimiento único, `CHG`, `PROP` plano, validador y fixtures.
 
 ## Revisión, DOC-GATE y siguiente acto
 
-La revisión propia durante la preparación es interna, no independiente. Al cambiar política y validador de forma que podrían permitir un falso `PASSED`, la candidata completa requiere revisión independiente en contexto nuevo. [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) fija que el coordinador active dentro de esta misma tarea una única instancia GPT-6 Astra, con razonamiento alto y solo lectura; esa instancia no modifica la candidata y conserva la continuidad en eventuales revalidaciones C1/C2. Aún no se ha emitido dictamen: no hay C1 abierto y el coste es `desconocido`.
+La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) revisó en contexto nuevo y solo lectura la candidata exacta `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0`. Su [dictamen C0](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) es `NO APTO`, con cuatro hallazgos P2. Candidata y dictamen se preservaron antes de corregir; C1 queda abierto. Coste/consumo expuesto: `desconocido`.
 
-`DOC-GATE: OPEN` por revisión independiente pendiente. Siguiente acto: fijar el SHA y el rango exactos en el [paquete preparado](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), activar internamente la revisora configurada y registrar su dictamen y eventuales ciclos. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.
+`DOC-GATE: OPEN` por los hallazgos `CHG002-RI-001` a `CHG002-RI-004`. Siguiente acto: dentro de C1 corregir únicamente esos hallazgos y sus efectos directos, ejecutar las comprobaciones y pedir revalidación enfocada a la misma instancia. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.

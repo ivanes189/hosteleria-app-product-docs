@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** preparado y ligado a candidata exacta; revisión no iniciada. Este archivo no contiene dictamen, no abre C1 y no anticipa `APTO`/`NO APTO`.
+**Estado:** revisión completa C0 concluida con `NO APTO`; candidata y [dictamen preservados](DICTAMEN_CHG-002-C0.md), C1 abierto para corregir exclusivamente los cuatro hallazgos.
 
 ## Candidata y base
 
