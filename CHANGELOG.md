@@ -7,6 +7,7 @@
 - Conciliados el cierre C2/DOC-GATE de la instantánea inicial y su publicación exacta como `e35481da2a99e9a9546664712569c27b70010a69`, sin reescribir [CHG-001](trazabilidad/cambios/CHG-001-candidata-inicial.md) ni transferir su dictamen.
 - Registrada [DEC-004](decisiones/DEC-004-documentacion-viva-minima.md): circuito documental mínimo en Restaurant, piloto y extensión solo de piezas útiles, con FDA y Agent OS separados.
 - Materializado [CHG-002](trazabilidad/cambios/CHG-002-documentacion-viva.md): L1 concilia el estado; L2 añade procedimiento, `PROP`, validaciones y workflow local; P1 ensaya cinco casos. El DOC-GATE sigue `OPEN` por revisión independiente pendiente.
+- Fijada la activación interna de una única revisora GPT-6 Astra, en contexto nuevo y solo lectura, para que la revisión y las eventuales revalidaciones C1/C2 permanezcan en la misma tarea sin alterar la candidata.
 - Añadidas preguntas e hipótesis comprobables para descubrir primer restaurante, usuario, pagador, problema, flujo, beneficio y coste sin convertir la mesa 12 en validación real.
 
 ### Producto

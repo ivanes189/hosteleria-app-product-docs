@@ -59,6 +59,8 @@ Los defectos deliberados viven solo en fixtures o copias temporales. La prueba n
 
 Aplicar la revisión proporcional definida por la política. La revisión del autor es interna. Cuando se exija independencia, preservar candidata exacta, hallazgos y ciclo antes de corregir; no reiniciar expedientes ni transferir dictámenes anteriores.
 
+La revisión independiente se coordina dentro de la misma tarea: el coordinador/autor activa un único subagente GPT-6 Astra, con razonamiento alto, contexto nuevo y acceso solo de lectura. La persona responsable no necesita abrir otra tarea. La revisora recibe el paquete, las normas, el diff completo y las evidencias de la candidata exacta, sin las conclusiones del autor como premisa; no modifica la candidata. Si abre C1 o C2, la misma instancia realiza las revalidaciones enfocadas. Si esa configuración exacta no está disponible, detenerse y pedir decisión en vez de sustituir modelo, instancia o modalidad.
+
 ## 6. Cerrar o entregar continuidad
 
 Registrar candidata exacta por commit o manifiesto diferenciado, comprobaciones reales, coste/tiempo observable o `desconocido`, resultado DOC-GATE y siguiente acto inequívoco. Actualizar [PROJECT_STATE](PROJECT_STATE.md) con rama, último paso, primer pendiente, revisión y autorización faltante.

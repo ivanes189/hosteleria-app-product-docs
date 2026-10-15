@@ -13,12 +13,12 @@
 
 ## Encargo a la instancia revisora
 
-Realizar una revisión completa, en contexto nuevo y solo lectura. No usar el `APTO` ni el `PASSED` de la candidata inicial como premisa para CHG-002. Leer completos:
+Realizar una revisión completa mediante la única instancia interna GPT-6 Astra configurada con razonamiento alto, contexto nuevo y solo lectura. La revisora no modifica la candidata y conserva la continuidad para eventuales revalidaciones enfocadas C1/C2. No usar el `APTO` ni el `PASSED` de la candidata inicial ni las conclusiones del autor como premisa para CHG-002. Leer completos:
 
 1. `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md` y `gobierno/PROJECT_STATE.md`.
 2. `trazabilidad/cambios/CHG-002-documentacion-viva.md`, `planificacion/PROPUESTAS_FUTURAS.md`, `decisiones/DEC-004-documentacion-viva-minima.md` y el diff completo frente a la base.
 3. `herramientas/validate_docs.py`, sus dos suites de ensayo y `.github/workflows/documentation.yml`.
-4. Las fuentes `SRC-014`–`SRC-017` en `investigacion/SOURCE_REGISTER.md` y el extracto `gobierno/HISTORIAL_PUBLICACION_INICIAL.md`.
+4. Las fuentes `SRC-014`–`SRC-018` en `investigacion/SOURCE_REGISTER.md` y el extracto `gobierno/HISTORIAL_PUBLICACION_INICIAL.md`.
 
 Comprobar especialmente: autoridad y estados; preservación de CHG-001/manifiesto; una sola fuente canónica; cobertura de impacto; formato y condiciones `PROP`; aceptación/rechazo de fixtures; seguridad y límites del workflow; honestidad del piloto y de la medición; continuidad y permisos remotos.
 

@@ -41,6 +41,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exa
 
 ## Continuidad inmediata
 
-Someter el commit local de la rama con asunto `docs: add living documentation circuit` a revisión completa independiente, en contexto nuevo y solo lectura, usando el [paquete preparado](revisiones/PAQUETE_REVISION_CHG-002.md). Si resulta apto, presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
+Fijar el SHA exacto de la candidata en el [paquete preparado](revisiones/PAQUETE_REVISION_CHG-002.md) y activar dentro de esta misma tarea la única instancia revisora GPT-6 Astra, con razonamiento alto, contexto nuevo y solo lectura. Si resulta apta, preservar el dictamen y presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

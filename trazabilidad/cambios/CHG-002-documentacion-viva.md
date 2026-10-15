@@ -4,7 +4,7 @@ title: Conciliación y circuito mínimo de documentación viva
 doc_type: document_change
 summary: Actualizar el estado publicado, implantar el circuito mínimo y ensayarlo localmente.
 updated_at: 2026-10-15
-source_refs: [SRC-014, SRC-015, SRC-016, SRC-017]
+source_refs: [SRC-014, SRC-015, SRC-016, SRC-017, SRC-018]
 incorporation_status: materializada_local
 ---
 
@@ -26,7 +26,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | `gobierno/HISTORIAL_PUBLICACION_INICIAL.md`, `gobierno/CANDIDATE_MANIFEST.md` | actualización realizada en L1 | Hacer navegables cierre/publicación y preservar el manifiesto como instantánea. |
 | `decisiones/DEC-004-*`, `DECISION_LOG.md` | actualización realizada en L1 | Capturar la aceptación de Iván sin convertir pendientes de producto en decisiones. |
 | `investigacion/SOURCE_REGISTER.md`, `REUSE_REGISTER.md` | actualización realizada en L1 | Registrar procedencia, selección acotada, versiones, límites y precisión factual de RU-007. |
-| `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md`, plantilla `CHG` y [paquete de revisión](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) | actualización realizada en L2 | Punto de entrada breve, procedimiento único, impacto obligatorio, revisión y límites de automatización. |
+| `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md`, plantilla `CHG` y [paquete de revisión](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) | actualización realizada en L2 y preparación de revisión | Punto de entrada breve, procedimiento único, impacto obligatorio, revisión y límites de automatización; activación interna de la revisora independiente sin tarea manual separada. |
 | `planificacion/PROPUESTAS_FUTURAS.md`, planificación y trazabilidad | actualización realizada en L2 | Registro único `PROP`, cuatro propuestas concretas y estados/autorización separados. |
 | `herramientas/`, `.github/workflows/documentation.yml` | actualización realizada en L2 | Parser simple, selección idempotente, fixtures y candidata de CI con lectura mínima y acción fijada. |
 | `negocio/BUSINESS_MODEL.md`, `decisiones/PENDING_DECISIONS.md` | actualización realizada en L2 | Preguntas e hipótesis de descubrimiento sin inventar cliente, demanda, precio, coste o resultado. |
@@ -77,6 +77,6 @@ Se conservan el procedimiento único, `CHG`, `PROP` plano, validador y fixtures.
 
 ## Revisión, DOC-GATE y siguiente acto
 
-La revisión propia durante la preparación es interna, no independiente. Al cambiar política y validador de forma que podrían permitir un falso `PASSED`, la candidata completa requiere revisión independiente en contexto nuevo. Aún no se ha emitido dictamen: no hay C1 abierto y el coste es `desconocido`.
+La revisión propia durante la preparación es interna, no independiente. Al cambiar política y validador de forma que podrían permitir un falso `PASSED`, la candidata completa requiere revisión independiente en contexto nuevo. [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) fija que el coordinador active dentro de esta misma tarea una única instancia GPT-6 Astra, con razonamiento alto y solo lectura; esa instancia no modifica la candidata y conserva la continuidad en eventuales revalidaciones C1/C2. Aún no se ha emitido dictamen: no hay C1 abierto y el coste es `desconocido`.
 
-`DOC-GATE: OPEN` por revisión independiente pendiente. Siguiente acto: someter el commit L2/P1 identificado por la rama local, en solo lectura, a la revisión completa mediante el [paquete preparado](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) y registrar hallazgos/ciclos. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.
+`DOC-GATE: OPEN` por revisión independiente pendiente. Siguiente acto: fijar el SHA y el rango exactos en el [paquete preparado](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), activar internamente la revisora configurada y registrar su dictamen y eventuales ciclos. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.
