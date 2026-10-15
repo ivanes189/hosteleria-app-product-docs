@@ -58,7 +58,7 @@ ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|PROP|RU|R
 H2_HEADING_RE = re.compile(r"^##\s+(.+?)\s*$", re.M)
 PROP_HEADING_VALUE_RE = re.compile(r"^(PROP-\d{3})\s+—\s+(.+?)$")
 PROP_FIELD_RE = re.compile(r"^- \*\*([^*]+):\*\*\s*(.+?)\s*$", re.M)
-PROP_AUTHORIZATION_REF_RE = re.compile(r"^\[(DEC-\d{3})\]\([^)]+\)\.?$")
+PROP_AUTHORIZATION_REF_RE = re.compile(r"^\[(DEC-\d{3})\]\(([^)]+)\)\.?$")
 PROP_REQUIRED_FIELDS = {
     "Problema/beneficio",
     "Fuente",
@@ -327,6 +327,27 @@ def check(root: Path = ROOT) -> list[str]:
                         f"Autorización PROP con decisión inexistente: "
                         f"{proposal_id}={reference_match.group(1)}"
                     )
+                else:
+                    decision_id = reference_match.group(1)
+                    raw_target = reference_match.group(2).split()[0].strip("<>")
+                    file_part = raw_target.partition("#")[0]
+                    resolved = (proposals_path.parent / file_part).resolve()
+                    try:
+                        target_rel = resolved.relative_to(root.resolve()).as_posix()
+                    except ValueError:
+                        target_rel = ""
+                    canonical_locations = {
+                        location
+                        for location in ids[decision_id]
+                        if location in rels
+                        and frontmatter(rels[location].read_text(encoding="utf-8")).get("id") == decision_id
+                        and frontmatter(rels[location].read_text(encoding="utf-8")).get("doc_type") == "decision"
+                    }
+                    if target_rel not in canonical_locations:
+                        errors.append(
+                            f"Autorización PROP con destino incoherente: "
+                            f"{proposal_id}={decision_id}->{raw_target}"
+                        )
 
     exempt = {"README.md"}
     for rel in rels:

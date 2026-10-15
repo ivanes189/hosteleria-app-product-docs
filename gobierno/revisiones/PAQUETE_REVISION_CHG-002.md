@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** revisión completa C0 y revalidación C1 concluidas con `NO APTO`; candidatas y dictámenes [C0](DICTAMEN_CHG-002-C0.md)/[C1](DICTAMEN_CHG-002-C1.md) preservados. C2 abierto para corregir exclusivamente el remanente de `CHG002-RI-002`.
+**Estado:** revisión completa C0 y revalidación C1 concluidas con `NO APTO`; candidatas y dictámenes [C0](DICTAMEN_CHG-002-C0.md)/[C1](DICTAMEN_CHG-002-C1.md) preservados. La corrección C2 del único remanente está materializada y comprobada; falta ligar su SHA y pedir revalidación enfocada a la misma instancia.
 
 ## Candidata y base
 
@@ -56,6 +56,14 @@ La revisora debe reproducir o cuestionar esta evidencia; no asumir que prueba se
 - Controles C1: validador sobre 52 Markdown, 22 mutaciones negativas, una autorización positiva, selector, ensayo aislado del diff, carga YAML y `git diff --check`, todos en `PASS` local.
 
 El SHA y los rangos exactos C1 se incorporan mediante el commit de enlace posterior a la candidata. GitHub Actions sigue sin ejecutarse.
+
+## Evidencia de corrección C2 pendiente de revalidación
+
+- Remanente `CHG002-RI-002`: el validador resuelve el destino desde el registro `PROP` y exige que coincida con la ficha canónica cuyo frontmatter declara el mismo `id` y `doc_type: decision`.
+- Fixtures añadidos: una etiqueta `DEC-004` que apunta a `DEC-003` y otra que apunta a `README.md`; ambos fallan. Se conservan los casos `DEC-999` fallido y `DEC-004` canónica válida.
+- Controles C2: validador sobre 53 Markdown, 24 mutaciones negativas, una autorización positiva, selector, ensayo aislado del diff, carga YAML y `git diff --check`, todos en `PASS` local.
+
+El SHA y los rangos exactos C2 se incorporarán en un commit de enlace posterior para evitar autorreferencia. GitHub Actions sigue sin ejecutarse.
 
 ## Salida requerida
 

@@ -43,6 +43,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | L1 | conciliación documental | `97a6551449b8cefe441d7116c604adcbf185abec` | materializada localmente; no hereda el dictamen inicial. |
 | L2/P1/C0 | circuito, piloto y regla operativa de revisión | `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0` | revisión completa `NO APTO`; preservada; C1 abierto. |
 | C1 | corrección exclusiva de `CHG002-RI-001` a `CHG002-RI-004` y efectos directos | `e86f3674ae46f8514d8844321c4b52f8de3f98f9` | revalidación `NO APTO`: RI-001/003/004 resueltos; remanente RI-002 preservado; C2 abierto. |
+| C2 | correspondencia canónica exigida por el remanente `CHG002-RI-002` | commit local de corrección; SHA se liga en el paquete mediante commit posterior | comprobaciones locales `PASS`; revalidación enfocada pendiente. |
 
 ## Validaciones y evidencia
 
@@ -55,7 +56,7 @@ L2/P1 pasa en local:
 | Control | Resultado | Límite |
 | --- | --- | --- |
 | `validate_docs.py` | `PASS`, 51 Markdown | estructura/relaciones; no verdad o suficiencia. |
-| `test_validate_docs.py` | `PASS`, 22 mutaciones negativas y una autorización positiva | añade encabezado/ID/campo duplicado `PROP`, existencia/navegación de `DEC` y contrato de diff del workflow. |
+| `test_validate_docs.py` | `PASS`, 24 mutaciones negativas y una autorización positiva | añade encabezado/ID/campo duplicado `PROP`, existencia/navegación/correspondencia canónica de `DEC` y contrato de diff del workflow. |
 | `test_select_proposals.py` | `PASS` | fecha, identidad de evento, evidencia, ejecución vacía, memoria acumulativa, repetición y cambio real. |
 | `test_workflow_diff.py` | `PASS` | repositorio Git temporal: rechaza whitespace comprometido y acepta la corrección en rango base…candidata. |
 | Ensayo CLI con checkpoint temporal | primera salida `PROP-001: evento,evidencia_nueva`; segunda `NO_SELECTION` | no es una automatización activada ni una política de notificación. |
@@ -79,6 +80,6 @@ Se conservan el procedimiento único, `CHG`, `PROP` plano, validador y fixtures.
 
 ## Revisión, DOC-GATE y siguiente acto
 
-La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) emitió [C0 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) para `36d071fb…`. Tras preservar y abrir C1, la misma instancia emitió [C1 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C1.md) para `e86f3674…`: RI-001, RI-003 y RI-004 resueltos; RI-002 parcialmente resuelto porque falta ligar el ID de la decisión con su destino canónico. Candidata y dictamen C1 se preservaron antes de abrir C2. Coste/consumo expuesto: `desconocido`.
+La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) emitió [C0 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) para `36d071fb…`. Tras preservar y abrir C1, la misma instancia emitió [C1 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C1.md) para `e86f3674…`: RI-001, RI-003 y RI-004 resueltos; RI-002 parcialmente resuelto. Candidata y dictamen C1 se preservaron antes de abrir C2. C2 corrige solo la correspondencia entre etiqueta y ficha canónica exigida por ese remanente; las comprobaciones locales pasan y su revalidación enfocada está pendiente. Coste/consumo expuesto: `desconocido`.
 
-`DOC-GATE: OPEN` por el remanente de `CHG002-RI-002`. Siguiente acto: dentro de C2 corregir únicamente la correspondencia entre ID, tipo y destino canónico de la `DEC`, añadir los dos fixtures exigidos, comprobar y pedir revalidación enfocada a la misma instancia. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.
+`DOC-GATE: OPEN` hasta revalidar C2. Siguiente acto: fijar el SHA/rango exactos de C2 y pedir revalidación enfocada a la misma instancia sobre el remanente RI-002 y sus dos fixtures. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.

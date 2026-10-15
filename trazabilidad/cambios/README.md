@@ -5,4 +5,4 @@
 | ID | Cambio | Estado |
 | --- | --- | --- |
 | [CHG-001](CHG-001-candidata-inicial.md) | Candidata documental inicial | historia congelada: cierre externo posterior C2 `APTO` y DOC-GATE `PASSED` |
-| [CHG-002](CHG-002-documentacion-viva.md) | Conciliación y circuito mínimo de documentación viva | `OPEN`; C1 `NO APTO` preservado, tres hallazgos resueltos y C2 abierto por remanente RI-002 |
+| [CHG-002](CHG-002-documentacion-viva.md) | Conciliación y circuito mínimo de documentación viva | `OPEN`; C1 `NO APTO` preservado, corrección C2 comprobada y revalidación enfocada pendiente |

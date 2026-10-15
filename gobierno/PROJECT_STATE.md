@@ -34,13 +34,13 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exa
 ## Comprobaciones de CHG-002
 
 - L1: commit local `97a6551449b8cefe441d7116c604adcbf185abec`; validador (48 Markdown), diez fixtures y `git diff --check` en PASS.
-- C1: validador (52 Markdown), 22 fixtures negativos y una autorización positiva, selector, ensayo Git aislado del diff de PR, `git diff --check` y carga YAML en PASS.
+- C2: validador (53 Markdown), 24 fixtures negativos y una autorización positiva, selector, ensayo Git aislado del diff de PR, `git diff --check` y carga YAML en PASS.
 - El selector conserva memoria tras una ejecución vacía, no repite un mismo evento o evidencia y avisa cuando cambia realmente la evidencia.
 - El workflow `documentation / validate` está solo preparado. No existe ejecución de GitHub que acredite CI ni comprobación obligatoria.
-- Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y remanente RI-002 sobre correspondencia ID/destino canónico; `DOC-GATE: OPEN`, C2 abierto. Coste/consumo observable: `desconocido`.
+- Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y remanente RI-002. C2 resuelve etiqueta, identidad, tipo y destino canónico, con pruebas locales en PASS; `DOC-GATE: OPEN` hasta revalidación enfocada. Coste/consumo observable: `desconocido`.
 
 ## Continuidad inmediata
 
-Corregir dentro de C2 solo el remanente de `CHG002-RI-002`: comprobar que el enlace de autorización apunta a la ficha canónica de la `DEC` declarada, con pruebas de destino a otra decisión y a documento no decisorio. Después fijar la candidata y pedir revalidación enfocada a la misma instancia Astra. Si resulta apta, preservar el dictamen y presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
+Fijar el SHA/rango de C2 y pedir a la misma instancia Astra revalidación enfocada del remanente `CHG002-RI-002`, incluidos los destinos a otra decisión y a un documento no decisorio. Si resulta apta, preservar el dictamen y presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

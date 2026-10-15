@@ -224,6 +224,34 @@ def main() -> int:
         ),
     )
     expect(
+        "autorización PROP enlaza otra decisión",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text()
+            .replace("- **Autorización:** pendiente.", "- **Autorización:** autorizada.", 1)
+            .replace(
+                "- **Referencia de autorización:** no_aplica.",
+                "- **Referencia de autorización:** [DEC-004](../decisiones/DEC-003-claim-atomico.md).",
+                1,
+            ),
+            encoding="utf-8",
+        ),
+        "Autorización PROP con destino incoherente",
+    )
+    expect(
+        "autorización PROP enlaza documento no decisorio",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text()
+            .replace("- **Autorización:** pendiente.", "- **Autorización:** autorizada.", 1)
+            .replace(
+                "- **Referencia de autorización:** no_aplica.",
+                "- **Referencia de autorización:** [DEC-004](../README.md).",
+                1,
+            ),
+            encoding="utf-8",
+        ),
+        "Autorización PROP con destino incoherente",
+    )
+    expect(
         "cambio sin declaración de impacto",
         lambda root: (root / "trazabilidad/cambios/CHG-002-documentacion-viva.md").write_text(
             (root / "trazabilidad/cambios/CHG-002-documentacion-viva.md").read_text().replace(
