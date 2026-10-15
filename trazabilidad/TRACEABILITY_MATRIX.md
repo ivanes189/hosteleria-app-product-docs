@@ -8,7 +8,7 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) a [CHG-005](cambios/CHG-005-ausencia-restaurante-p0.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO` y PR #1 a [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) | D3 en evaluación: `OBS-001` y `OBS-002` integradas, `OBS-003` local; sin periodicidad ni transferencia hasta juicio humano, cumplimiento de condiciones y autorización |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) a [CHG-005](cambios/CHG-005-ausencia-restaurante-p0.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO` y PR #1 a [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5) | D3 en evaluación: `OBS-001` a `OBS-003` integradas y sin omisiones críticas abiertas detectadas; sin periodicidad ni transferencia hasta juicio humano y autorización |
 
 ## Descubrimiento P0
 

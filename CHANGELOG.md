@@ -1,12 +1,13 @@
 # Historial significativo
 
-## [No publicada — CHG-005] — 2026-10-15
+## [Integrada — CHG-005] — 2026-10-15
 
 ### Documentación
 
 - Registrada como `SRC-023` la aclaración de que no existe actualmente un restaurante candidato y que el proyecto sigue en desarrollo, sin traducirla a un estado técnico positivo.
-- Añadido `OBS-003`: el circuito propaga el hecho a negocio, PD-003, guía, riesgo, roadmap y trazabilidad; la muestra cuantitativa D3 se alcanza localmente.
+- Añadido `OBS-003`: el circuito propaga el hecho a negocio, PD-003, guía, riesgo, roadmap y trazabilidad; la muestra cuantitativa D3 queda integrada.
 - Evaluado D3 de forma provisional: conservar el circuito mínimo, mantener las simplificaciones de cierres/lenguaje transitorio y no transferirlo sin juicio humano sobre utilidad y coste.
+- Fusionada por Iván la [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5) como squash `578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`; el árbol coincide con el head `2dd1cfdc…` y el check final pasó.
 
 ### Producto
 

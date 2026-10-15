@@ -1,16 +1,16 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) `integrados`; [CHG-005](../trazabilidad/cambios/CHG-005-ausencia-restaurante-p0.md) `materializada_local`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-005](../trazabilidad/cambios/CHG-005-ausencia-restaurante-p0.md) `integrados`
 
-**Base verificada:** la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) fue fusionada por Iván como squash `main@4dba65591e1d4a2484c9d2267924c32420f7e744`; su árbol coincide con el head `d4f8fb8dbad5838ed909b42e19fd09404e4d6fa9` y el check final pasó.
+**Base verificada:** la [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5) fue fusionada por Iván como squash `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`; su árbol coincide con el head `2dd1cfdc24255f2a3c687321b48790c26f32bebe` y el check final pasó.
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 y #4 integraron `OBS-001` y `OBS-002`; `OBS-003` está local. P0 tiene una guía integrada pero no existe restaurante candidato; no se ha activado automatización periódica.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 a #5 integraron `OBS-001` a `OBS-003`. D3 espera juicio humano sobre utilidad/coste; P0 tiene una guía integrada pero no existe restaurante candidato; no se ha activado automatización periódica.
 
 ## Base conocida
 
-- `main` vigente: `ivanes189/hosteleria-app-product-docs@4dba65591e1d4a2484c9d2267924c32420f7e744`, squash de la PR #4, padre `0478a8e7fc6ab799b4af1876a421bc532424133b`.
+- `main` vigente: `ivanes189/hosteleria-app-product-docs@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`, squash de la PR #5, padre `4dba65591e1d4a2484c9d2267924c32420f7e744`.
 - Identidad histórica: SHA-256 del manifiesto inicial `8e003c0b2ac67b036571d6cafd05fe1a98c5422e215d5e319ad3d8346400c3c4`; 49 entradas verificadas en su instantánea.
 - Cierre inicial: C2 `APTO` y `DOC-GATE: PASSED`, según el informe original; el [extracto histórico](HISTORIAL_PUBLICACION_INICIAL.md) no es un nuevo dictamen.
 - Incorporación comprobada el 2026-10-15: head `5b7c5e90…`, [check final](https://github.com/ivanes189/hosteleria-app-product-docs/actions/runs/38729105629/job/116402177526) `PASS` (6 s), squash `a8365b66…` y árboles idénticos.
@@ -44,12 +44,13 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 - La PR #2 recorrió el circuito sobre `bdcc6c4a…`; su check pasó en 6 s y el squash `1235b74b…` conservó el mismo árbol. [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) registra esta primera observación sin alterar CHG-002.
 - La PR #3 recorrió el circuito sobre `add09350…`; su check final pasó en 7 s y el squash `0478a8e7…` conservó el mismo árbol. CHG-003 quedó integrado sin transferirle el dictamen independiente de CHG-002.
 - La PR #4 recorrió el circuito sobre `d4f8fb8d…`; su check final pasó en 7 s y el squash `4dba6559…` conservó el mismo árbol. CHG-004 quedó integrado sin acreditar ejecución del descubrimiento.
+- La PR #5 recorrió el circuito sobre `2dd1cfdc…`; su check final pasó y el squash `578bb5d5…` conservó el mismo árbol. CHG-005 y `OBS-003` quedaron integrados sin acreditar implementación ni ejecución de P0.
 - Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y un remanente. Revalidación C2 [preservada](revisiones/DICTAMEN_CHG-002-C2.md): `APTO`, cuatro hallazgos resueltos, sin regresiones directas; C1/C2 consumidos. Coste/consumo observable: `desconocido`.
 
 ## Continuidad inmediata
 
-D3 alcanza localmente tres observaciones reales. La evaluación provisional conserva el circuito, aplica las simplificaciones de cierre ya ensayadas y no retira piezas. Falta incorporar OBS-003 y, sobre todo, juicio humano sobre utilidad/coste antes de reevaluar `PROP-001`; no activar periodicidad ni transferir componentes a FDA/u otros proyectos.
+D3 alcanza tres observaciones reales integradas. La evaluación provisional conserva el circuito, aplica las simplificaciones de cierre ya ensayadas y no retira piezas. La revisión dirigida no detecta omisiones críticas abiertas; falta exclusivamente juicio humano sobre utilidad/coste antes de reevaluar `PROP-001`. No activar periodicidad ni transferir componentes a FDA/u otros proyectos.
 
-Continuidad local: `codex/d3-espera-evidencia-p0`, basada en `main@4dba65591e1d4a2484c9d2267924c32420f7e744`. Incluye la conciliación factual `15a563a8da0f4f81368183ad60eb1f2699b3b040` y la candidata CHG-005 `9166899cbfc1d687f07606fb70b4c9217325ae33`, con revisión proporcional y `DOC-GATE: PASSED`. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada. Publicación o PR del lote local requieren autorización separada.
+Continuidad local: `codex/d3-cierre-evaluacion`, basada en `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`. Conserva la conciliación post-fusión para agruparla con la próxima decisión real y no abrir una PR exclusiva de cierre. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada.
 
 La primera validación pendiente de producto sigue siendo descubrimiento con un restaurante real cuando exista contraparte; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

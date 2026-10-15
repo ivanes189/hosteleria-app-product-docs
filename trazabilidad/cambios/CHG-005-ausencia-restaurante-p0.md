@@ -4,8 +4,8 @@ title: Estado de contraparte para descubrimiento P0
 doc_type: document_change
 summary: Registrar que no existe actualmente un restaurante candidato sin inventar validación ni estado técnico.
 updated_at: 2026-10-15
-source_refs: [SRC-023]
-incorporation_status: materializada_local
+source_refs: [SRC-023, SRC-024]
+incorporation_status: integrada
 ---
 
 # CHG-005 — Estado de contraparte para descubrimiento P0
@@ -68,7 +68,7 @@ Revisión proporcional del autor. No se exige revisión independiente: el lote r
 
 ## Evaluación provisional de D3
 
-Con `OBS-001`, `OBS-002` y `OBS-003` se alcanza localmente la muestra cuantitativa mínima de tres cambios reales posteriores. La evidencia disponible permite una evaluación provisional:
+Con `OBS-001`, `OBS-002` y `OBS-003` se alcanzó primero localmente la muestra cuantitativa mínima de tres cambios reales posteriores; la incorporación posterior queda registrada al final del expediente. La evidencia disponible permite una evaluación provisional:
 
 - **Conservar:** procedimiento único, `CHG`, declaración de impacto, identidades exactas, validación local/CI y fusión humana separada.
 - **Simplificar ya en la práctica:** no abrir PR exclusivas para conciliar una fusión; acumular esa corrección con el siguiente cambio real. Preferir hechos duraderos frente a frases transitorias de autorización.
@@ -81,4 +81,8 @@ El mínimo numérico no completa por sí solo [PROP-001](../../planificacion/PRO
 
 `DOC-GATE: PASSED` para la candidata exacta `9166899cbfc1d687f07606fb70b4c9217325ae33`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no existe revisión independiente porque no es exigible para este alcance. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia `OBS-003` ni la evaluación provisional.
 
-Siguiente acto de P0: esperar una contraparte real sin detener documentación conceptual autorizada. Siguiente decisión D3: Iván puede valorar si la utilidad observada justifica el coste; hasta entonces se conserva el circuito local y `PROP-001` permanece aplazada. Publicación o PR requieren autorización separada.
+Siguiente acto de P0: esperar una contraparte real sin detener documentación conceptual autorizada. Siguiente decisión D3: Iván puede valorar si la utilidad observada justifica el coste; hasta entonces se conserva el circuito local y `PROP-001` permanece aplazada.
+
+## Incorporación comprobada
+
+Tras autorización expresa, la rama se publicó y se abrió la [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5). Iván la fusionó como squash `578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`; su árbol `3ded7fb8def613d9404eae2fc50f9dc194fac748` coincide exactamente con el head `2dd1cfdc24255f2a3c687321b48790c26f32bebe`, y el check final [`documentation / validate`](https://github.com/ivanes189/hosteleria-app-product-docs/actions/runs/38770311707/job/116544077915) terminó en `PASS`. `OBS-003` queda integrada. La revisión dirigida de D3 no detecta omisiones críticas abiertas en el circuito observado; permanece pendiente exclusivamente el juicio humano sobre utilidad frente a coste antes de reevaluar `PROP-001`.
