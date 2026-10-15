@@ -13,6 +13,7 @@
 - Preservado el `NO APTO` C1 de `e86f3674…`: tres hallazgos resueltos y C2 abierto solo por la correspondencia pendiente entre ID y destino canónico de la decisión autorizante.
 - Corregido en C2 únicamente el remanente RI-002: el destino de la autorización debe ser la ficha canónica de la `DEC` etiquetada; revalidación enfocada pendiente.
 - Preservado el `APTO` C2 de `4246943b…`; los cuatro hallazgos quedan resueltos y `DOC-GATE: PASSED` para esa candidata local, sin autorizar publicación, PR ni CI remoto.
+- Tras autorización posterior, publicada la rama y abierta la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1); su primera ejecución `documentation / validate` pasó sobre `427908de…`. Fusión y protecciones permanecen fuera.
 - Añadidas preguntas e hipótesis comprobables para descubrir primer restaurante, usuario, pagador, problema, flujo, beneficio y coste sin convertir la mesa 12 en validación real.
 
 ### Producto

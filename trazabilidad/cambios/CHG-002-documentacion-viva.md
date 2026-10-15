@@ -4,8 +4,8 @@ title: Conciliación y circuito mínimo de documentación viva
 doc_type: document_change
 summary: Actualizar el estado publicado, implantar el circuito mínimo y ensayarlo localmente.
 updated_at: 2026-10-15
-source_refs: [SRC-014, SRC-015, SRC-016, SRC-017, SRC-018]
-incorporation_status: materializada_local
+source_refs: [SRC-014, SRC-015, SRC-016, SRC-017, SRC-018, SRC-019]
+incorporation_status: en_pr
 ---
 
 # CHG-002 — Conciliación y circuito mínimo de documentación viva
@@ -33,7 +33,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | Piloto y medición | actualización realizada en P1 | Cinco casos pertinentes; defectos deliberados solo en copias temporales. Resultados abajo. |
 | Producto, arquitectura, operación, privacidad y permisos | revisado sin modificación en L1 | La conciliación no aporta evidencia para cambiar su estado. |
 | FDA, Agent OS y repositorios fuente | no aplicable / no modificados | Permanecen en solo lectura y con autorización independiente. |
-| GitHub remoto | revisado sin modificación | Consulta pública únicamente; no se hizo `fetch`, `pull`, push, PR, fusión ni cambio de controles. |
+| GitHub remoto | publicación/PR autorizadas y realizadas tras `PASSED` | Rama publicada y [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) abierta contra `main`; primer check documental en `PASS`. Sin fusión ni cambio de controles. |
 
 ## Candidatas y dependencia
 
@@ -60,7 +60,8 @@ L2/P1 pasa en local:
 | `test_select_proposals.py` | `PASS` | fecha, identidad de evento, evidencia, ejecución vacía, memoria acumulativa, repetición y cambio real. |
 | `test_workflow_diff.py` | `PASS` | repositorio Git temporal: rechaza whitespace comprometido y acepta la corrección en rango base…candidata. |
 | Ensayo CLI con checkpoint temporal | primera salida `PROP-001: evento,evidencia_nueva`; segunda `NO_SELECTION` | no es una automatización activada ni una política de notificación. |
-| Workflow YAML y `git diff --check` | `PASS` | sintaxis local; GitHub Actions no lo ha ejecutado. |
+| Workflow YAML y `git diff --check` | `PASS` local | sintaxis y rango comprobados localmente. |
+| GitHub Actions `documentation / validate` | `PASS`, 6 s, [ejecución 38728854530](https://github.com/ivanes189/hosteleria-app-product-docs/actions/runs/38728854530/job/116401340147) | primera ejecución real sobre el head `427908de…`; no acredita check obligatorio ni ejecuciones posteriores. |
 
 Regenerar el manifiesto inicial no forma parte de estas comprobaciones. El workflow usa solo `pull_request`, `contents: read`, no secretos, `persist-credentials: false`, nombre estable `documentation / validate` y `actions/checkout` v7.0.1 fijada a `3d3c42e5aac5ba805825da76410c181273ba90b1` según [SRC-017](../../investigacion/SOURCE_REGISTER.md#src-017).
 
@@ -82,4 +83,4 @@ Se conservan el procedimiento único, `CHG`, `PROP` plano, validador y fixtures.
 
 La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) emitió [C0 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) para `36d071fb…`. Tras preservar y abrir C1, la misma instancia emitió [C1 `NO APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C1.md) para `e86f3674…`: RI-001, RI-003 y RI-004 resueltos; RI-002 parcialmente resuelto. Candidata y dictamen C1 se preservaron antes de abrir C2. La misma instancia emitió [C2 `APTO`](../../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) para `4246943b…`: RI-002 resuelto, sin hallazgos nuevos ni regresiones directas. C1 y C2 quedan consumidos; no se abre C3. Coste/consumo expuesto: `desconocido`.
 
-`DOC-GATE: PASSED` para la candidata exacta `4246943b9ef288e0a437819d89934e2c08e634f4`. La candidata permanece `materializada_local`: el gate no acredita publicación, ejecución real de CI ni integración. Siguiente acto sujeto a autorización expresa: publicar la rama `codex/documentacion-viva-piloto` y abrir PR; esa acción puede ejecutar el workflow preparado. Cambiar protecciones o fusionar requerirá autorizaciones separadas.
+`DOC-GATE: PASSED` para la candidata exacta `4246943b9ef288e0a437819d89934e2c08e634f4`. La rama `codex/documentacion-viva-piloto` está publicada y la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) permanece abierta (`incorporation_status: en_pr`); el primer check pasó sobre `427908de…`. Este estado no acredita integración. Cada nuevo push exige observar el check del head vigente. Revisar/fusionar y cambiar protecciones requieren autorizaciones separadas.
