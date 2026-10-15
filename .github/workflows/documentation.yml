@@ -1,0 +1,24 @@
+name: documentation
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: documentation / validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the pull request candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Validate documentation and fixtures
+        run: |
+          python3 -B herramientas/validate_docs.py
+          python3 -B herramientas/test_validate_docs.py
+          python3 -B herramientas/test_select_proposals.py
+          git diff --check

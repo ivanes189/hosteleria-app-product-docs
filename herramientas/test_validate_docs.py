@@ -102,6 +102,70 @@ def main() -> int:
         ),
         "Cambio no reflejado en historial",
     )
+    expect(
+        "ID PROP duplicado",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "## PROP-002 — Extraer componentes documentales compartidos",
+                "## PROP-001 — Extraer componentes documentales compartidos",
+            ),
+            encoding="utf-8",
+        ),
+        "ID duplicado PROP-001",
+    )
+    expect(
+        "estado PROP inválido",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "- **Estado:** aplazada.", "- **Estado:** lista.", 1
+            ),
+            encoding="utf-8",
+        ),
+        "Estado PROP no válido",
+    )
+    expect(
+        "PROP sin condición de revisión",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "- **Condición de revisión:** Reconsiderar cuando el circuito se haya usado en al menos tres cambios reales posteriores a su implantación en Restaurant, no presente omisiones críticas abiertas y el responsable humano documente que la utilidad justifica el coste de adopción.\n",
+                "",
+                1,
+            ),
+            encoding="utf-8",
+        ),
+        "PROP sin campo Condición de revisión",
+    )
+    expect(
+        "autorización PROP afirmada sin referencia",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "- **Autorización:** pendiente.", "- **Autorización:** autorizada.", 1
+            ),
+            encoding="utf-8",
+        ),
+        "Autorización PROP sin referencia",
+    )
+    expect(
+        "cambio sin declaración de impacto",
+        lambda root: (root / "trazabilidad/cambios/CHG-002-documentacion-viva.md").write_text(
+            (root / "trazabilidad/cambios/CHG-002-documentacion-viva.md").read_text().replace(
+                "## Impacto documental", "## Archivos del lote", 1
+            ),
+            encoding="utf-8",
+        ),
+        "Cambio sin declaración de impacto documental",
+    )
+    expect(
+        "acción de workflow sin commit completo",
+        lambda root: (root / ".github/workflows/documentation.yml").write_text(
+            (root / ".github/workflows/documentation.yml").read_text().replace(
+                "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "actions/checkout@v7.0.1",
+            ),
+            encoding="utf-8",
+        ),
+        "Acción no fijada a commit completo",
+    )
     print("SELF-TEST: PASS")
     return 0
 

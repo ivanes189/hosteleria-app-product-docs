@@ -8,7 +8,7 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | L1 materializado localmente; validaciones en el expediente | circuito mínimo, piloto y revisión sobre candidata exacta |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures y workflow local comprobados | revisión independiente; después autorización separada para rama/PR |
 
 ## Producto
 

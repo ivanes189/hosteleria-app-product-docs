@@ -4,7 +4,7 @@
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exactamente como commit raíz de `main`. La rama local `codex/documentacion-viva-piloto` prepara la conciliación y un circuito documental mínimo; no existe PR ni workflow publicado y no se ha activado automatización.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exactamente como commit raíz de `main`. La rama local `codex/documentacion-viva-piloto` contiene la conciliación y el circuito documental mínimo comprobados localmente; no existe PR ni workflow publicado y no se ha activado automatización.
 
 ## Base conocida
 
@@ -31,8 +31,16 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó exa
 - Los detalles efectivos de protección clásica/rulesets requieren una sesión GitHub válida para su revalidación; la protección de `main` sí es visible públicamente.
 - El nuevo lote no está publicado, revisado por una instancia independiente ni integrado. El `PASSED` inicial no se transfiere a [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md).
 
+## Comprobaciones de CHG-002
+
+- L1: commit local `97a6551449b8cefe441d7116c604adcbf185abec`; validador (48 Markdown), diez fixtures y `git diff --check` en PASS.
+- L2/P1: validador (51 Markdown), 16 fixtures negativos, selector de propuestas y `git diff --check` en PASS; YAML del workflow cargado localmente.
+- El ensayo con checkpoint seleccionó `PROP-001` una vez y devolvió `NO_SELECTION` al reejecutar sin cambios.
+- El workflow `documentation / validate` está solo preparado. No existe ejecución de GitHub que acredite CI ni comprobación obligatoria.
+- Revisión interna realizada durante la autoría; no sustituye la revisión independiente exigible. Coste/consumo observable: `desconocido`.
+
 ## Continuidad inmediata
 
-Completar localmente [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md): procedimiento canónico, propuestas futuras, controles y piloto. Después identificar la candidata por el commit exacto, aplicar la revisión exigible y presentar a Iván un único punto de decisión para publicar rama y abrir PR. Publicar el workflow preparado puede ejecutar GitHub Actions y no está autorizado en esta fase.
+Someter el commit local de la rama con asunto `docs: add living documentation circuit` a revisión completa independiente, en contexto nuevo y solo lectura, usando el [paquete preparado](revisiones/PAQUETE_REVISION_CHG-002.md). Si resulta apto, presentar a Iván un único punto de decisión para publicar la rama y abrir PR. Publicar y abrir la PR puede ejecutar GitHub Actions y no está autorizado en esta fase; protecciones y fusión quedan fuera.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

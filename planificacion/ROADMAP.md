@@ -2,11 +2,11 @@
 
 [← Portada](../README.md)
 
-**Índice de planificación:** esta hoja define transiciones; [riesgos y supuestos](RISKS_AND_ASSUMPTIONS.md) conserva incertidumbres, impacto y tratamiento.
+**Índice de planificación:** esta hoja define transiciones; [riesgos y supuestos](RISKS_AND_ASSUMPTIONS.md) conserva incertidumbres, impacto y tratamiento; [propuestas futuras](PROPUESTAS_FUTURAS.md) conserva mejoras aplazadas y sus condiciones de reconsideración.
 
 ## Posición actual
 
-**D1 completada el 2026-10-09.** La candidata inicial quedó integrada exactamente en `main`; véase el [cierre y publicación](../gobierno/HISTORIAL_PUBLICACION_INICIAL.md). **D2 está materializada localmente:** conciliación, circuito mínimo y piloto documental bajo [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md). No hay PR, CI publicada ni automatización activa.
+**D1 completada el 2026-10-09.** La candidata inicial quedó integrada exactamente en `main`; véase el [cierre y publicación](../gobierno/HISTORIAL_PUBLICACION_INICIAL.md). **D2 está materializada y comprobada localmente:** conciliación, circuito mínimo y piloto documental bajo [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md); queda pendiente la revisión independiente. No hay PR, CI publicada ni automatización activa.
 
 ## Transiciones
 

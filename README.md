@@ -15,7 +15,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 - **Entender el estado real:** [auditoría inicial](gobierno/AUDITORIA_INICIAL.md) → [cierre y publicación inicial](gobierno/HISTORIAL_PUBLICACION_INICIAL.md) → [estado del proyecto](gobierno/PROJECT_STATE.md) → [decisiones pendientes](decisiones/PENDING_DECISIONS.md).
 - **Seguir el caso de la mesa 12:** [FEAT-001](producto/funcionalidades/FEAT-001-gestion-tareas-servicio.md) → [REQ](requisitos/REQUIREMENTS.md#req-003) → [SOP-001](operacion/procedimientos/SOP-001-atender-solicitud-servicio.md) → [eventos](arquitectura/EVENTS_METRICS.md) → [pruebas](validacion/TEST_SCENARIOS.md#test-001).
 - **Evaluar reutilización:** [registro de fuentes](investigacion/SOURCE_REGISTER.md) → [registro de reutilización](investigacion/REUSE_REGISTER.md) → [arquitectura](arquitectura/ARCHITECTURE.md).
-- **Cambiar la documentación:** [política](DOCUMENTATION_POLICY.md) → [plantillas](plantillas/README.md) → [expediente CHG-001](trazabilidad/cambios/CHG-001-candidata-inicial.md).
+- **Cambiar la documentación:** [política](DOCUMENTATION_POLICY.md) → [procedimiento vivo](gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md) → [plantillas](plantillas/README.md) → [expediente vigente CHG-002](trazabilidad/cambios/CHG-002-documentacion-viva.md).
 
 ## Inventario maestro
 
@@ -31,6 +31,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 | P1 | [PRIVACY_COMPLIANCE](cumplimiento/PRIVACY_COMPLIANCE.md) | desarrollado, revisión jurídica pendiente | Privacidad, IA y trabajo. |
 | P1 | [TEST_SCENARIOS](validacion/TEST_SCENARIOS.md) | desarrollado, no ejecutado | Escenarios de aceptación. |
 | P1 | [ROADMAP](planificacion/ROADMAP.md) | desarrollado | Transiciones y gates. |
+| P1 | [PROPUESTAS_FUTURAS](planificacion/PROPUESTAS_FUTURAS.md) | circuito local en evaluación | Mejoras aplazadas, condiciones y autorización separada. |
 | P2 | [INTEGRATIONS](arquitectura/INTEGRATIONS.md) | síntesis desarrollada | Integraciones candidatas. |
 | P2 | [BUSINESS_MODEL](negocio/BUSINESS_MODEL.md) | hipótesis documentadas | Negocio sin oferta aprobada. |
 | P2 | [REUSE_REGISTER](investigacion/REUSE_REGISTER.md) | desarrollado | Reutilización con evidencia. |
@@ -40,6 +41,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 
 - [Instrucciones para agentes](AGENTS.md)
 - [Política documental y DOC-GATE](DOCUMENTATION_POLICY.md)
+- [Procedimiento de documentación viva](gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md)
 - [Estado para reanudación](gobierno/PROJECT_STATE.md)
 - [Cobertura de fuentes](investigacion/SOURCE_REGISTER.md)
 - [Matriz de trazabilidad](trazabilidad/TRACEABILITY_MATRIX.md)

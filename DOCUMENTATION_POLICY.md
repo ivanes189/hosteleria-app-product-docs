@@ -22,7 +22,9 @@ Nueva evidencia puede invalidar una afirmación previa. En ese caso se conserva 
 
 ## 3. Identidad y metadatos
 
-Los elementos seguidos usan IDs permanentes: `DEC`, `ADR`, `FEAT`, `SOP`, `SUB`, `REQ`, `TEST`, `CHG` y `SRC`. Las familias auxiliares son `PD` (decisión pendiente), `RU` (reutilización), `R` (riesgo) y `A` (supuesto); viven como anclas permanentes dentro de sus registros canónicos. No se reutilizan ni renumeran. El frontmatter mínimo de una ficha incluye `id`, `title`, `doc_type`, `summary`, `updated_at`, `source_refs` y las dimensiones de estado aplicables. `DEC` añade `decision_date`; `SOP` y `SUB`, `related_features`; relaciones aplicables se expresan mediante IDs existentes. Las asignaciones de esta candidata son propuestas hasta su incorporación.
+Los elementos seguidos usan IDs permanentes: `DEC`, `ADR`, `FEAT`, `SOP`, `SUB`, `REQ`, `TEST`, `CHG` y `SRC`. Las familias auxiliares son `PD` (decisión pendiente), `PROP` (mejora aplazada), `RU` (reutilización), `R` (riesgo) y `A` (supuesto); viven como anclas permanentes dentro de sus registros canónicos. No se reutilizan ni renumeran. El frontmatter mínimo de una ficha incluye `id`, `title`, `doc_type`, `summary`, `updated_at`, `source_refs` y las dimensiones de estado aplicables. `DEC` añade `decision_date`; `SOP` y `SUB`, `related_features`; relaciones aplicables se expresan mediante IDs existentes.
+
+`PD` conserva una decisión que el proyecto necesita. `PROP` conserva una mejora concreta que puede esperar. Cada `PROP` registra problema/beneficio, fuente, proyecto, responsable humano, estado (`propuesta`, `en_evaluacion`, `aplazada`, `descartada` o `sustituida`), condición y disparadores de revisión, dependencias, próxima/última revisión, evidencia, conclusión, autorización y ejecución. Una condición cumplida abre reevaluación; autorización, ejecución y verificación son hechos distintos.
 
 ## 4. Definición canónica
 
@@ -36,17 +38,20 @@ Las síntesis enlazan la definición canónica y no copian reglas completas. Los
 
 ## 5. Flujo de cambio
 
-1. Verificar base, autorización, cambios y fuentes.
-2. Clasificar el cambio: editorial, corrección factual, funcional/comercial, arquitectónico, operativo crítico o gobierno.
-3. Para cambios materiales, abrir un `CHG` con impacto, dependencias y evidencia.
-4. Actualizar definiciones, historia, índices y relaciones en el mismo lote.
-5. Ejecutar validación estructural, revisión semántica, revisión de impacto y aprobación humana según corresponda.
-6. Identificar la candidata por manifiesto de rutas y SHA-256 o por commit exacto.
-7. Materializar y publicar solo dentro de una autorización expresa; la fusión final es humana.
+El [procedimiento de documentación viva](gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md) es el flujo canónico.
+
+1. Verificar base, autorización, cambios y fuentes; clasificar autoridad y cambio.
+2. Declarar documentos afectados y motivo, o una justificación revisable de ausencia de impacto.
+3. Para cambios materiales, abrir o ampliar un `CHG` con sección `Impacto documental`, dependencias y evidencia.
+4. Registrar decisiones materiales y propuestas futuras aunque no exista PR de código.
+5. Actualizar definiciones, estados, historia, índices y relaciones en el mismo lote.
+6. Ejecutar validación estructural, pruebas negativas, revisión semántica, revisión de impacto y aprobación humana según corresponda.
+7. Identificar la candidata por manifiesto diferenciado o commit exacto.
+8. Materializar y publicar solo dentro de una autorización expresa; la fusión final es humana.
 
 ## 6. Revisión independiente
 
-La candidata inicial y los cambios materiales de producto, arquitectura, permisos, privacidad o procedimientos críticos requieren una revisión completa independiente, en solo lectura y contexto nuevo. El perfil de referencia es GPT-6 Astra con razonamiento alto. El revisor recibe fuentes, encargo, normas, candidata y evidencias, sin un veredicto previo como premisa.
+La candidata inicial y los cambios materiales de producto, arquitectura, permisos, privacidad, procedimientos críticos o del propio gobierno/validador que puedan permitir un falso `PASSED` requieren una revisión completa independiente, en solo lectura y contexto nuevo. El perfil de referencia es GPT-6 Astra con razonamiento alto. El revisor recibe fuentes, encargo, normas, candidata y evidencias, sin un veredicto previo como premisa.
 
 Hay una revisión completa. El autor corrige solo hallazgos y efectos directos. La misma instancia revalida de forma enfocada. La redacción inicial no consume ciclo; cada corrección tras dictamen consume C1 o C2 desde su apertura, aunque falle, no produzca cambios o introduzca nuevas incidencias. Antes de corregir se preservan candidata, hallazgos, número de ciclo y trabajo abierto; después se registran resultado y evidencia. La revalidación enfocada no abre ciclo por sí sola. No se renombra o reinicia el expediente para recuperar ciclos.
 
@@ -66,6 +71,10 @@ Resultados:
 
 Una candidata externa puede superar el gate sin estar publicada. Ningún validador acredita equivalencia semántica, aprobación humana o cumplimiento jurídico.
 
+Los controles de `PROP` comprueban presencia, formato, IDs, estados y algunas incoherencias mecánicas. No determinan si la condición es suficiente, la evidencia es verdadera, el responsable acepta el rol o la propuesta conviene.
+
 ## 8. Navegación y mantenimiento
 
 Todo documento vigente enlaza su índice superior, relaciones y fuentes. La portada alcanza fichas habituales en tres pasos. No se crean carpetas vacías ni enlaces a archivos inexistentes; lo planificado se registra como texto. Fechas: `YYYY-MM-DD`, y horas ISO 8601 con desplazamiento; referencia humana inicial `Europe/Dublin`.
+
+Los cambios repartidos entre repositorios identifican commits/PR y versiones de ambos lados, pruebas y pendiente de sincronización. No se promete atomicidad ni se supone que el CI documental detecta cambios externos. La revisión periódica de propuestas no se activa hasta probar selección idempotente y autorizar horario, presupuesto, herramienta, permisos y notificaciones.

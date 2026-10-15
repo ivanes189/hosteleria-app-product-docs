@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import hashlib
 import re
 import sys
@@ -24,6 +25,8 @@ REQUIRED = {
     "decisiones/PENDING_DECISIONS.md",
     "requisitos/REQUIREMENTS.md",
     "investigacion/SOURCE_REGISTER.md",
+    "gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md",
+    "planificacion/PROPUESTAS_FUTURAS.md",
     "trazabilidad/TRACEABILITY_MATRIX.md",
 }
 STATE_VALUES = {
@@ -50,8 +53,29 @@ LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^#{1,6}\s+(.+?)\s*$", re.M)
 EXPLICIT_ANCHOR_RE = re.compile(r'<a\s+id=["\']([^"\']+)["\']\s*></a>')
 ID_RE = re.compile(r"^(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC)-\d{3}$")
-AUX_ID_RE = re.compile(r"^(?:PD|RU|R|A)-\d{3}$")
-ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|RU|R|A)-\d{3}\b")
+AUX_ID_RE = re.compile(r"^(?:PD|PROP|RU|R|A)-\d{3}$")
+ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|PROP|RU|R|A)-\d{3}\b")
+PROP_HEADING_RE = re.compile(r"^##\s+(PROP-\d{3})\s+—\s+(.+?)\s*$", re.M)
+PROP_FIELD_RE = re.compile(r"^- \*\*([^*]+):\*\*\s*(.+?)\s*$", re.M)
+PROP_REQUIRED_FIELDS = {
+    "Problema/beneficio",
+    "Fuente",
+    "Proyecto destinatario",
+    "Responsable",
+    "Estado",
+    "Condición de revisión",
+    "Disparadores",
+    "Dependencias",
+    "Próxima revisión",
+    "Última revisión",
+    "Evidencia nueva",
+    "Conclusión",
+    "Autorización",
+    "Referencia de autorización",
+    "Ejecución",
+}
+PROP_STATES = {"propuesta", "en_evaluacion", "aplazada", "descartada", "sustituida"}
+PROP_AUTHORIZATION = {"pendiente", "autorizada"}
 PATH_TYPES = (
     (re.compile(r"^producto/funcionalidades/FEAT-\d{3}-.*\.md$"), "feature"),
     (re.compile(r"^decisiones/DEC-\d{3}-.*\.md$"), "decision"),
@@ -59,6 +83,7 @@ PATH_TYPES = (
     (re.compile(r"^catalogo/subproductos/SUB-\d{3}-.*\.md$"), "subproduct"),
     (re.compile(r"^trazabilidad/cambios/CHG-\d{3}-.*\.md$"), "document_change"),
 )
+WORKFLOW_PATH = Path(".github/workflows/documentation.yml")
 
 
 def markdown_files(root: Path = ROOT) -> list[Path]:
@@ -111,6 +136,22 @@ def embedded_ids(text: str) -> set[str]:
     return set(ANY_ID_RE.findall(text))
 
 
+def parse_proposals(text: str) -> list[dict[str, object]]:
+    """Parsea el formato plano y deliberadamente limitado del registro PROP."""
+    matches = list(PROP_HEADING_RE.finditer(text))
+    proposals: list[dict[str, object]] = []
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        section = text[match.end():end]
+        fields = {field.group(1).strip(): field.group(2).strip() for field in PROP_FIELD_RE.finditer(section)}
+        proposals.append({"id": match.group(1), "title": match.group(2).strip(), "fields": fields})
+    return proposals
+
+
+def token(value: str) -> str:
+    return value.strip().rstrip(".").strip().lower()
+
+
 def check(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     files = markdown_files(root)
@@ -137,6 +178,8 @@ def check(root: Path = ROOT) -> list[str]:
         if doc_type in TYPE_FIELDS and not is_template:
             for field in sorted(TYPE_FIELDS[doc_type] - set(meta)):
                 errors.append(f"Falta campo {field} para {doc_type} en {rel}")
+        if doc_type == "document_change" and not is_template and not re.search(r"^## Impacto(?: documental)?\s*$", text, re.M):
+            errors.append(f"Cambio sin declaración de impacto documental: {rel}")
         if "id" in meta:
             item_id = meta["id"]
             if not is_template and not ID_RE.fullmatch(item_id):
@@ -193,6 +236,58 @@ def check(root: Path = ROOT) -> list[str]:
         if target_id not in known_ids:
             errors.append(f"Referencia inexistente en {rel}: {field}={target_id}")
 
+    proposals_rel = "planificacion/PROPUESTAS_FUTURAS.md"
+    proposals_path = rels.get(proposals_rel)
+    if proposals_path:
+        proposals_text = proposals_path.read_text(encoding="utf-8")
+        proposals = parse_proposals(proposals_text)
+        if not proposals:
+            errors.append(f"Registro PROP sin entradas: {proposals_rel}")
+        proposal_counts = Counter(str(item["id"]) for item in proposals)
+        for proposal_id, count in proposal_counts.items():
+            if count > 1:
+                errors.append(f"ID duplicado {proposal_id} en registro PROP ({count})")
+        proposal_anchors = anchors(proposals_text)
+        for proposal in proposals:
+            proposal_id = str(proposal["id"])
+            fields = proposal["fields"]
+            assert isinstance(fields, dict)
+            missing_fields = sorted(PROP_REQUIRED_FIELDS - set(fields))
+            for field in missing_fields:
+                errors.append(f"PROP sin campo {field}: {proposal_id}")
+            if proposal_id.lower() not in proposal_anchors:
+                errors.append(f"PROP sin ancla estable: {proposal_id}")
+            state = token(str(fields.get("Estado", "")))
+            if state and state not in PROP_STATES:
+                errors.append(f"Estado PROP no válido: {proposal_id}={state}")
+            condition = token(str(fields.get("Condición de revisión", "")))
+            if condition in {"", "desconocida", "pendiente", "no_aplica"}:
+                errors.append(f"PROP sin condición de revisión: {proposal_id}")
+            owner = str(fields.get("Responsable", ""))
+            if re.search(r"\b(?:ia|codex|chatgpt|asistente)\b", owner, re.I):
+                errors.append(f"PROP con IA como responsable: {proposal_id}")
+            next_review = token(str(fields.get("Próxima revisión", "")))
+            if next_review and next_review != "por_evento":
+                try:
+                    dt.date.fromisoformat(next_review)
+                except ValueError:
+                    errors.append(f"Próxima revisión PROP no válida: {proposal_id}={next_review}")
+            last_review = token(str(fields.get("Última revisión", "")))
+            if last_review:
+                try:
+                    dt.date.fromisoformat(last_review)
+                except ValueError:
+                    errors.append(f"Última revisión PROP no válida: {proposal_id}={last_review}")
+            authorization = token(str(fields.get("Autorización", "")))
+            if authorization and authorization not in PROP_AUTHORIZATION:
+                errors.append(f"Autorización PROP no válida: {proposal_id}={authorization}")
+            authorization_ref = token(str(fields.get("Referencia de autorización", "")))
+            if authorization == "autorizada" and (
+                authorization_ref in {"", "no_aplica", "pendiente", "desconocida"}
+                or not re.search(r"\bDEC-\d{3}\b", str(fields.get("Referencia de autorización", "")))
+            ):
+                errors.append(f"Autorización PROP sin referencia: {proposal_id}")
+
     exempt = {"README.md"}
     for rel in rels:
         if rel not in exempt and incoming[rel] == 0:
@@ -227,6 +322,23 @@ def check(root: Path = ROOT) -> list[str]:
                 errors.append(f"Cambio no reflejado en índice: {item_id}")
             if item_id not in history_text:
                 errors.append(f"Cambio no reflejado en historial: {item_id}")
+
+    workflow = root / WORKFLOW_PATH
+    if not workflow.exists():
+        errors.append(f"Falta workflow documental preparado: {WORKFLOW_PATH.as_posix()}")
+    else:
+        workflow_text = workflow.read_text(encoding="utf-8")
+        if "pull_request_target:" in workflow_text or re.search(r"^\s*schedule:\s*$", workflow_text, re.M):
+            errors.append("Workflow documental con trigger privilegiado o programado")
+        if not re.search(r"^permissions:\s*\n\s{2}contents:\s*read\s*$", workflow_text, re.M):
+            errors.append("Workflow documental sin permisos mínimos contents: read")
+        if "${{ secrets." in workflow_text:
+            errors.append("Workflow documental referencia secretos")
+        if "name: documentation / validate" not in workflow_text:
+            errors.append("Workflow documental sin nombre de comprobación estable")
+        for action in re.findall(r"^\s*-?\s*uses:\s*([^\s#]+)", workflow_text, re.M):
+            if not re.fullmatch(r"[^@\s]+@[0-9a-f]{40}", action):
+                errors.append(f"Acción no fijada a commit completo: {action}")
 
     return errors
 

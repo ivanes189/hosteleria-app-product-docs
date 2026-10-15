@@ -15,7 +15,7 @@
 <a id="pd-003"></a>
 ## PD-003 — Alcance del MVP (P0)
 
-Decidir establecimiento objetivo, departamentos, tipo de solicitud, canal cliente/personal y objetivo de piloto. Sin esto no hay aceptación ni SLO realistas.
+Decidir primer restaurante, usuario prioritario, pagador, problema/frecuencia, flujo operativo actual, departamentos, tipo de solicitud, canal cliente/personal y resultado verificable del piloto con criterio de parada. Sin esto no hay aceptación, precio, soporte ni SLO realistas. Preguntas e hipótesis: [modelo de negocio](../negocio/BUSINESS_MODEL.md#descubrimiento-del-primer-restaurante).
 
 <a id="pd-004"></a>
 ## PD-004 — Métricas laborales y jurisdicción (P0)
