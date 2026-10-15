@@ -16,9 +16,11 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+          fetch-depth: 0
       - name: Validate documentation and fixtures
         run: |
           python3 -B herramientas/validate_docs.py
           python3 -B herramientas/test_validate_docs.py
           python3 -B herramientas/test_select_proposals.py
-          git diff --check
+          python3 -B herramientas/test_workflow_diff.py
+          git diff --check "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"

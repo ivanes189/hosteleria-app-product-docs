@@ -8,18 +8,21 @@ import datetime as dt
 import hashlib
 import json
 from pathlib import Path
+from typing import TypeAlias
 
 import validate_docs
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REGISTER = ROOT / "planificacion/PROPUESTAS_FUTURAS.md"
 NO_NEW_EVIDENCE_PREFIXES = ("ninguna", "pendiente")
+Selection: TypeAlias = tuple[dict[str, object], tuple[str, ...]]
+SelectionState: TypeAlias = dict[str, list[str]]
 
 
 def select(
     proposals: list[dict[str, object]], as_of: dt.date, events: set[str]
-) -> list[tuple[dict[str, object], tuple[str, ...]]]:
-    selected: list[tuple[dict[str, object], tuple[str, ...]]] = []
+) -> list[Selection]:
+    selected: list[Selection] = []
     normalized_events = {event.removeprefix("event:") for event in events}
     for proposal in proposals:
         fields = proposal["fields"]
@@ -38,8 +41,8 @@ def select(
             for token in triggers.rstrip(".").split(",")
             if token.strip().strip("` ").startswith("event:")
         }
-        if trigger_events & normalized_events:
-            reasons.add("evento")
+        for event in trigger_events & normalized_events:
+            reasons.add(f"evento:{event}")
         evidence = str(fields.get("Evidencia nueva", "")).strip().lower()
         if evidence and not evidence.startswith(NO_NEW_EVIDENCE_PREFIXES):
             reasons.add("evidencia_nueva")
@@ -49,9 +52,9 @@ def select(
     return selected
 
 
-def fingerprint(proposal: dict[str, object], reasons: tuple[str, ...]) -> str:
+def digest(value: object) -> str:
     payload = json.dumps(
-        {"proposal": proposal, "reasons": reasons},
+        value,
         ensure_ascii=False,
         sort_keys=True,
         separators=(",", ":"),
@@ -59,27 +62,58 @@ def fingerprint(proposal: dict[str, object], reasons: tuple[str, ...]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
+def notification_signatures(proposal: dict[str, object], reasons: tuple[str, ...]) -> set[str]:
+    fields = proposal["fields"]
+    assert isinstance(fields, dict)
+    signatures = {f"contenido:{digest(proposal)}"}
+    for reason in reasons:
+        if reason.startswith("evento:"):
+            signatures.add(reason)
+        elif reason == "evidencia_nueva":
+            signatures.add(f"evidencia:{digest(str(fields.get('Evidencia nueva', '')).strip())}")
+        elif reason == "fecha_vencida":
+            signatures.add(f"fecha:{validate_docs.token(str(fields.get('Próxima revisión', '')))}")
+    return signatures
+
+
 def unseen(
-    selected: list[tuple[dict[str, object], tuple[str, ...]]], seen: dict[str, str]
-) -> list[tuple[dict[str, object], tuple[str, ...]]]:
+    selected: list[Selection], seen: SelectionState
+) -> list[Selection]:
     return [
         item
         for item in selected
-        if seen.get(str(item[0]["id"])) != fingerprint(item[0], item[1])
+        if not notification_signatures(item[0], item[1]).issubset(
+            set(seen.get(str(item[0]["id"]), []))
+        )
     ]
 
 
-def state_for(selected: list[tuple[dict[str, object], tuple[str, ...]]]) -> dict[str, str]:
-    return {str(item[0]["id"]): fingerprint(item[0], item[1]) for item in selected}
+def state_for(selected: list[Selection], previous: SelectionState | None = None) -> SelectionState:
+    state = {proposal_id: list(signatures) for proposal_id, signatures in (previous or {}).items()}
+    for proposal, reasons in selected:
+        proposal_id = str(proposal["id"])
+        known = set(state.get(proposal_id, []))
+        known.update(notification_signatures(proposal, reasons))
+        state[proposal_id] = sorted(known)
+    return state
 
 
-def load_state(path: Path | None) -> dict[str, str]:
+def load_state(path: Path | None) -> SelectionState:
     if path is None or not path.exists():
         return {}
     data = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(data, dict) or not all(isinstance(k, str) and isinstance(v, str) for k, v in data.items()):
-        raise ValueError("El estado de selección debe ser un objeto JSON string→string")
+    if not isinstance(data, dict) or not all(
+        isinstance(key, str)
+        and isinstance(value, list)
+        and all(isinstance(signature, str) for signature in value)
+        for key, value in data.items()
+    ):
+        raise ValueError("El estado de selección debe ser un objeto JSON string→lista de firmas")
     return data
+
+
+def display_reasons(reasons: tuple[str, ...]) -> tuple[str, ...]:
+    return tuple(sorted({"evento" if reason.startswith("evento:") else reason for reason in reasons}))
 
 
 def main() -> int:
@@ -95,16 +129,17 @@ def main() -> int:
 
     proposals = validate_docs.parse_proposals(args.file.read_text(encoding="utf-8"))
     selected = select(proposals, args.as_of, set(args.event))
-    alerts = unseen(selected, load_state(args.state))
+    previous = load_state(args.state)
+    alerts = unseen(selected, previous)
     for proposal, reasons in alerts:
-        print(f"{proposal['id']}: {','.join(reasons)}")
+        print(f"{proposal['id']}: {','.join(display_reasons(reasons))}")
     if not alerts:
         print("NO_SELECTION")
     if args.record:
         assert args.state is not None
         args.state.parent.mkdir(parents=True, exist_ok=True)
         args.state.write_text(
-            json.dumps(state_for(selected), ensure_ascii=False, sort_keys=True, indent=2) + "\n",
+            json.dumps(state_for(selected, previous), ensure_ascii=False, sort_keys=True, indent=2) + "\n",
             encoding="utf-8",
         )
     return 0

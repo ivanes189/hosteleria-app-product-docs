@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** revisión completa C0 concluida con `NO APTO`; candidata y [dictamen preservados](DICTAMEN_CHG-002-C0.md), C1 abierto para corregir exclusivamente los cuatro hallazgos.
+**Estado:** revisión completa C0 concluida con `NO APTO`; candidata y [dictamen preservados](DICTAMEN_CHG-002-C0.md). Las cuatro correcciones C1 están materializadas y comprobadas localmente; falta ligar su SHA exacto y pedir revalidación enfocada a la misma instancia.
 
 ## Candidata y base
 
@@ -36,6 +36,16 @@ Comprobar especialmente: autoridad y estados; preservación de CHG-001/manifiest
 - Tiempo humano y coste/consumo: desconocidos.
 
 La revisora debe reproducir o cuestionar esta evidencia; no asumir que prueba semántica, aprobación o funcionamiento en GitHub.
+
+## Evidencia de corrección C1 pendiente de revalidación
+
+- `CHG002-RI-001`: el parser separa todo H2 destinado a `PROP`, rechaza encabezados/IDs inválidos y campos duplicados; conserva exactamente los campos de las cuatro entradas válidas.
+- `CHG002-RI-002`: una propuesta autorizada exige enlace Markdown a una `DEC` existente; hay prueba negativa para `DEC-999` y positiva para `DEC-004`.
+- `CHG002-RI-003`: el checkpoint acumula firmas estables de contenido, evidencia y eventos; las pruebas cubren retirada/repetición de evento, ejecución intermedia vacía y cambio real de evidencia.
+- `CHG002-RI-004`: checkout obtiene historial completo y el workflow ejecuta `git diff --check` sobre `base.sha..head.sha`; un ensayo Git aislado rechaza un commit con whitespace defectuoso y acepta el corregido.
+- Controles C1: validador sobre 52 Markdown, 22 mutaciones negativas, una autorización positiva, selector, ensayo aislado del diff, carga YAML y `git diff --check`, todos en `PASS` local.
+
+El SHA y los rangos exactos C1 se incorporarán en un commit de enlace posterior a la candidata para evitar autorreferencia. GitHub Actions sigue sin ejecutarse.
 
 ## Salida requerida
 

@@ -74,7 +74,7 @@ Registro único de mejoras aplazadas. `PROP` no sustituye decisiones pendientes 
 - **Dependencias:** Pruebas del selector; decisión humana sobre operación y permisos.
 - **Próxima revisión:** por_evento.
 - **Última revisión:** 2026-10-15.
-- **Evidencia nueva:** El selector pasó casos de fecha, evento y evidencia nueva; con checkpoint, una primera ejecución seleccionó `PROP-001` y la segunda sin cambios devolvió `NO_SELECTION`. No se ha ejecutado en GitHub ni se han decidido horario, presupuesto, herramienta, permisos o notificaciones.
+- **Evidencia nueva:** El selector pasó casos de fecha, evento y evidencia nueva; conserva firmas históricas de contenido, evidencia y eventos, no repite el aviso tras una ejecución intermedia vacía o la retirada/repetición del mismo evento, y sí avisa ante evidencia realmente modificada. No se ha ejecutado en GitHub ni se han decidido horario, presupuesto, herramienta, permisos o notificaciones.
 - **Conclusión:** El mecanismo local es apto para continuar el piloto, pero la activación permanece aplazada hasta resolver las condiciones humanas y remotas restantes.
 - **Autorización:** pendiente.
 - **Referencia de autorización:** no_aplica.

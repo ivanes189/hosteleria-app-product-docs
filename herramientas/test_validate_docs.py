@@ -17,16 +17,33 @@ def expect(label: str, mutate, expected: str) -> None:
         fixture = Path(tmp) / "repo"
         shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns("candidate-manifest.sha256", "__pycache__"))
         mutate(fixture)
-        errors = validate_docs.check(fixture)
+        errors = validate_docs.check(fixture.resolve())
         if not any(expected in error for error in errors):
             raise AssertionError(f"{label}: no se detectó {expected!r}; errores={errors}")
         print(f"PASS negativo: {label}")
+
+
+def expect_valid(label: str, mutate) -> None:
+    with tempfile.TemporaryDirectory(prefix="hosteleria-doc-fixture-") as tmp:
+        fixture = Path(tmp) / "repo"
+        shutil.copytree(ROOT, fixture, ignore=shutil.ignore_patterns("candidate-manifest.sha256", "__pycache__"))
+        mutate(fixture)
+        errors = validate_docs.check(fixture.resolve())
+        if errors:
+            raise AssertionError(f"{label}: la referencia válida produjo errores={errors}")
+        print(f"PASS positivo: {label}")
 
 
 def main() -> int:
     baseline = validate_docs.check(ROOT)
     if baseline:
         raise AssertionError(f"La candidata base no pasa: {baseline}")
+
+    proposal_text = (ROOT / "planificacion/PROPUESTAS_FUTURAS.md").read_text(encoding="utf-8")
+    proposals = validate_docs.parse_proposals(proposal_text)
+    assert [item["id"] for item in proposals] == ["PROP-001", "PROP-002", "PROP-003", "PROP-004"]
+    assert all(set(item["fields"]) == validate_docs.PROP_REQUIRED_FIELDS for item in proposals)
+    assert proposals[0]["fields"]["Estado"] == "aplazada."
 
     expect(
         "estado de dimensión incorrecta",
@@ -114,6 +131,40 @@ def main() -> int:
         "ID duplicado PROP-001",
     )
     expect(
+        "separador de encabezado PROP inválido",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "## PROP-002 — Extraer componentes documentales compartidos",
+                "## PROP-002 - Extraer componentes documentales compartidos",
+            ),
+            encoding="utf-8",
+        ),
+        "Encabezado PROP no válido",
+    )
+    expect(
+        "ID PROP mal formado",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "## PROP-002 — Extraer componentes documentales compartidos",
+                "## PROP-ABC — Extraer componentes documentales compartidos",
+            ),
+            encoding="utf-8",
+        ),
+        "Encabezado PROP no válido",
+    )
+    expect(
+        "campo PROP duplicado",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
+                "- **Estado:** aplazada.",
+                "- **Estado:** aplazada.\n- **Estado:** propuesta.",
+                1,
+            ),
+            encoding="utf-8",
+        ),
+        "Campo PROP duplicado Estado",
+    )
+    expect(
         "estado PROP inválido",
         lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
             (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text().replace(
@@ -143,7 +194,34 @@ def main() -> int:
             ),
             encoding="utf-8",
         ),
-        "Autorización PROP sin referencia",
+        "Autorización PROP sin referencia navegable",
+    )
+    expect(
+        "autorización PROP con decisión inexistente",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text()
+            .replace("- **Autorización:** pendiente.", "- **Autorización:** autorizada.", 1)
+            .replace(
+                "- **Referencia de autorización:** no_aplica.",
+                "- **Referencia de autorización:** [DEC-999](../decisiones/DEC-004-documentacion-viva-minima.md).",
+                1,
+            ),
+            encoding="utf-8",
+        ),
+        "Autorización PROP con decisión inexistente",
+    )
+    expect_valid(
+        "autorización PROP con decisión navegable existente",
+        lambda root: (root / "planificacion/PROPUESTAS_FUTURAS.md").write_text(
+            (root / "planificacion/PROPUESTAS_FUTURAS.md").read_text()
+            .replace("- **Autorización:** pendiente.", "- **Autorización:** autorizada.", 1)
+            .replace(
+                "- **Referencia de autorización:** no_aplica.",
+                "- **Referencia de autorización:** [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md).",
+                1,
+            ),
+            encoding="utf-8",
+        ),
     )
     expect(
         "cambio sin declaración de impacto",
@@ -165,6 +243,25 @@ def main() -> int:
             encoding="utf-8",
         ),
         "Acción no fijada a commit completo",
+    )
+    expect(
+        "workflow sin diff explícito de la PR",
+        lambda root: (root / ".github/workflows/documentation.yml").write_text(
+            (root / ".github/workflows/documentation.yml").read_text().replace(
+                'git diff --check "${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"',
+                "git diff --check",
+            ),
+            encoding="utf-8",
+        ),
+        "Workflow documental sin diff explícito base..candidata",
+    )
+    expect(
+        "workflow sin historial de la PR",
+        lambda root: (root / ".github/workflows/documentation.yml").write_text(
+            (root / ".github/workflows/documentation.yml").read_text().replace("          fetch-depth: 0\n", ""),
+            encoding="utf-8",
+        ),
+        "Workflow documental sin historial para comparar base y candidata",
     )
     print("SELF-TEST: PASS")
     return 0

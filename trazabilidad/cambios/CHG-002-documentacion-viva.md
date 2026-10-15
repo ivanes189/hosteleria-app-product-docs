@@ -28,7 +28,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | `investigacion/SOURCE_REGISTER.md`, `REUSE_REGISTER.md` | actualización realizada en L1 | Registrar procedencia, selección acotada, versiones, límites y precisión factual de RU-007. |
 | `AGENTS.md`, `DOCUMENTATION_POLICY.md`, `gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md`, plantilla `CHG`, [paquete](../../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) y [dictamen C0](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) | actualización realizada; C1 abierto | Punto de entrada breve, procedimiento único, impacto obligatorio, revisión y límites de automatización; candidata y `NO APTO` preservados antes de corregir. |
 | `planificacion/PROPUESTAS_FUTURAS.md`, planificación y trazabilidad | actualización realizada en L2 | Registro único `PROP`, cuatro propuestas concretas y estados/autorización separados. |
-| `herramientas/`, `.github/workflows/documentation.yml` | actualización realizada en L2 | Parser simple, selección idempotente, fixtures y candidata de CI con lectura mínima y acción fijada. |
+| `herramientas/`, `.github/workflows/documentation.yml` | actualización realizada en L2 y corrección C1 | Parser/relaciones `PROP`, memoria idempotente, fixtures y diff explícito base…candidata en la CI preparada, con lectura mínima y acción fijada. |
 | `negocio/BUSINESS_MODEL.md`, `decisiones/PENDING_DECISIONS.md` | actualización realizada en L2 | Preguntas e hipótesis de descubrimiento sin inventar cliente, demanda, precio, coste o resultado. |
 | Piloto y medición | actualización realizada en P1 | Cinco casos pertinentes; defectos deliberados solo en copias temporales. Resultados abajo. |
 | Producto, arquitectura, operación, privacidad y permisos | revisado sin modificación en L1 | La conciliación no aporta evidencia para cambiar su estado. |
@@ -42,6 +42,7 @@ La secuencia autorizada tiene tres resultados dependientes dentro de un único e
 | Inicial | 49 entradas históricas | `e35481da2a99e9a9546664712569c27b70010a69` y manifiesto externo `8e003c…` | integrada; C2 `APTO`, DOC-GATE `PASSED` según cierre original. |
 | L1 | conciliación documental | `97a6551449b8cefe441d7116c604adcbf185abec` | materializada localmente; no hereda el dictamen inicial. |
 | L2/P1/C0 | circuito, piloto y regla operativa de revisión | `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0` | revisión completa `NO APTO`; preservada; C1 abierto. |
+| C1 | corrección exclusiva de `CHG002-RI-001` a `CHG002-RI-004` y efectos directos | commit local de corrección; SHA se liga en el paquete mediante commit posterior | comprobaciones locales `PASS`; revalidación enfocada pendiente. |
 
 ## Validaciones y evidencia
 
@@ -54,8 +55,9 @@ L2/P1 pasa en local:
 | Control | Resultado | Límite |
 | --- | --- | --- |
 | `validate_docs.py` | `PASS`, 51 Markdown | estructura/relaciones; no verdad o suficiencia. |
-| `test_validate_docs.py` | `PASS`, 16 mutaciones negativas | incluye ID/estado/condición/autorización `PROP`, impacto `CHG` y pin de action. |
-| `test_select_proposals.py` | `PASS` | fecha, evento, evidencia, unicidad, checkpoint y cambio de evidencia. |
+| `test_validate_docs.py` | `PASS`, 22 mutaciones negativas y una autorización positiva | añade encabezado/ID/campo duplicado `PROP`, existencia/navegación de `DEC` y contrato de diff del workflow. |
+| `test_select_proposals.py` | `PASS` | fecha, identidad de evento, evidencia, ejecución vacía, memoria acumulativa, repetición y cambio real. |
+| `test_workflow_diff.py` | `PASS` | repositorio Git temporal: rechaza whitespace comprometido y acepta la corrección en rango base…candidata. |
 | Ensayo CLI con checkpoint temporal | primera salida `PROP-001: evento,evidencia_nueva`; segunda `NO_SELECTION` | no es una automatización activada ni una política de notificación. |
 | Workflow YAML y `git diff --check` | `PASS` | sintaxis local; GitHub Actions no lo ha ejecutado. |
 
@@ -77,6 +79,6 @@ Se conservan el procedimiento único, `CHG`, `PROP` plano, validador y fixtures.
 
 ## Revisión, DOC-GATE y siguiente acto
 
-La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) revisó en contexto nuevo y solo lectura la candidata exacta `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0`. Su [dictamen C0](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) es `NO APTO`, con cuatro hallazgos P2. Candidata y dictamen se preservaron antes de corregir; C1 queda abierto. Coste/consumo expuesto: `desconocido`.
+La revisión propia durante la preparación es interna, no independiente. La única instancia GPT-6 Astra configurada según [SRC-018](../../investigacion/SOURCE_REGISTER.md#src-018) revisó en contexto nuevo y solo lectura la candidata exacta `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0`. Su [dictamen C0](../../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) es `NO APTO`, con cuatro hallazgos P2. Candidata y dictamen se preservaron antes de corregir. C1 corrige únicamente esos hallazgos y efectos directos; sus comprobaciones locales pasan y la revalidación enfocada por la misma instancia está pendiente. Coste/consumo expuesto: `desconocido`.
 
-`DOC-GATE: OPEN` por los hallazgos `CHG002-RI-001` a `CHG002-RI-004`. Siguiente acto: dentro de C1 corregir únicamente esos hallazgos y sus efectos directos, ejecutar las comprobaciones y pedir revalidación enfocada a la misma instancia. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.
+`DOC-GATE: OPEN` hasta revalidar C1. Siguiente acto: fijar el SHA/rango exactos de C1 y pedir revalidación enfocada a la misma instancia sobre los cuatro hallazgos. Solo tras un resultado apto se solicitará autorización para publicar la rama y abrir PR. Publicar esta rama y abrir la PR puede ejecutar el workflow preparado; no está autorizado todavía. Cambiar protecciones o fusionar requerirá permisos separados.

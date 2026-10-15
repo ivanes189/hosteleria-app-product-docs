@@ -8,7 +8,7 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow local, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) y [dictamen C0](../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) `NO APTO` | C1 abierto: corregir cuatro hallazgos y revalidar con la misma instancia; después, solo si `APTO`, autorización separada para rama/PR |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow local, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md) y [dictamen C0](../gobierno/revisiones/DICTAMEN_CHG-002-C0.md) `NO APTO`; correcciones C1 comprobadas | fijar candidata C1 y revalidar cuatro hallazgos con la misma instancia; después, solo si `APTO`, autorización separada para rama/PR |
 
 ## Producto
 

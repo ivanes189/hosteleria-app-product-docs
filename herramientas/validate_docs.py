@@ -55,8 +55,10 @@ EXPLICIT_ANCHOR_RE = re.compile(r'<a\s+id=["\']([^"\']+)["\']\s*></a>')
 ID_RE = re.compile(r"^(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC)-\d{3}$")
 AUX_ID_RE = re.compile(r"^(?:PD|PROP|RU|R|A)-\d{3}$")
 ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|PROP|RU|R|A)-\d{3}\b")
-PROP_HEADING_RE = re.compile(r"^##\s+(PROP-\d{3})\s+—\s+(.+?)\s*$", re.M)
+H2_HEADING_RE = re.compile(r"^##\s+(.+?)\s*$", re.M)
+PROP_HEADING_VALUE_RE = re.compile(r"^(PROP-\d{3})\s+—\s+(.+?)$")
 PROP_FIELD_RE = re.compile(r"^- \*\*([^*]+):\*\*\s*(.+?)\s*$", re.M)
+PROP_AUTHORIZATION_REF_RE = re.compile(r"^\[(DEC-\d{3})\]\([^)]+\)\.?$")
 PROP_REQUIRED_FIELDS = {
     "Problema/beneficio",
     "Fuente",
@@ -136,16 +138,40 @@ def embedded_ids(text: str) -> set[str]:
     return set(ANY_ID_RE.findall(text))
 
 
+def proposal_sections(text: str) -> list[dict[str, object]]:
+    """Separa todo H2 destinado a PROP, incluso si su encabezado es inválido."""
+    headings = list(H2_HEADING_RE.finditer(text))
+    sections: list[dict[str, object]] = []
+    for index, heading in enumerate(headings):
+        heading_text = heading.group(1).strip()
+        if not re.match(r"^PROP(?:-|\b)", heading_text):
+            continue
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
+        field_matches = list(PROP_FIELD_RE.finditer(text[heading.end():end]))
+        field_names = [field.group(1).strip() for field in field_matches]
+        match = PROP_HEADING_VALUE_RE.fullmatch(heading_text)
+        sections.append(
+            {
+                "heading": heading_text,
+                "id": match.group(1) if match else None,
+                "title": match.group(2).strip() if match else None,
+                "fields": {
+                    field.group(1).strip(): field.group(2).strip()
+                    for field in field_matches
+                },
+                "field_counts": Counter(field_names),
+            }
+        )
+    return sections
+
+
 def parse_proposals(text: str) -> list[dict[str, object]]:
-    """Parsea el formato plano y deliberadamente limitado del registro PROP."""
-    matches = list(PROP_HEADING_RE.finditer(text))
-    proposals: list[dict[str, object]] = []
-    for index, match in enumerate(matches):
-        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
-        section = text[match.end():end]
-        fields = {field.group(1).strip(): field.group(2).strip() for field in PROP_FIELD_RE.finditer(section)}
-        proposals.append({"id": match.group(1), "title": match.group(2).strip(), "fields": fields})
-    return proposals
+    """Parsea solo entradas PROP válidas, sin absorber secciones mal formadas."""
+    return [
+        {"id": section["id"], "title": section["title"], "fields": section["fields"]}
+        for section in proposal_sections(text)
+        if section["id"] is not None
+    ]
 
 
 def token(value: str) -> str:
@@ -240,9 +266,19 @@ def check(root: Path = ROOT) -> list[str]:
     proposals_path = rels.get(proposals_rel)
     if proposals_path:
         proposals_text = proposals_path.read_text(encoding="utf-8")
+        sections = proposal_sections(proposals_text)
         proposals = parse_proposals(proposals_text)
-        if not proposals:
+        if not sections:
             errors.append(f"Registro PROP sin entradas: {proposals_rel}")
+        for section in sections:
+            if section["id"] is None:
+                errors.append(f"Encabezado PROP no válido: {section['heading']}")
+            field_counts = section["field_counts"]
+            assert isinstance(field_counts, Counter)
+            for field, count in field_counts.items():
+                if count > 1:
+                    label = section["id"] or section["heading"]
+                    errors.append(f"Campo PROP duplicado {field}: {label} ({count})")
         proposal_counts = Counter(str(item["id"]) for item in proposals)
         for proposal_id, count in proposal_counts.items():
             if count > 1:
@@ -281,12 +317,16 @@ def check(root: Path = ROOT) -> list[str]:
             authorization = token(str(fields.get("Autorización", "")))
             if authorization and authorization not in PROP_AUTHORIZATION:
                 errors.append(f"Autorización PROP no válida: {proposal_id}={authorization}")
-            authorization_ref = token(str(fields.get("Referencia de autorización", "")))
-            if authorization == "autorizada" and (
-                authorization_ref in {"", "no_aplica", "pendiente", "desconocida"}
-                or not re.search(r"\bDEC-\d{3}\b", str(fields.get("Referencia de autorización", "")))
-            ):
-                errors.append(f"Autorización PROP sin referencia: {proposal_id}")
+            authorization_ref = str(fields.get("Referencia de autorización", "")).strip()
+            if authorization == "autorizada":
+                reference_match = PROP_AUTHORIZATION_REF_RE.fullmatch(authorization_ref)
+                if reference_match is None:
+                    errors.append(f"Autorización PROP sin referencia navegable: {proposal_id}")
+                elif reference_match.group(1) not in known_ids:
+                    errors.append(
+                        f"Autorización PROP con decisión inexistente: "
+                        f"{proposal_id}={reference_match.group(1)}"
+                    )
 
     exempt = {"README.md"}
     for rel in rels:
@@ -336,6 +376,14 @@ def check(root: Path = ROOT) -> list[str]:
             errors.append("Workflow documental referencia secretos")
         if "name: documentation / validate" not in workflow_text:
             errors.append("Workflow documental sin nombre de comprobación estable")
+        if not re.search(r"^\s+fetch-depth:\s*0\s*$", workflow_text, re.M):
+            errors.append("Workflow documental sin historial para comparar base y candidata")
+        if not re.search(
+            r'git diff --check "\$\{\{ github\.event\.pull_request\.base\.sha \}\}'
+            r'\.\.\$\{\{ github\.event\.pull_request\.head\.sha \}\}"',
+            workflow_text,
+        ):
+            errors.append("Workflow documental sin diff explícito base..candidata")
         for action in re.findall(r"^\s*-?\s*uses:\s*([^\s#]+)", workflow_text, re.M):
             if not re.fullmatch(r"[^@\s]+@[0-9a-f]{40}", action):
                 errors.append(f"Acción no fijada a commit completo: {action}")

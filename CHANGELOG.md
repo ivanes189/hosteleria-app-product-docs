@@ -9,6 +9,7 @@
 - Materializado [CHG-002](trazabilidad/cambios/CHG-002-documentacion-viva.md): L1 concilia el estado; L2 añade procedimiento, `PROP`, validaciones y workflow local; P1 ensaya cinco casos. El DOC-GATE sigue `OPEN` por revisión independiente pendiente.
 - Fijada la activación interna de una única revisora GPT-6 Astra, en contexto nuevo y solo lectura, para que la revisión y las eventuales revalidaciones C1/C2 permanezcan en la misma tarea sin alterar la candidata.
 - Preservado el `NO APTO` independiente de la candidata `36d071fb…`: cuatro hallazgos P2 mantienen `DOC-GATE: OPEN` y abren C1 antes de cualquier corrección.
+- Corregidos en C1 únicamente los cuatro hallazgos: parser y referencias `PROP`, memoria estable del selector y diff comprometido base…candidata en el workflow; revalidación enfocada pendiente.
 - Añadidas preguntas e hipótesis comprobables para descubrir primer restaurante, usuario, pagador, problema, flujo, beneficio y coste sin convertir la mesa 12 en validación real.
 
 ### Producto
