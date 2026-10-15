@@ -4,8 +4,8 @@ title: Primera observación real del circuito documental
 doc_type: document_change
 summary: Conciliar la fusión de la PR 2 y registrar la primera observación de D3 sin extender el circuito.
 updated_at: 2026-10-15
-source_refs: [SRC-019, SRC-020]
-incorporation_status: materializada_local
+source_refs: [SRC-019, SRC-020, SRC-021]
+incorporation_status: en_pr
 ---
 
 # CHG-003 — Primera observación real del circuito documental
@@ -71,4 +71,4 @@ Se conservan por ahora el `CHG`, la declaración de impacto, las identidades exa
 
 `DOC-GATE: PASSED` para la candidata exacta `68c7b447d1fb53310986f49f6eb6c4a87d216790`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no se transfiere a este lote el dictamen independiente de CHG-002. La identificación y el cierre del gate se incorporan en un commit posterior de evidencia que no cambia `OBS-001` ni sus conclusiones.
 
-Siguiente acto condicionado: publicación de la rama y apertura de PR solo con autorización expresa. Una eventual fusión no debe generar por sí sola una cadena indefinida de PR de cierre: se verificará en solo lectura y se incorporará su evidencia al siguiente cambio sustantivo, salvo que deje una contradicción material vigente.
+Tras [autorización expresa](../../investigacion/SOURCE_REGISTER.md#src-021), la rama se publicó y se abrió la [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3); la fusión sigue reservada al acto humano separado. Una eventual fusión no debe generar por sí sola una cadena indefinida de PR de cierre: se verificará en solo lectura y se incorporará su evidencia al siguiente cambio sustantivo, salvo que deje una contradicción material vigente.

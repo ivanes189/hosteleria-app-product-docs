@@ -7,6 +7,7 @@
 - Verificada en solo lectura la fusión de la PR #2: head `bdcc6c4a…`, check documental `PASS` en 6 s y squash `main@1235b74b…` con árbol idéntico.
 - Iniciada D3 con `OBS-001`, primera observación real posterior del circuito. Se conservan provisionalmente sus piezas; una muestra de cierre factual no acredita utilidad sostenida ni autoriza transferencia o periodicidad.
 - Registrada la fricción de identidad post-fusión y lenguaje transitorio sin cambiar procedimiento, validador ni workflow.
+- Publicada la rama autorizada y abierta la [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3); la fusión permanece como acto humano separado.
 
 ### Producto
 

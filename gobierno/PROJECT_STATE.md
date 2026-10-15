@@ -1,6 +1,6 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) `integrados`; [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `materializada_local`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) `integrados`; [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `en_pr`
 
 **Base verificada:** la [PR #2](https://github.com/ivanes189/hosteleria-app-product-docs/pull/2) fue fusionada por Iván como squash `main@1235b74b5ef17dcb14cce6c948246caa187d3be0`; su árbol coincide con el head `bdcc6c4ad8740f4e7930098e27b0dfc749b9368d` y el check final pasó.
 
@@ -47,6 +47,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 D3 ha registrado una primera observación local. El siguiente trabajo útil exige cambios reales posteriores adicionales; no se fabricarán cambios ni PR de cierre para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
 
-Rama local vigente: `codex/documentacion-viva-d3-observacion-1`. Candidata sustantiva `68c7b447d1fb53310986f49f6eb6c4a87d216790`; revisión proporcional y `DOC-GATE: PASSED`. Publicación y PR requieren autorización expresa; después, D3 debe esperar cambios reales adicionales en vez de fabricarlos.
+Rama vigente: `codex/documentacion-viva-d3-observacion-1`; [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3). Candidata sustantiva `68c7b447d1fb53310986f49f6eb6c4a87d216790`; revisión proporcional y `DOC-GATE: PASSED`. La fusión es el siguiente acto humano y no está autorizada para el agente; después, D3 debe esperar cambios reales adicionales en vez de fabricarlos.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.
