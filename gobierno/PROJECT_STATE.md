@@ -1,16 +1,16 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) `integrados`; [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `en_pr`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial, [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) y [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `integrados`; [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) `en_pr`
 
-**Base verificada:** la [PR #2](https://github.com/ivanes189/hosteleria-app-product-docs/pull/2) fue fusionada por Iván como squash `main@1235b74b5ef17dcb14cce6c948246caa187d3be0`; su árbol coincide con el head `bdcc6c4ad8740f4e7930098e27b0dfc749b9368d` y el check final pasó.
+**Base verificada:** la [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) fue fusionada por Iván como squash `main@0478a8e7fc6ab799b4af1876a421bc532424133b`; su árbol coincide con el head `add0935044bfb99669919b6ebda53e742dcf1fb9` y el check final pasó.
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `main@1235b74b5ef17dcb14cce6c948246caa187d3be0`. D3 está en observación local mediante `OBS-001`; no se ha activado automatización periódica.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. La PR #3 integró `OBS-001` como `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. D3 continúa con `OBS-002` en PR y P0 tiene una guía preparada, no ejecutada; no se ha activado automatización periódica.
 
 ## Base conocida
 
-- `main` vigente: `ivanes189/hosteleria-app-product-docs@1235b74b5ef17dcb14cce6c948246caa187d3be0`, squash de la PR #2, padre `a8365b6674381c4c23985bdce4a58a178c5c4a69`.
+- `main` vigente: `ivanes189/hosteleria-app-product-docs@0478a8e7fc6ab799b4af1876a421bc532424133b`, squash de la PR #3, padre `1235b74b5ef17dcb14cce6c948246caa187d3be0`.
 - Identidad histórica: SHA-256 del manifiesto inicial `8e003c0b2ac67b036571d6cafd05fe1a98c5422e215d5e319ad3d8346400c3c4`; 49 entradas verificadas en su instantánea.
 - Cierre inicial: C2 `APTO` y `DOC-GATE: PASSED`, según el informe original; el [extracto histórico](HISTORIAL_PUBLICACION_INICIAL.md) no es un nuevo dictamen.
 - Incorporación comprobada el 2026-10-15: head `5b7c5e90…`, [check final](https://github.com/ivanes189/hosteleria-app-product-docs/actions/runs/38729105629/job/116402177526) `PASS` (6 s), squash `a8365b66…` y árboles idénticos.
@@ -41,12 +41,13 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 - El selector conserva memoria tras una ejecución vacía, no repite un mismo evento o evidencia y avisa cuando cambia realmente la evidencia.
 - El `documentation / validate` final pasó sobre `5b7c5e90…`; la consulta posterior confirmó que no era obligatorio.
 - La PR #2 recorrió el circuito sobre `bdcc6c4a…`; su check pasó en 6 s y el squash `1235b74b…` conservó el mismo árbol. [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) registra esta primera observación sin alterar CHG-002.
+- La PR #3 recorrió el circuito sobre `add09350…`; su check final pasó en 7 s y el squash `0478a8e7…` conservó el mismo árbol. CHG-003 quedó integrado sin transferirle el dictamen independiente de CHG-002.
 - Revisión C0 [preservada](revisiones/DICTAMEN_CHG-002-C0.md): cuatro hallazgos P2. Revalidación C1 [preservada](revisiones/DICTAMEN_CHG-002-C1.md): tres resueltos y un remanente. Revalidación C2 [preservada](revisiones/DICTAMEN_CHG-002-C2.md): `APTO`, cuatro hallazgos resueltos, sin regresiones directas; C1/C2 consumidos. Coste/consumo observable: `desconocido`.
 
 ## Continuidad inmediata
 
-D3 ha registrado una primera observación local. El siguiente trabajo útil exige cambios reales posteriores adicionales; no se fabricarán cambios ni PR de cierre para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
+D3 tiene una observación integrada y una segunda en PR. Aún falta al menos otro cambio real y juicio humano antes de revisar transferencia; no se fabricarán cambios para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
 
-Rama vigente: `codex/documentacion-viva-d3-observacion-1`; [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3). Candidata sustantiva `68c7b447d1fb53310986f49f6eb6c4a87d216790`; revisión proporcional y `DOC-GATE: PASSED`. La fusión es el siguiente acto humano y no está autorizada para el agente; después, D3 debe esperar cambios reales adicionales en vez de fabricarlos.
+Rama vigente: `codex/documentacion-viva-d3-continuidad`; [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4). Incluye la conciliación factual `92669a9059de5ea21c3348555b2400e7a9a2e188` y la candidata CHG-004 `f395a125694a7b835143f7b231279a7b3f54a6fd`, con revisión proporcional y `DOC-GATE: PASSED`. La fusión es el siguiente acto humano y no está autorizada para el agente. El primer acto de producto pendiente sigue siendo seleccionar un restaurante y autorizar contacto y destino de notas.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

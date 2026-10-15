@@ -1,6 +1,19 @@
 # Historial significativo
 
-## [No publicada — CHG-003] — 2026-10-15
+## [No publicada — CHG-004] — 2026-10-15
+
+### Documentación
+
+- Preparada una guía mínima para ejecutar el descubrimiento de PD-003 con recorrido, baseline prospectiva, ficha de salida y límites para datos sensibles en un repositorio público.
+- Registrado `OBS-002`, segundo uso real de D3 y primero orientado a preparación de producto; no acredita entrevista, validación, ahorro ni autorización de transferencia.
+- Añadido `R-011` sobre exposición de notas o datos identificables durante descubrimiento.
+- Publicada la rama autorizada y abierta la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión permanece como acto humano separado.
+
+### Producto
+
+- Sin decisiones nuevas ni cambios de implementación, verificación o disponibilidad. La selección del restaurante y la ejecución de la guía siguen pendientes de autoridad y evidencia humanas.
+
+## [Integrada — CHG-003] — 2026-10-15
 
 ### Documentación
 
@@ -8,6 +21,7 @@
 - Iniciada D3 con `OBS-001`, primera observación real posterior del circuito. Se conservan provisionalmente sus piezas; una muestra de cierre factual no acredita utilidad sostenida ni autoriza transferencia o periodicidad.
 - Registrada la fricción de identidad post-fusión y lenguaje transitorio sin cambiar procedimiento, validador ni workflow.
 - Publicada la rama autorizada y abierta la [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3); la fusión permanece como acto humano separado.
+- Fusionada por Iván la PR #3 como squash `0478a8e7fc6ab799b4af1876a421bc532424133b`; el árbol coincide con el head `add09350…` y el check final pasó en 7 s. La conciliación se conserva localmente para el siguiente cambio sustantivo, sin otra PR de cierre.
 
 ### Producto
 

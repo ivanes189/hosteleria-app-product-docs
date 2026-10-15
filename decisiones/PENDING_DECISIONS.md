@@ -15,7 +15,7 @@
 <a id="pd-003"></a>
 ## PD-003 — Alcance del MVP (P0)
 
-Decidir primer restaurante, usuario prioritario, pagador, problema/frecuencia, flujo operativo actual, departamentos, tipo de solicitud, canal cliente/personal y resultado verificable del piloto con criterio de parada. Sin esto no hay aceptación, precio, soporte ni SLO realistas. Preguntas e hipótesis: [modelo de negocio](../negocio/BUSINESS_MODEL.md#descubrimiento-del-primer-restaurante).
+Decidir primer restaurante, usuario prioritario, pagador, problema/frecuencia, flujo operativo actual, departamentos, tipo de solicitud, canal cliente/personal y resultado verificable del piloto con criterio de parada. Sin esto no hay aceptación, precio, soporte ni SLO realistas. Preguntas e hipótesis: [modelo de negocio](../negocio/BUSINESS_MODEL.md#descubrimiento-del-primer-restaurante). Preparación de evidencia: [guía mínima P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md), todavía no ejecutada.
 
 <a id="pd-004"></a>
 ## PD-004 — Métricas laborales y jurisdicción (P0)
