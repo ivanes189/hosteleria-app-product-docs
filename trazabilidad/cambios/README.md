@@ -8,4 +8,4 @@
 | [CHG-002](CHG-002-documentacion-viva.md) | Conciliación y circuito mínimo de documentación viva | `PASSED` para `4246943b…`; C2 `APTO`; integrada por [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) como `a8365b66…` |
 | [CHG-003](CHG-003-observacion-d3-1.md) | Primera observación real del circuito documental | `PASSED` para `68c7b44…`; integrada por [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) como `0478a8e7…` |
 | [CHG-004](CHG-004-preparacion-descubrimiento-p0.md) | Preparación mínima del descubrimiento P0 | `PASSED` para `f395a12…`; integrada por [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) como `4dba6559…` |
-| [CHG-005](CHG-005-ausencia-restaurante-p0.md) | Estado de contraparte para descubrimiento P0 | `OPEN`; `OBS-003` materializada localmente |
+| [CHG-005](CHG-005-ausencia-restaurante-p0.md) | Estado de contraparte para descubrimiento P0 | `PASSED` para `9166899…`; `OBS-003` materializada localmente |

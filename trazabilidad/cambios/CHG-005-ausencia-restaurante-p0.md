@@ -36,12 +36,12 @@ Clasificación: actualización factual de estado y planificación. Iván aclaró
 ## Dependencias, candidata y trabajo abierto
 
 - Dependencias: [SRC-023](../../investigacion/SOURCE_REGISTER.md#src-023), [PD-003](../../decisiones/PENDING_DECISIONS.md#pd-003), [guía P0](../../investigacion/GUIA_DESCUBRIMIENTO_P0.md), [CHG-004](CHG-004-preparacion-descubrimiento-p0.md) y [PROP-001](../../planificacion/PROPUESTAS_FUTURAS.md#prop-001).
-- Candidata sustantiva: se fijará mediante commit local exacto después de validar el lote.
+- Candidata sustantiva exacta: `9166899cbfc1d687f07606fb70b4c9217325ae33`, hija directa de la base local `15a563a8da0f4f81368183ad60eb1f2699b3b040`.
 - Trabajo abierto: conseguir una contraparte real cuando sea oportuno; ejecutar la guía solo entonces; obtener juicio humano sobre utilidad y coste del circuito antes de reevaluar una transferencia.
 
 ## Validaciones y evidencias posteriores
 
-Comprobaciones ejecutadas sobre el árbol local antes de fijar el commit:
+Comprobaciones ejecutadas antes y repetidas sobre la candidata exacta `9166899cbfc1d687f07606fb70b4c9217325ae33` con árbol limpio:
 
 | Control | Resultado | Límite |
 | --- | --- | --- |
@@ -79,4 +79,6 @@ El mínimo numérico no completa por sí solo [PROP-001](../../planificacion/PRO
 
 ## Manifiesto exacto, DOC-GATE y siguiente acto condicionado
 
-`DOC-GATE: OPEN` hasta identificar la candidata y completar las comprobaciones. Siguiente acto de P0: esperar una contraparte real sin detener documentación conceptual autorizada. Siguiente decisión D3: Iván puede valorar si la utilidad observada justifica el coste; hasta entonces se conserva el circuito local y `PROP-001` permanece aplazada.
+`DOC-GATE: PASSED` para la candidata exacta `9166899cbfc1d687f07606fb70b4c9217325ae33`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no existe revisión independiente porque no es exigible para este alcance. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia `OBS-003` ni la evaluación provisional.
+
+Siguiente acto de P0: esperar una contraparte real sin detener documentación conceptual autorizada. Siguiente decisión D3: Iván puede valorar si la utilidad observada justifica el coste; hasta entonces se conserva el circuito local y `PROP-001` permanece aplazada. Publicación o PR requieren autorización separada.

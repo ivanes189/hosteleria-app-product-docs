@@ -50,6 +50,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 D3 alcanza localmente tres observaciones reales. La evaluación provisional conserva el circuito, aplica las simplificaciones de cierre ya ensayadas y no retira piezas. Falta incorporar OBS-003 y, sobre todo, juicio humano sobre utilidad/coste antes de reevaluar `PROP-001`; no activar periodicidad ni transferir componentes a FDA/u otros proyectos.
 
-Continuidad local: `codex/d3-espera-evidencia-p0`, basada en `main@4dba65591e1d4a2484c9d2267924c32420f7e744`. Incluye la conciliación factual `15a563a8da0f4f81368183ad60eb1f2699b3b040` y CHG-005 abierto. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada. Publicación o PR del lote local requieren autorización separada.
+Continuidad local: `codex/d3-espera-evidencia-p0`, basada en `main@4dba65591e1d4a2484c9d2267924c32420f7e744`. Incluye la conciliación factual `15a563a8da0f4f81368183ad60eb1f2699b3b040` y la candidata CHG-005 `9166899cbfc1d687f07606fb70b4c9217325ae33`, con revisión proporcional y `DOC-GATE: PASSED`. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada. Publicación o PR del lote local requieren autorización separada.
 
 La primera validación pendiente de producto sigue siendo descubrimiento con un restaurante real cuando exista contraparte; el trabajo documental no acredita MVP, prototipo ni piloto operativo.
