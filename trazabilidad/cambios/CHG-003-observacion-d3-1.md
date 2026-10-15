@@ -34,12 +34,12 @@ La PR #2 fue el primer cambio real posterior a la implantación de CHG-002 que r
 ## Dependencias, candidata y trabajo abierto
 
 - Dependencias: [DEC-004](../../decisiones/DEC-004-documentacion-viva-minima.md), [CHG-002](CHG-002-documentacion-viva.md), [SRC-019](../../investigacion/SOURCE_REGISTER.md#src-019) y [SRC-020](../../investigacion/SOURCE_REGISTER.md#src-020).
-- Candidata sustantiva: se fijará mediante commit local exacto después de validar este lote.
+- Candidata sustantiva exacta: `68c7b447d1fb53310986f49f6eb6c4a87d216790`, hija directa de `main@1235b74b5ef17dcb14cce6c948246caa187d3be0`.
 - Trabajo abierto: acumular al menos dos cambios reales posteriores adicionales antes de reevaluar la condición cuantitativa de `PROP-001`; la utilidad y el coste de adopción requieren además juicio humano.
 
 ## Validaciones y evidencias posteriores
 
-Comprobaciones ejecutadas sobre el árbol local antes de fijar el commit:
+Comprobaciones ejecutadas antes y repetidas sobre la candidata exacta `68c7b447d1fb53310986f49f6eb6c4a87d216790` con árbol limpio:
 
 | Control | Resultado | Límite |
 | --- | --- | --- |
@@ -69,4 +69,6 @@ Se conservan por ahora el `CHG`, la declaración de impacto, las identidades exa
 
 ## Manifiesto exacto, DOC-GATE y siguiente acto condicionado
 
-`DOC-GATE: OPEN` hasta identificar el commit exacto y completar las comprobaciones previstas. Después, la candidata podrá entregarse para publicación solo con autorización expresa. Una eventual fusión no debe generar por sí sola una cadena indefinida de PR de cierre: se verificará en solo lectura y se incorporará su evidencia al siguiente cambio sustantivo, salvo que deje una contradicción material vigente.
+`DOC-GATE: PASSED` para la candidata exacta `68c7b447d1fb53310986f49f6eb6c4a87d216790`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no se transfiere a este lote el dictamen independiente de CHG-002. La identificación y el cierre del gate se incorporan en un commit posterior de evidencia que no cambia `OBS-001` ni sus conclusiones.
+
+Siguiente acto condicionado: publicación de la rama y apertura de PR solo con autorización expresa. Una eventual fusión no debe generar por sí sola una cadena indefinida de PR de cierre: se verificará en solo lectura y se incorporará su evidencia al siguiente cambio sustantivo, salvo que deje una contradicción material vigente.

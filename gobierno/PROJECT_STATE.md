@@ -47,6 +47,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 D3 ha registrado una primera observación local. El siguiente trabajo útil exige cambios reales posteriores adicionales; no se fabricarán cambios ni PR de cierre para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
 
-Rama local vigente: `codex/documentacion-viva-d3-observacion-1`. `DOC-GATE` de CHG-003 permanece `OPEN` hasta fijar candidata exacta y comprobaciones; publicación y PR no están autorizadas por este estado.
+Rama local vigente: `codex/documentacion-viva-d3-observacion-1`. Candidata sustantiva `68c7b447d1fb53310986f49f6eb6c4a87d216790`; revisión proporcional y `DOC-GATE: PASSED`. Publicación y PR requieren autorización expresa; después, D3 debe esperar cambios reales adicionales en vez de fabricarlos.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.
