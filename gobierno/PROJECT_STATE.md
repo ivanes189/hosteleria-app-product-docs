@@ -48,6 +48,6 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 D3 tiene una observación integrada y una segunda local. Aún falta al menos otro cambio real y juicio humano antes de revisar transferencia; no se fabricarán cambios para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
 
-Continuidad local: `codex/documentacion-viva-d3-continuidad`, basada en `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. Incluye la conciliación factual `92669a9059de5ea21c3348555b2400e7a9a2e188` y CHG-004 abierto. Primer acto externo pendiente: una persona responsable selecciona un restaurante y autoriza contacto y destino de notas. Publicación o PR del lote local requieren autorización separada.
+Continuidad local: `codex/documentacion-viva-d3-continuidad`, basada en `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. Incluye la conciliación factual `92669a9059de5ea21c3348555b2400e7a9a2e188` y la candidata CHG-004 `f395a125694a7b835143f7b231279a7b3f54a6fd`, con revisión proporcional y `DOC-GATE: PASSED`. Primer acto externo pendiente: una persona responsable selecciona un restaurante y autoriza contacto y destino de notas. Publicación o PR del lote local requieren autorización separada.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

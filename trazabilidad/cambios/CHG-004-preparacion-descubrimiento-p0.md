@@ -36,12 +36,12 @@ Clasificación: preparación de investigación de producto y cambio documental; 
 ## Dependencias, candidata y trabajo abierto
 
 - Dependencias: [PD-003](../../decisiones/PENDING_DECISIONS.md#pd-003), [PD-004](../../decisiones/PENDING_DECISIONS.md#pd-004), [REQ-011](../../requisitos/REQUIREMENTS.md#req-011), [BUSINESS_MODEL](../../negocio/BUSINESS_MODEL.md) y [CHG-003](CHG-003-observacion-d3-1.md).
-- Candidata sustantiva: se fijará mediante commit local exacto tras validar el lote.
+- Candidata sustantiva exacta: `f395a125694a7b835143f7b231279a7b3f54a6fd`, hija directa de la base local `92669a9059de5ea21c3348555b2400e7a9a2e188`.
 - Trabajo abierto: selección humana del restaurante, autorización de contacto y destino de notas; ejecución de la guía; incorporación posterior de evidencia real y decisiones resultantes.
 
 ## Validaciones y evidencias posteriores
 
-Comprobaciones ejecutadas sobre el árbol local antes de fijar el commit:
+Comprobaciones ejecutadas antes y repetidas sobre la candidata exacta `f395a125694a7b835143f7b231279a7b3f54a6fd` con árbol limpio:
 
 | Control | Resultado | Límite |
 | --- | --- | --- |
@@ -69,4 +69,6 @@ Revisión proporcional del autor. No se exige revisión independiente: la candid
 
 ## Manifiesto exacto, DOC-GATE y siguiente acto condicionado
 
-`DOC-GATE: OPEN` hasta identificar la candidata y completar las comprobaciones. Siguiente acto externo: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. Publicación o PR de este lote requieren autorización separada; no se activan automatizaciones ni trabajos en otros repositorios.
+`DOC-GATE: PASSED` para la candidata exacta `f395a125694a7b835143f7b231279a7b3f54a6fd`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no existe revisión independiente porque no es exigible para este alcance. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia la guía ni `OBS-002`.
+
+Siguiente acto externo: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. Publicación o PR de este lote requieren autorización separada; no se activan automatizaciones ni trabajos en otros repositorios.
