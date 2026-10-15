@@ -1,6 +1,6 @@
 # Hostelería App — documentación de producto
 
-> **Estado global:** documentación inicial y circuito documental mínimo integrados en `main` · D3 de observación pendiente · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
+> **Estado global:** documentación inicial y circuito documental mínimo integrados en `main` · D3 en observación local mediante [CHG-003](trazabilidad/cambios/CHG-003-observacion-d3-1.md) · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
 
 Esta base documental reconstruye el producto provisionalmente llamado **Hostelería App** en el contexto **Restaurant Operations OS**. Las fuentes disponibles no demuestran que sean productos distintos ni nombres comerciales definitivos. En esta documentación, *Hostelería App* nombra el producto en definición y *Restaurant Operations OS* la arquitectura conceptual que podría sostenerlo; esa relación sigue pendiente de aprobación humana.
 
@@ -15,7 +15,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 - **Entender el estado real:** [auditoría inicial](gobierno/AUDITORIA_INICIAL.md) → [cierre y publicación inicial](gobierno/HISTORIAL_PUBLICACION_INICIAL.md) → [estado del proyecto](gobierno/PROJECT_STATE.md) → [decisiones pendientes](decisiones/PENDING_DECISIONS.md).
 - **Seguir el caso de la mesa 12:** [FEAT-001](producto/funcionalidades/FEAT-001-gestion-tareas-servicio.md) → [REQ](requisitos/REQUIREMENTS.md#req-003) → [SOP-001](operacion/procedimientos/SOP-001-atender-solicitud-servicio.md) → [eventos](arquitectura/EVENTS_METRICS.md) → [pruebas](validacion/TEST_SCENARIOS.md#test-001).
 - **Evaluar reutilización:** [registro de fuentes](investigacion/SOURCE_REGISTER.md) → [registro de reutilización](investigacion/REUSE_REGISTER.md) → [arquitectura](arquitectura/ARCHITECTURE.md).
-- **Cambiar la documentación:** [política](DOCUMENTATION_POLICY.md) → [procedimiento vivo](gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md) → [plantillas](plantillas/README.md) → [expediente vigente CHG-002](trazabilidad/cambios/CHG-002-documentacion-viva.md).
+- **Cambiar la documentación:** [política](DOCUMENTATION_POLICY.md) → [procedimiento vivo](gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md) → [plantillas](plantillas/README.md) → [expediente vigente CHG-003](trazabilidad/cambios/CHG-003-observacion-d3-1.md).
 
 ## Inventario maestro
 
