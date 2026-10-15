@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import datetime as dt
 import hashlib
 import re
 import sys
@@ -24,6 +25,8 @@ REQUIRED = {
     "decisiones/PENDING_DECISIONS.md",
     "requisitos/REQUIREMENTS.md",
     "investigacion/SOURCE_REGISTER.md",
+    "gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md",
+    "planificacion/PROPUESTAS_FUTURAS.md",
     "trazabilidad/TRACEABILITY_MATRIX.md",
 }
 STATE_VALUES = {
@@ -50,8 +53,31 @@ LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 HEADING_RE = re.compile(r"^#{1,6}\s+(.+?)\s*$", re.M)
 EXPLICIT_ANCHOR_RE = re.compile(r'<a\s+id=["\']([^"\']+)["\']\s*></a>')
 ID_RE = re.compile(r"^(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC)-\d{3}$")
-AUX_ID_RE = re.compile(r"^(?:PD|RU|R|A)-\d{3}$")
-ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|RU|R|A)-\d{3}\b")
+AUX_ID_RE = re.compile(r"^(?:PD|PROP|RU|R|A)-\d{3}$")
+ANY_ID_RE = re.compile(r"\b(?:DEC|ADR|FEAT|SOP|SUB|REQ|TEST|CHG|SRC|PD|PROP|RU|R|A)-\d{3}\b")
+H2_HEADING_RE = re.compile(r"^##\s+(.+?)\s*$", re.M)
+PROP_HEADING_VALUE_RE = re.compile(r"^(PROP-\d{3})\s+—\s+(.+?)$")
+PROP_FIELD_RE = re.compile(r"^- \*\*([^*]+):\*\*\s*(.+?)\s*$", re.M)
+PROP_AUTHORIZATION_REF_RE = re.compile(r"^\[(DEC-\d{3})\]\(([^)]+)\)\.?$")
+PROP_REQUIRED_FIELDS = {
+    "Problema/beneficio",
+    "Fuente",
+    "Proyecto destinatario",
+    "Responsable",
+    "Estado",
+    "Condición de revisión",
+    "Disparadores",
+    "Dependencias",
+    "Próxima revisión",
+    "Última revisión",
+    "Evidencia nueva",
+    "Conclusión",
+    "Autorización",
+    "Referencia de autorización",
+    "Ejecución",
+}
+PROP_STATES = {"propuesta", "en_evaluacion", "aplazada", "descartada", "sustituida"}
+PROP_AUTHORIZATION = {"pendiente", "autorizada"}
 PATH_TYPES = (
     (re.compile(r"^producto/funcionalidades/FEAT-\d{3}-.*\.md$"), "feature"),
     (re.compile(r"^decisiones/DEC-\d{3}-.*\.md$"), "decision"),
@@ -59,6 +85,7 @@ PATH_TYPES = (
     (re.compile(r"^catalogo/subproductos/SUB-\d{3}-.*\.md$"), "subproduct"),
     (re.compile(r"^trazabilidad/cambios/CHG-\d{3}-.*\.md$"), "document_change"),
 )
+WORKFLOW_PATH = Path(".github/workflows/documentation.yml")
 
 
 def markdown_files(root: Path = ROOT) -> list[Path]:
@@ -111,6 +138,46 @@ def embedded_ids(text: str) -> set[str]:
     return set(ANY_ID_RE.findall(text))
 
 
+def proposal_sections(text: str) -> list[dict[str, object]]:
+    """Separa todo H2 destinado a PROP, incluso si su encabezado es inválido."""
+    headings = list(H2_HEADING_RE.finditer(text))
+    sections: list[dict[str, object]] = []
+    for index, heading in enumerate(headings):
+        heading_text = heading.group(1).strip()
+        if not re.match(r"^PROP(?:-|\b)", heading_text):
+            continue
+        end = headings[index + 1].start() if index + 1 < len(headings) else len(text)
+        field_matches = list(PROP_FIELD_RE.finditer(text[heading.end():end]))
+        field_names = [field.group(1).strip() for field in field_matches]
+        match = PROP_HEADING_VALUE_RE.fullmatch(heading_text)
+        sections.append(
+            {
+                "heading": heading_text,
+                "id": match.group(1) if match else None,
+                "title": match.group(2).strip() if match else None,
+                "fields": {
+                    field.group(1).strip(): field.group(2).strip()
+                    for field in field_matches
+                },
+                "field_counts": Counter(field_names),
+            }
+        )
+    return sections
+
+
+def parse_proposals(text: str) -> list[dict[str, object]]:
+    """Parsea solo entradas PROP válidas, sin absorber secciones mal formadas."""
+    return [
+        {"id": section["id"], "title": section["title"], "fields": section["fields"]}
+        for section in proposal_sections(text)
+        if section["id"] is not None
+    ]
+
+
+def token(value: str) -> str:
+    return value.strip().rstrip(".").strip().lower()
+
+
 def check(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     files = markdown_files(root)
@@ -137,6 +204,8 @@ def check(root: Path = ROOT) -> list[str]:
         if doc_type in TYPE_FIELDS and not is_template:
             for field in sorted(TYPE_FIELDS[doc_type] - set(meta)):
                 errors.append(f"Falta campo {field} para {doc_type} en {rel}")
+        if doc_type == "document_change" and not is_template and not re.search(r"^## Impacto(?: documental)?\s*$", text, re.M):
+            errors.append(f"Cambio sin declaración de impacto documental: {rel}")
         if "id" in meta:
             item_id = meta["id"]
             if not is_template and not ID_RE.fullmatch(item_id):
@@ -193,6 +262,93 @@ def check(root: Path = ROOT) -> list[str]:
         if target_id not in known_ids:
             errors.append(f"Referencia inexistente en {rel}: {field}={target_id}")
 
+    proposals_rel = "planificacion/PROPUESTAS_FUTURAS.md"
+    proposals_path = rels.get(proposals_rel)
+    if proposals_path:
+        proposals_text = proposals_path.read_text(encoding="utf-8")
+        sections = proposal_sections(proposals_text)
+        proposals = parse_proposals(proposals_text)
+        if not sections:
+            errors.append(f"Registro PROP sin entradas: {proposals_rel}")
+        for section in sections:
+            if section["id"] is None:
+                errors.append(f"Encabezado PROP no válido: {section['heading']}")
+            field_counts = section["field_counts"]
+            assert isinstance(field_counts, Counter)
+            for field, count in field_counts.items():
+                if count > 1:
+                    label = section["id"] or section["heading"]
+                    errors.append(f"Campo PROP duplicado {field}: {label} ({count})")
+        proposal_counts = Counter(str(item["id"]) for item in proposals)
+        for proposal_id, count in proposal_counts.items():
+            if count > 1:
+                errors.append(f"ID duplicado {proposal_id} en registro PROP ({count})")
+        proposal_anchors = anchors(proposals_text)
+        for proposal in proposals:
+            proposal_id = str(proposal["id"])
+            fields = proposal["fields"]
+            assert isinstance(fields, dict)
+            missing_fields = sorted(PROP_REQUIRED_FIELDS - set(fields))
+            for field in missing_fields:
+                errors.append(f"PROP sin campo {field}: {proposal_id}")
+            if proposal_id.lower() not in proposal_anchors:
+                errors.append(f"PROP sin ancla estable: {proposal_id}")
+            state = token(str(fields.get("Estado", "")))
+            if state and state not in PROP_STATES:
+                errors.append(f"Estado PROP no válido: {proposal_id}={state}")
+            condition = token(str(fields.get("Condición de revisión", "")))
+            if condition in {"", "desconocida", "pendiente", "no_aplica"}:
+                errors.append(f"PROP sin condición de revisión: {proposal_id}")
+            owner = str(fields.get("Responsable", ""))
+            if re.search(r"\b(?:ia|codex|chatgpt|asistente)\b", owner, re.I):
+                errors.append(f"PROP con IA como responsable: {proposal_id}")
+            next_review = token(str(fields.get("Próxima revisión", "")))
+            if next_review and next_review != "por_evento":
+                try:
+                    dt.date.fromisoformat(next_review)
+                except ValueError:
+                    errors.append(f"Próxima revisión PROP no válida: {proposal_id}={next_review}")
+            last_review = token(str(fields.get("Última revisión", "")))
+            if last_review:
+                try:
+                    dt.date.fromisoformat(last_review)
+                except ValueError:
+                    errors.append(f"Última revisión PROP no válida: {proposal_id}={last_review}")
+            authorization = token(str(fields.get("Autorización", "")))
+            if authorization and authorization not in PROP_AUTHORIZATION:
+                errors.append(f"Autorización PROP no válida: {proposal_id}={authorization}")
+            authorization_ref = str(fields.get("Referencia de autorización", "")).strip()
+            if authorization == "autorizada":
+                reference_match = PROP_AUTHORIZATION_REF_RE.fullmatch(authorization_ref)
+                if reference_match is None:
+                    errors.append(f"Autorización PROP sin referencia navegable: {proposal_id}")
+                elif reference_match.group(1) not in known_ids:
+                    errors.append(
+                        f"Autorización PROP con decisión inexistente: "
+                        f"{proposal_id}={reference_match.group(1)}"
+                    )
+                else:
+                    decision_id = reference_match.group(1)
+                    raw_target = reference_match.group(2).split()[0].strip("<>")
+                    file_part = raw_target.partition("#")[0]
+                    resolved = (proposals_path.parent / file_part).resolve()
+                    try:
+                        target_rel = resolved.relative_to(root.resolve()).as_posix()
+                    except ValueError:
+                        target_rel = ""
+                    canonical_locations = {
+                        location
+                        for location in ids[decision_id]
+                        if location in rels
+                        and frontmatter(rels[location].read_text(encoding="utf-8")).get("id") == decision_id
+                        and frontmatter(rels[location].read_text(encoding="utf-8")).get("doc_type") == "decision"
+                    }
+                    if target_rel not in canonical_locations:
+                        errors.append(
+                            f"Autorización PROP con destino incoherente: "
+                            f"{proposal_id}={decision_id}->{raw_target}"
+                        )
+
     exempt = {"README.md"}
     for rel in rels:
         if rel not in exempt and incoming[rel] == 0:
@@ -227,6 +383,31 @@ def check(root: Path = ROOT) -> list[str]:
                 errors.append(f"Cambio no reflejado en índice: {item_id}")
             if item_id not in history_text:
                 errors.append(f"Cambio no reflejado en historial: {item_id}")
+
+    workflow = root / WORKFLOW_PATH
+    if not workflow.exists():
+        errors.append(f"Falta workflow documental preparado: {WORKFLOW_PATH.as_posix()}")
+    else:
+        workflow_text = workflow.read_text(encoding="utf-8")
+        if "pull_request_target:" in workflow_text or re.search(r"^\s*schedule:\s*$", workflow_text, re.M):
+            errors.append("Workflow documental con trigger privilegiado o programado")
+        if not re.search(r"^permissions:\s*\n\s{2}contents:\s*read\s*$", workflow_text, re.M):
+            errors.append("Workflow documental sin permisos mínimos contents: read")
+        if "${{ secrets." in workflow_text:
+            errors.append("Workflow documental referencia secretos")
+        if "name: documentation / validate" not in workflow_text:
+            errors.append("Workflow documental sin nombre de comprobación estable")
+        if not re.search(r"^\s+fetch-depth:\s*0\s*$", workflow_text, re.M):
+            errors.append("Workflow documental sin historial para comparar base y candidata")
+        if not re.search(
+            r'git diff --check "\$\{\{ github\.event\.pull_request\.base\.sha \}\}'
+            r'\.\.\$\{\{ github\.event\.pull_request\.head\.sha \}\}"',
+            workflow_text,
+        ):
+            errors.append("Workflow documental sin diff explícito base..candidata")
+        for action in re.findall(r"^\s*-?\s*uses:\s*([^\s#]+)", workflow_text, re.M):
+            if not re.fullmatch(r"[^@\s]+@[0-9a-f]{40}", action):
+                errors.append(f"Acción no fijada a commit completo: {action}")
 
     return errors
 

@@ -4,6 +4,14 @@
 
 Vista manual; las definiciones viven en sus fichas.
 
+## Gobierno documental
+
+| Decisión | Cambio | Estado/evidencia | Siguiente transición |
+| --- | --- | --- | --- |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes [C0](../gobierno/revisiones/DICTAMEN_CHG-002-C0.md)/[C1](../gobierno/revisiones/DICTAMEN_CHG-002-C1.md)/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO` y [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) con primer CI `PASS` | observar check del head vigente y esperar revisión/decisión humana; protecciones y fusión fuera |
+
+## Producto
+
 | Decisión | Requisito | Funcionalidad | SOP | Eventos | Prueba | Oferta |
 | --- | --- | --- | --- | --- | --- | --- |
 | [DEC-001](../decisiones/DEC-001-ptt-inicial.md) | [REQ-001](../requisitos/REQUIREMENTS.md#req-001), [REQ-002](../requisitos/REQUIREMENTS.md#req-002) | [FEAT-002](../producto/funcionalidades/FEAT-002-interaccion-voz-personal.md) | [SOP-001](../operacion/procedimientos/SOP-001-atender-solicitud-servicio.md) (canal) | `channel` | [TEST-007](../validacion/TEST_SCENARIOS.md#test-007), [TEST-008](../validacion/TEST_SCENARIOS.md#test-008) | [SUB-001](../catalogo/subproductos/SUB-001-coordinacion-personal.md) |

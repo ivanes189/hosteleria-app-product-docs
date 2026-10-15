@@ -4,7 +4,7 @@
 
 **Índice de investigación:** este registro documenta cobertura; [REUSE_REGISTER](REUSE_REGISTER.md) clasifica patrones y componentes candidatos.
 
-Consulta: 2026-10-09. Los commits indican la revisión inspeccionada; no acreditan despliegue.
+Consultas: recuperación inicial 2026-10-09; conciliación añadida 2026-10-15. Los commits indican la revisión inspeccionada; no acreditan despliegue.
 
 | ID | Fuente/localizador | Cobertura | Secciones revisadas | Lagunas |
 | --- | --- | --- | --- | --- |
@@ -21,10 +21,16 @@ Consulta: 2026-10-09. Los commits indican la revisión inspeccionada; no acredit
 | <a id="src-011"></a>SRC-011 | [Android background microphone restrictions](https://developer.android.com/develop/background-work/services/fgs/restrictions-bg-start) | focal | foreground service/micrófono | Versión y experiencia concreta pendientes. |
 | <a id="src-012"></a>SRC-012 | [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [AI Act](https://eur-lex.europa.eu/eli/reg/2024/1689), [DPC DPIA](https://www.dataprotection.ie/en/organisations/know-your-obligations/data-protection-impact-assessments), [WRC AI Act](https://www.workplacerelations.ie/en/what_you_should_know/ai-act/) | focal | principios, DPIA, empleo, plazos, emociones | No sustituye análisis jurídico por jurisdicción. |
 | <a id="src-013"></a>SRC-013 | [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) | focal | disponibilidad por plan y revisiones | Plan real de la cuenta no accesible. |
+| <a id="src-014"></a>SRC-014 | Informe de ejecución `Hostelería App`, fechado 2026-10-09 y entregado por Iván como fuente del encargo de 2026-10-15 | completo | identidad inicial, controles, dictámenes C1/C2, DOC-GATE, creación, publicación y protección | Original externo al repositorio; se publica solo el extracto pertinente, sin ruta personal ni conversación privada. |
+| <a id="src-015"></a>SRC-015 | Traspaso y autorización de Iván del 2026-10-15 | completo para este lote | dirección aceptada, secuencia, límites locales/remotos, revisiones y condiciones posteriores | Autoriza preparación y commits locales; no autoriza push, PR, fusión, automatizaciones ni cambios de permisos/protecciones. |
+| <a id="src-016"></a>SRC-016 | [Repositorio público](https://github.com/ivanes189/hosteleria-app-product-docs), [PR](https://github.com/ivanes189/hosteleria-app-product-docs/pulls), [Actions](https://github.com/ivanes189/hosteleria-app-product-docs/actions) y [ramas](https://github.com/ivanes189/hosteleria-app-product-docs/branches), consulta 2026-10-15 | focal, solo lectura | visibilidad, rama/commit, PR abiertas, workflows y etiqueta de protección | Sin sesión autenticada válida para detallar protección clásica y rulesets. |
+| <a id="src-017"></a>SRC-017 | [Sintaxis y permisos de workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax), [checkout v7.0.1](https://github.com/actions/checkout/releases/tag/v7.0.1) y [commit firmado `3d3c42e…`](https://github.com/actions/checkout/commit/3d3c42e5aac5ba805825da76410c181273ba90b1), consulta 2026-10-15 | focal | `pull_request`, `contents: read`, permisos no declarados a `none`, credenciales y versión fijada | Sustenta la configuración; la ejecución real se registra por separado en SRC-019 y no acredita check obligatorio. |
+| <a id="src-018"></a>SRC-018 | Decisión operativa de Iván del 2026-10-15 sobre revisión independiente | completo para la revisión de CHG-002 | activación interna de una única revisora GPT-6 Astra con razonamiento alto, contexto nuevo y solo lectura; continuidad de instancia en C1/C2 | No amplía permisos remotos ni convierte el mecanismo de revisión en arquitectura del producto. |
+| <a id="src-019"></a>SRC-019 | [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) y [ejecución `documentation / validate`](https://github.com/ivanes189/hosteleria-app-product-docs/actions/runs/38728854530/job/116401340147), 2026-10-15 | focal, escritura autorizada y comprobación posterior en solo lectura | rama remota, base/head de PR y primer resultado CI sobre `427908de42a3b2af4cb50965a8487f67550a7cf3` | Check `PASS` en 6 s; no demuestra protección obligatoria, revisión humana, fusión ni estado de ejecuciones posteriores. |
 
-## Destino previsto
+## Destino documental
 
-`git ls-remote` anónimo para `ivanes189/hosteleria-app-product-docs` devolvió “Repository not found”. Como la autenticación de `gh` era inválida, esto solo demuestra que no hay repositorio público accesible con ese nombre; no descarta uno privado. GitHub CLI debe reautenticarse para verificar existencia, visibilidad, plan y reglas.
+El destino existe y es público. La comprobación del 2026-10-15 confirma la base descrita en [SRC-016](#src-016). GitHub CLI debe reautenticarse antes de afirmar detalles actuales de reglas que no sean visibles públicamente.
 
 ## Cobertura de conversación
 

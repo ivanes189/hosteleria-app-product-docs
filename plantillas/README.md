@@ -10,3 +10,5 @@
 - [Cambio documental](TEMPLATE_DOCUMENT_CHANGE.md): impacto y DOC-GATE.
 
 Para un elemento simple puede usarse un registro breve en un índice, siempre que conserve ID, estado, fuente, criterio de aceptación y ancla estable.
+
+Las mejoras aplazadas usan entradas breves `PROP` en el [registro único de propuestas](../planificacion/PROPUESTAS_FUTURAS.md); no se crea una ficha o carpeta por idea por defecto.
