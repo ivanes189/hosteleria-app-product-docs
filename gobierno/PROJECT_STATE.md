@@ -1,12 +1,12 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial, [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) y [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `integrados`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial, [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) y [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) `integrados`; [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) `materializada_local`
 
 **Base verificada:** la [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) fue fusionada por Iván como squash `main@0478a8e7fc6ab799b4af1876a421bc532424133b`; su árbol coincide con el head `add0935044bfb99669919b6ebda53e742dcf1fb9` y el check final pasó.
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. La PR #3 integró `OBS-001` como `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. D3 continúa en observación; no se ha activado automatización periódica.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. La PR #3 integró `OBS-001` como `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. D3 continúa con `OBS-002` local y P0 tiene una guía preparada, no ejecutada; no se ha activado automatización periódica.
 
 ## Base conocida
 
@@ -46,8 +46,8 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 ## Continuidad inmediata
 
-D3 tiene una primera observación integrada. El siguiente trabajo útil exige cambios reales posteriores adicionales; no se fabricarán cambios ni PR de cierre para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
+D3 tiene una observación integrada y una segunda local. Aún falta al menos otro cambio real y juicio humano antes de revisar transferencia; no se fabricarán cambios para completar la muestra. No activar periodicidad ni transferir componentes a FDA/u otros proyectos hasta cumplir sus condiciones y obtener autorización propia.
 
-Continuidad local: `codex/documentacion-viva-d3-continuidad`, basada en `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. Conserva solo esta conciliación factual para agruparla con el próximo cambio real; no requiere una PR de cierre independiente. La candidata sustantiva de CHG-003 sigue siendo `68c7b447d1fb53310986f49f6eb6c4a87d216790`, con revisión proporcional y `DOC-GATE: PASSED`.
+Continuidad local: `codex/documentacion-viva-d3-continuidad`, basada en `main@0478a8e7fc6ab799b4af1876a421bc532424133b`. Incluye la conciliación factual `92669a9059de5ea21c3348555b2400e7a9a2e188` y CHG-004 abierto. Primer acto externo pendiente: una persona responsable selecciona un restaurante y autoriza contacto y destino de notas. Publicación o PR del lote local requieren autorización separada.
 
 La primera tarea pendiente de producto sigue siendo descubrimiento con un restaurante real; el trabajo documental no acredita MVP, prototipo ni piloto operativo.

@@ -17,8 +17,8 @@ Registro único de mejoras aplazadas. `PROP` no sustituye decisiones pendientes 
 - **Dependencias:** [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md); resultados reales de D3.
 - **Próxima revisión:** por_evento.
 - **Última revisión:** 2026-10-15.
-- **Evidencia nueva:** El piloto local de [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) probó controles. [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) registra `OBS-001`, primer uso posterior completo sobre la PR #2; funcionó, pero fue un cierre factual y no demuestra utilidad sostenida ni coste aceptable.
-- **Conclusión:** Esperar; una observación no satisface el mínimo de tres cambios ni la justificación humana de utilidad. No modificar FDA ni crear allí un registro remoto desde este proyecto.
+- **Evidencia nueva:** El piloto local de [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) probó controles. [CHG-003](../trazabilidad/cambios/CHG-003-observacion-d3-1.md) registra `OBS-001`, cierre factual integrado. [CHG-004](../trazabilidad/cambios/CHG-004-preparacion-descubrimiento-p0.md) registra `OBS-002`, preparación de descubrimiento local y todavía no ejecutada. Ninguna demuestra coste aceptable o utilidad sostenida.
+- **Conclusión:** Esperar; dos observaciones no satisfacen el mínimo de tres cambios ni la justificación humana de utilidad. No modificar FDA ni crear allí un registro remoto desde este proyecto.
 - **Autorización:** pendiente.
 - **Referencia de autorización:** no_aplica.
 - **Ejecución:** No iniciada; cualquier transferencia tendrá alcance, revisión y autorización propios.

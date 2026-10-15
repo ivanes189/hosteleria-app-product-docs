@@ -1,5 +1,17 @@
 # Historial significativo
 
+## [No publicada — CHG-004] — 2026-10-15
+
+### Documentación
+
+- Preparada una guía mínima para ejecutar el descubrimiento de PD-003 con recorrido, baseline prospectiva, ficha de salida y límites para datos sensibles en un repositorio público.
+- Registrado `OBS-002`, segundo uso real de D3 y primero orientado a preparación de producto; no acredita entrevista, validación, ahorro ni autorización de transferencia.
+- Añadido `R-011` sobre exposición de notas o datos identificables durante descubrimiento.
+
+### Producto
+
+- Sin decisiones nuevas ni cambios de implementación, verificación o disponibilidad. La selección del restaurante y la ejecución de la guía siguen pendientes de autoridad y evidencia humanas.
+
 ## [Integrada — CHG-003] — 2026-10-15
 
 ### Documentación
