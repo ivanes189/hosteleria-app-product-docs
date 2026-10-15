@@ -8,7 +8,7 @@ Vista manual; las definiciones viven en sus fichas.
 
 | Decisión | Cambio | Estado/evidencia | Siguiente transición |
 | --- | --- | --- | --- |
-| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md), [CHG-003](cambios/CHG-003-observacion-d3-1.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO`, PR #1 integrada como `a8365b66…` y [PR #2](https://github.com/ivanes189/hosteleria-app-product-docs/pull/2) integrada como `1235b74b…` | D3 en curso: `OBS-001`; sin periodicidad ni transferencia hasta acumular evidencia, cumplir condiciones y autorizar |
+| [DEC-004](../decisiones/DEC-004-documentacion-viva-minima.md) | [CHG-002](cambios/CHG-002-documentacion-viva.md), [CHG-003](cambios/CHG-003-observacion-d3-1.md) | [procedimiento](../gobierno/PROCEDIMIENTO_DOCUMENTACION_VIVA.md), [PROP](../planificacion/PROPUESTAS_FUTURAS.md), validador/fixtures, workflow, [paquete](../gobierno/revisiones/PAQUETE_REVISION_CHG-002.md), dictámenes C0/C1/[C2](../gobierno/revisiones/DICTAMEN_CHG-002-C2.md) `APTO`, PR #1 integrada como `a8365b66…`, PR #2 como `1235b74b…` y [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) como `0478a8e7…` | D3 en curso: `OBS-001` integrada; sin periodicidad ni transferencia hasta acumular evidencia, cumplir condiciones y autorizar |
 
 ## Producto
 
