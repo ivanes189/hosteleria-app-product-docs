@@ -4,7 +4,7 @@
 
 ## Estado, propósito y límites
 
-Instrumento preparado, no ejecutado. Sirve para obtener evidencia comparable sobre el primer restaurante, usuario, pagador, problema, flujo actual y resultado esperado antes de decidir el MVP. No acredita que exista un establecimiento seleccionado, una entrevista, consentimiento, demanda, precio ni piloto.
+Instrumento preparado, no ejecutado. [SRC-023](SOURCE_REGISTER.md#src-023) confirma que actualmente no existe un restaurante candidato. La guía queda disponible para cuando aparezca una contraparte y sirve para obtener evidencia comparable sobre primer restaurante, usuario, pagador, problema, flujo actual y resultado esperado antes de decidir el MVP. No acredita una entrevista, consentimiento, demanda, precio ni piloto.
 
 La persona responsable debe seleccionar el establecimiento y autorizar el contacto. El agente no contacta participantes ni decide el destino de datos sensibles. Esta guía no sustituye asesoría jurídica, participación laboral ni [PD-004](../decisiones/PENDING_DECISIONS.md#pd-004).
 

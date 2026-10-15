@@ -24,9 +24,11 @@ Estas preguntas se resolverán con evidencia real; el caso de la mesa 12 es un e
 
 La [guía mínima de descubrimiento P0](../investigacion/GUIA_DESCUBRIMIENTO_P0.md) convierte estas preguntas en un recorrido, una baseline prospectiva y una ficha de salida segura. Está preparada documentalmente, no ejecutada: no existe todavía un restaurante seleccionado ni evidencia de entrevista u observación.
 
+**Disponibilidad actual:** Iván confirma que no hay un restaurante candidato en esta fase ([SRC-023](../investigacion/SOURCE_REGISTER.md#src-023)). Esto aplaza la ejecución del descubrimiento, pero no demuestra demanda negativa ni cambia por sí solo el diseño o estado técnico del producto.
+
 | Área | Pregunta comprobable | Estado/evidencia necesaria |
 | --- | --- | --- |
-| Primer restaurante | ¿Qué tipo, tamaño, servicio, estaciones y picos tiene el establecimiento piloto? | desconocido; selección humana y visita/entrevista autorizada. |
+| Primer restaurante | ¿Qué tipo, tamaño, servicio, estaciones y picos tiene el establecimiento piloto? | sin candidato actual; selección humana futura y visita/entrevista autorizada. |
 | Usuario | ¿Quién sufre la fricción primero: sala, runner, cocina, barra o encargado? | desconocido; observación del flujo y frecuencia del problema. |
 | Pagador | ¿Quién decide y paga, con qué presupuesto y criterio de renovación? | desconocido; conversación comercial real, sin inferirlo del usuario. |
 | Problema | ¿Qué duplicidad, demora o interrupción es suficientemente frecuente y costosa? | hipótesis; baseline prospectiva antes del piloto. |

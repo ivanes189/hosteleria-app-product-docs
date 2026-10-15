@@ -1,6 +1,18 @@
 # Historial significativo
 
-## [No publicada — CHG-004] — 2026-10-15
+## [No publicada — CHG-005] — 2026-10-15
+
+### Documentación
+
+- Registrada como `SRC-023` la aclaración de que no existe actualmente un restaurante candidato y que el proyecto sigue en desarrollo, sin traducirla a un estado técnico positivo.
+- Añadido `OBS-003`: el circuito propaga el hecho a negocio, PD-003, guía, riesgo, roadmap y trazabilidad; la muestra cuantitativa D3 se alcanza localmente.
+- Evaluado D3 de forma provisional: conservar el circuito mínimo, mantener las simplificaciones de cierres/lenguaje transitorio y no transferirlo sin juicio humano sobre utilidad y coste.
+
+### Producto
+
+- P0 queda a la espera de contraparte real. No hay entrevista, validación, MVP, implementación ni piloto acreditados.
+
+## [Integrada — CHG-004] — 2026-10-15
 
 ### Documentación
 
@@ -8,6 +20,7 @@
 - Registrado `OBS-002`, segundo uso real de D3 y primero orientado a preparación de producto; no acredita entrevista, validación, ahorro ni autorización de transferencia.
 - Añadido `R-011` sobre exposición de notas o datos identificables durante descubrimiento.
 - Publicada la rama autorizada y abierta la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión permanece como acto humano separado.
+- Fusionada por Iván la PR #4 como squash `4dba65591e1d4a2484c9d2267924c32420f7e744`; el árbol coincide con el head `d4f8fb8d…` y el check final pasó en 7 s. La conciliación queda local para el siguiente cambio real y no cuenta como tercera observación.
 
 ### Producto
 

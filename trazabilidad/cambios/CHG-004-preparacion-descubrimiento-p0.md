@@ -5,7 +5,7 @@ doc_type: document_change
 summary: Convertir las preguntas de PD-003 en un instrumento ejecutable sin inventar evidencia de restaurante.
 updated_at: 2026-10-15
 source_refs: [SRC-001, SRC-015, SRC-022]
-incorporation_status: en_pr
+incorporation_status: integrada
 ---
 
 # CHG-004 — Preparación mínima del descubrimiento P0
@@ -72,4 +72,6 @@ Revisión proporcional del autor. No se exige revisión independiente: la candid
 
 `DOC-GATE: PASSED` para la candidata exacta `f395a125694a7b835143f7b231279a7b3f54a6fd`. La revisión proporcional del autor y todas las comprobaciones exigibles pasaron; no existe revisión independiente porque no es exigible para este alcance. La identificación y cierre del gate se incorporan en un commit posterior de evidencia que no cambia la guía ni `OBS-002`.
 
-Tras [autorización expresa](../../investigacion/SOURCE_REGISTER.md#src-022), la rama se publicó y se abrió la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4); la fusión sigue reservada al acto humano separado. El siguiente acto de producto permanece pendiente: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. No se activan automatizaciones ni trabajos en otros repositorios.
+Tras [autorización expresa](../../investigacion/SOURCE_REGISTER.md#src-022), la rama se publicó y se abrió la [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4). Iván la fusionó como squash `4dba65591e1d4a2484c9d2267924c32420f7e744`; su árbol coincide exactamente con el head `d4f8fb8dbad5838ed909b42e19fd09404e4d6fa9` y el check final pasó en 7 s. `incorporation_status: integrada`.
+
+La conciliación de esos hechos queda preparada localmente para agruparla con el siguiente cambio sustantivo y no cuenta como `OBS-003`. El siguiente acto de producto permanece pendiente: una persona responsable selecciona el restaurante y autoriza contacto y manejo de notas. No se activan automatizaciones ni trabajos en otros repositorios.
