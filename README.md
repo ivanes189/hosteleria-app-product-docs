@@ -1,8 +1,8 @@
 # Hostelería App — documentación de producto
 
-> **Estado global:** documentación inicial publicada en `main` el 2026-10-09 · nuevo circuito documental en preparación local · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
+> **Estado global:** documentación inicial y circuito documental mínimo integrados en `main` · D3 de observación pendiente · diseño de producto en evaluación · implementación, verificación y disponibilidad del producto no acreditadas.
 
-Esta base documental reconstruye el producto provisionalmente llamado **Hostelería App** en el contexto **Restaurant Operations OS**. Las fuentes disponibles no demuestran que sean productos distintos ni nombres comerciales definitivos. En esta candidata, *Hostelería App* nombra el producto en definición y *Restaurant Operations OS* la arquitectura conceptual que podría sostenerlo; esa relación sigue pendiente de aprobación humana.
+Esta base documental reconstruye el producto provisionalmente llamado **Hostelería App** en el contexto **Restaurant Operations OS**. Las fuentes disponibles no demuestran que sean productos distintos ni nombres comerciales definitivos. En esta documentación, *Hostelería App* nombra el producto en definición y *Restaurant Operations OS* la arquitectura conceptual que podría sostenerlo; esa relación sigue pendiente de aprobación humana.
 
 ## Tres accesos principales
 
@@ -19,7 +19,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 
 ## Inventario maestro
 
-| Prioridad | Documento | Estado en esta candidata | Propósito |
+| Prioridad | Documento | Estado actual | Propósito |
 | --- | --- | --- | --- |
 | P0 | [DECISION_LOG](decisiones/DECISION_LOG.md) | desarrollado | Decisiones y autoridad. |
 | P0 | [CHANGELOG](CHANGELOG.md) | desarrollado | Hitos documentales y de producto. |
@@ -31,7 +31,7 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 | P1 | [PRIVACY_COMPLIANCE](cumplimiento/PRIVACY_COMPLIANCE.md) | desarrollado, revisión jurídica pendiente | Privacidad, IA y trabajo. |
 | P1 | [TEST_SCENARIOS](validacion/TEST_SCENARIOS.md) | desarrollado, no ejecutado | Escenarios de aceptación. |
 | P1 | [ROADMAP](planificacion/ROADMAP.md) | desarrollado | Transiciones y gates. |
-| P1 | [PROPUESTAS_FUTURAS](planificacion/PROPUESTAS_FUTURAS.md) | circuito local en evaluación | Mejoras aplazadas, condiciones y autorización separada. |
+| P1 | [PROPUESTAS_FUTURAS](planificacion/PROPUESTAS_FUTURAS.md) | circuito integrado; propuestas aplazadas | Mejoras aplazadas, condiciones y autorización separada. |
 | P2 | [INTEGRATIONS](arquitectura/INTEGRATIONS.md) | síntesis desarrollada | Integraciones candidatas. |
 | P2 | [BUSINESS_MODEL](negocio/BUSINESS_MODEL.md) | hipótesis documentadas | Negocio sin oferta aprobada. |
 | P2 | [REUSE_REGISTER](investigacion/REUSE_REGISTER.md) | desarrollado | Reutilización con evidencia. |
@@ -49,4 +49,4 @@ Esta base documental reconstruye el producto provisionalmente llamado **Hosteler
 
 La publicación inicial incorporó exactamente la instantánea histórica identificada por el commit `e35481da2a99e9a9546664712569c27b70010a69`. Los cambios posteriores se identifican por su propio `CHG` y por commits distintos; no heredan el dictamen de aquella instantánea.
 
-La cantidad de archivos no acredita madurez. La candidata acredita únicamente que el conocimiento recuperado puede navegarse y que sus lagunas están visibles.
+La cantidad de archivos no acredita madurez. La documentación acredita únicamente que el conocimiento recuperado puede navegarse y que sus lagunas están visibles.

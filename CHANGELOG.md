@@ -14,6 +14,7 @@
 - Corregido en C2 únicamente el remanente RI-002: el destino de la autorización debe ser la ficha canónica de la `DEC` etiquetada; revalidación enfocada pendiente.
 - Preservado el `APTO` C2 de `4246943b…`; los cuatro hallazgos quedan resueltos y `DOC-GATE: PASSED` para esa candidata local, sin autorizar publicación, PR ni CI remoto.
 - Tras autorización posterior, publicada la rama y abierta la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1); su primera ejecución `documentation / validate` pasó sobre `427908de…`. Fusión y protecciones permanecen fuera.
+- Fusionada por Iván la PR #1 como squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; el árbol coincide con el head `5b7c5e90…`, el check final pasó y D2 queda integrada. D3 de observación pasa a ser la siguiente transición.
 - Añadidas preguntas e hipótesis comprobables para descubrir primer restaurante, usuario, pagador, problema, flujo, beneficio y coste sin convertir la mesa 12 en validación real.
 
 ### Producto
