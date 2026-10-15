@@ -2,7 +2,7 @@
 
 [← Expediente CHG-002](../../trazabilidad/cambios/CHG-002-documentacion-viva.md)
 
-**Estado:** revisión completa C0 concluida con `NO APTO`; candidata y [dictamen preservados](DICTAMEN_CHG-002-C0.md). Las cuatro correcciones C1 están materializadas y comprobadas localmente; falta ligar su SHA exacto y pedir revalidación enfocada a la misma instancia.
+**Estado:** revisión completa C0 concluida con `NO APTO`; candidata y [dictamen preservados](DICTAMEN_CHG-002-C0.md). Las cuatro correcciones C1 están materializadas, comprobadas y ligadas a SHA exacto; revalidación enfocada pendiente con la misma instancia.
 
 ## Candidata y base
 
@@ -13,6 +13,16 @@
 - Incorporación: `materializada_local`; no existe rama remota, PR ni ejecución CI de esta candidata.
 
 Este enlace SHA se guarda en un commit de control posterior para evitar autorreferencia. Ese commit no pertenece a la candidata: la revisora debe leer las normas y el contenido bajo el árbol `36d071f…`, usar este paquete como hoja de encargo y revisar el diff completo del rango exacto anterior.
+
+## Candidata corregida C1
+
+- C1 exacta: `e86f3674ae46f8514d8844321c4b52f8de3f98f9`.
+- Apertura/preservación anterior a corregir: `61f8d8e50d7fdd24cbddbbd9031121e076b2f429`.
+- Rango focal C1: `61f8d8e50d7fdd24cbddbbd9031121e076b2f429..e86f3674ae46f8514d8844321c4b52f8de3f98f9`.
+- Comparación con la candidata C0 revisada: `36d071fb231bb2dd13b1dcc2c0c88305c41f2de0..e86f3674ae46f8514d8844321c4b52f8de3f98f9`.
+- Rango acumulado desde la base: `e35481da2a99e9a9546664712569c27b70010a69..e86f3674ae46f8514d8844321c4b52f8de3f98f9`.
+
+La actualización que fija estos rangos se guarda en un commit de control posterior y queda fuera de C1. La revalidación debe centrarse en `CHG002-RI-001` a `CHG002-RI-004`, comprobar que sus efectos directos están cubiertos y señalar cualquier regresión introducida por C1; no reabre la revisión completa ni consume un ciclo adicional.
 
 ## Encargo a la instancia revisora
 
@@ -45,7 +55,7 @@ La revisora debe reproducir o cuestionar esta evidencia; no asumir que prueba se
 - `CHG002-RI-004`: checkout obtiene historial completo y el workflow ejecuta `git diff --check` sobre `base.sha..head.sha`; un ensayo Git aislado rechaza un commit con whitespace defectuoso y acepta el corregido.
 - Controles C1: validador sobre 52 Markdown, 22 mutaciones negativas, una autorización positiva, selector, ensayo aislado del diff, carga YAML y `git diff --check`, todos en `PASS` local.
 
-El SHA y los rangos exactos C1 se incorporarán en un commit de enlace posterior a la candidata para evitar autorreferencia. GitHub Actions sigue sin ejecutarse.
+El SHA y los rangos exactos C1 se incorporan mediante el commit de enlace posterior a la candidata. GitHub Actions sigue sin ejecutarse.
 
 ## Salida requerida
 
