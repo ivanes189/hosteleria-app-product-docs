@@ -1,5 +1,17 @@
 # Historial significativo
 
+## [No publicada — CHG-006] — 2026-10-15
+
+### Documentación
+
+- Registrada [DEC-005](decisiones/DEC-005-cierre-d3-documentacion-viva.md): Iván confirma conservar el circuito mínimo con las dos simplificaciones observadas, sin transferirlo ni automatizarlo todavía.
+- Completada D3 localmente tras tres observaciones integradas y una revisión dirigida sin omisiones críticas abiertas.
+- Reevaluada `PROP-001`; permanece aplazada porque la utilidad local no acredita el coste de adopción en FDA ni sustituye una autorización separada.
+
+### Producto
+
+- Sin cambios de implementación, verificación o disponibilidad. P0 continúa en espera de un restaurante candidato y no se adelanta P1.
+
 ## [Integrada — CHG-005] — 2026-10-15
 
 ### Documentación

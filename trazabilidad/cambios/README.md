@@ -9,3 +9,4 @@
 | [CHG-003](CHG-003-observacion-d3-1.md) | Primera observación real del circuito documental | `PASSED` para `68c7b44…`; integrada por [PR #3](https://github.com/ivanes189/hosteleria-app-product-docs/pull/3) como `0478a8e7…` |
 | [CHG-004](CHG-004-preparacion-descubrimiento-p0.md) | Preparación mínima del descubrimiento P0 | `PASSED` para `f395a12…`; integrada por [PR #4](https://github.com/ivanes189/hosteleria-app-product-docs/pull/4) como `4dba6559…` |
 | [CHG-005](CHG-005-ausencia-restaurante-p0.md) | Estado de contraparte para descubrimiento P0 | `PASSED` para `9166899…`; integrada por [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5) como `578bb5d5…` |
+| [CHG-006](CHG-006-cierre-d3-documentacion-viva.md) | Cierre D3 del circuito de documentación viva | `OPEN`; decisión humana materializada localmente |

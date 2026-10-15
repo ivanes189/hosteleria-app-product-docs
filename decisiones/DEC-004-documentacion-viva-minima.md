@@ -5,7 +5,7 @@ doc_type: decision
 summary: Conciliar Restaurant, probar un circuito documental pequeño y extender solo lo útil.
 decision_date: 2026-10-15
 updated_at: 2026-10-15
-source_refs: [SRC-015, SRC-019]
+source_refs: [SRC-015, SRC-019, SRC-025]
 design_status: aprobado
 incorporation_status: integrada
 ---
@@ -33,3 +33,5 @@ FDA aporta métodos o componentes seleccionados, pero conserva su repositorio y 
 - La transferencia a FDA u otro proyecto será un encargo separado y condicionado a evidencia de utilidad.
 
 Una autorización posterior permitió publicar y abrir la PR #1; Iván realizó la fusión. La decisión está `integrada` en `main@a8365b6674381c4c23985bdce4a58a178c5c4a69`. Esto no autoriza por sí solo automatización periódica, transferencia a otros proyectos ni decisiones de producto.
+
+El periodo de observación posterior concluye en [DEC-005](DEC-005-cierre-d3-documentacion-viva.md): el circuito se conserva en Restaurant con dos simplificaciones prácticas, pero no se transfiere ni automatiza todavía.

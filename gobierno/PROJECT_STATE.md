@@ -1,12 +1,12 @@
 # Estado del proyecto
 
-**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-005](../trazabilidad/cambios/CHG-005-ausencia-restaurante-p0.md) `integrados`
+**Fecha de corte:** 2026-10-15 · **Incorporación:** commit inicial y [CHG-002](../trazabilidad/cambios/CHG-002-documentacion-viva.md) a [CHG-005](../trazabilidad/cambios/CHG-005-ausencia-restaurante-p0.md) `integrados`; [DEC-005](../decisiones/DEC-005-cierre-d3-documentacion-viva.md) y [CHG-006](../trazabilidad/cambios/CHG-006-cierre-d3-documentacion-viva.md) `materializada_local`
 
 **Base verificada:** la [PR #5](https://github.com/ivanes189/hosteleria-app-product-docs/pull/5) fue fusionada por Iván como squash `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`; su árbol coincide con el head `2dd1cfdc24255f2a3c687321b48790c26f32bebe` y el check final pasó.
 
 ## Posición en la hoja de ruta
 
-La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 a #5 integraron `OBS-001` a `OBS-003`. D3 espera juicio humano sobre utilidad/coste; P0 tiene una guía integrada pero no existe restaurante candidato; no se ha activado automatización periódica.
+La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó como commit raíz. D2 también está completada: la [PR #1](https://github.com/ivanes189/hosteleria-app-product-docs/pull/1) integró conciliación, circuito mínimo y piloto documental mediante squash `a8365b6674381c4c23985bdce4a58a178c5c4a69`; la PR #2 incorporó su cierre factual como `1235b74b5ef17dcb14cce6c948246caa187d3be0`. Las PR #3 a #5 integraron `OBS-001` a `OBS-003`. [DEC-005](../decisiones/DEC-005-cierre-d3-documentacion-viva.md) completa D3 localmente: mantener el circuito simplificado sin transferirlo ni automatizarlo. P0 tiene una guía integrada pero no existe restaurante candidato.
 
 ## Base conocida
 
@@ -49,8 +49,8 @@ La candidata inicial fue declarada `APTO`, superó su DOC-GATE y se publicó com
 
 ## Continuidad inmediata
 
-D3 alcanza tres observaciones reales integradas. La evaluación provisional conserva el circuito, aplica las simplificaciones de cierre ya ensayadas y no retira piezas. La revisión dirigida no detecta omisiones críticas abiertas; falta exclusivamente juicio humano sobre utilidad/coste antes de reevaluar `PROP-001`. No activar periodicidad ni transferir componentes a FDA/u otros proyectos.
+D3 está completada localmente tras tres observaciones integradas, revisión dirigida sin omisiones críticas abiertas y decisión humana. Se conserva el circuito, se aplican las simplificaciones de cierre ya ensayadas y no se retiran piezas. `PROP-001` fue reevaluada y permanece aplazada; no activar periodicidad ni transferir componentes a FDA/u otros proyectos.
 
-Continuidad local: `codex/d3-cierre-evaluacion`, basada en `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`. Conserva la conciliación post-fusión para agruparla con la próxima decisión real y no abrir una PR exclusiva de cierre. P0 espera una contraparte futura; no requiere acción inmediata ni bloquea documentación conceptual autorizada.
+Continuidad local: `codex/d3-cierre-evaluacion`, basada en `main@578bb5d5b2e3d9bec235b38f0ffe51c9eb41f2b8`. La conciliación post-fusión está fijada en `32dcbb8f21c0e278015e2caac9f28725f7a18800`; CHG-006 registra la decisión D3 y permanece `OPEN` hasta validar e identificar su candidata. P0 espera una contraparte futura; no se adelanta P1. Publicación o PR del lote local requieren autorización separada.
 
 La primera validación pendiente de producto sigue siendo descubrimiento con un restaurante real cuando exista contraparte; el trabajo documental no acredita MVP, prototipo ni piloto operativo.
